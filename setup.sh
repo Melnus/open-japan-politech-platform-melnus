@@ -1,218 +1,286 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ============================================================================
+# =============================================================================
 #  Open Japan PoliTech Platform — ワンクリックセットアップ
 #
-#  Usage:
-#    git clone https://github.com/ochyai/open-japan-politech-platform.git
-#    cd open-japan-politech-platform && bash setup.sh
-#
-#  前提: Docker + Git がインストール済み
-#  Node.js / pnpm は自動でインストールされます
-# ============================================================================
+#  git clone https://github.com/ochyai/open-japan-politech-platform.git
+#  cd open-japan-politech-platform && bash setup.sh
+# =============================================================================
 
+# -- Colors -------------------------------------------------------------------
+R='\033[0m'        # Reset
+B='\033[1m'        # Bold
+D='\033[2m'        # Dim
 RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-BOLD='\033[1m'
-DIM='\033[2m'
-NC='\033[0m'
+GRN='\033[0;32m'
+YEL='\033[1;33m'
+BLU='\033[0;34m'
+MAG='\033[0;35m'
+CYN='\033[0;36m'
+WHT='\033[1;37m'
+BGGRN='\033[42m'
+BGBLU='\033[44m'
+BGMAG='\033[45m'
+CLR='\033[K'       # Clear to end of line
 
-info()    { echo -e "  ${BLUE}>>>${NC} $*"; }
-success() { echo -e "  ${GREEN}✓${NC}  $*"; }
-warn()    { echo -e "  ${YELLOW}!${NC}  $*"; }
-fail()    { echo -e "\n  ${RED}✗ $*${NC}" >&2; exit 1; }
+# -- State --------------------------------------------------------------------
+LOG="/tmp/ojpp-setup-$(date +%Y%m%d-%H%M%S).log"
+SKIP_DOCKER=false
+DEV_PID=""
+COMPOSE=""
+TOTAL_START=$SECONDS
 
-STEPS=7
-step() { echo -e "\n${BOLD}[$1/${STEPS}]${NC} $2"; }
+# -- Helpers ------------------------------------------------------------------
+line()  { echo -e "  ${D}│${R}"; }
+msg()   { echo -e "  ${D}│${R}  $*"; }
+ok()    { echo -e "  ${D}│${R}  ${GRN}✔${R} $*${CLR}"; }
+wrn()   { echo -e "  ${D}│${R}  ${YEL}⚠${R}  $*${CLR}"; }
+err()   { echo -e "  ${D}│${R}  ${RED}✖${R} $*${CLR}"; }
+head()  { echo -e "\n  ${CYN}◇${R}  ${B}$*${R}"; }
 
-# --- Banner ---
+die() {
+  err "$1"
+  line
+  msg "${D}ログ: ${LOG}${R}"
+  echo -e "  ${D}└${R}"
+  echo ""
+  exit 1
+}
+
+# Run a command quietly with spinner-like progress indicator
+run() {
+  local label="$1"; shift
+  echo -ne "  ${D}│${R}  ${CYN}◌${R} ${label}...${CLR}\r"
+  local t=$SECONDS
+  if "$@" >> "$LOG" 2>&1; then
+    local dt=$((SECONDS - t))
+    local ts=""
+    [ "$dt" -gt 2 ] && ts=" ${D}(${dt}s)${R}"
+    echo -e "  ${D}│${R}  ${GRN}✔${R} ${label}${ts}${CLR}"
+    return 0
+  else
+    echo -e "  ${D}│${R}  ${RED}✖${R} ${label}${CLR}"
+    return 1
+  fi
+}
+
+port_in_use() {
+  (echo >/dev/tcp/localhost/"$1") 2>/dev/null
+}
+
+# =============================================================================
+#  Banner
+# =============================================================================
 echo ""
-echo -e "${BOLD}  ┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${BOLD}  │  Open Japan PoliTech Platform v0.1              │${NC}"
-echo -e "${BOLD}  │  ${DIM}AIエージェント時代の政治インフラ${NC}${BOLD}                │${NC}"
-echo -e "${BOLD}  └─────────────────────────────────────────────────┘${NC}"
+echo ""
+echo -e "  ${CYN}◆${R}  ${B}Open Japan PoliTech Platform${R} ${D}v0.1${R}"
+echo -e "  ${D}│${R}"
+echo -e "  ${D}│${R}  🏛️  AIエージェント時代の政治インフラ"
+echo -e "  ${D}│${R}  ${D}政党にも企業にもよらない、完全オープンな政治テクノロジー基盤${R}"
+echo -e "  ${D}│${R}  ${D}MoneyGlass · PolicyDiff · ParliScope — 15政党対応${R}"
 
-# --- Sanity check ---
-[ -f package.json ] || fail "open-japan-politech-platform ディレクトリで実行してください"
+# Sanity check
+grep -q "open-japan-politech-platform" package.json 2>/dev/null \
+  || die "open-japan-politech-platform ディレクトリで実行してください"
 
-# ===================== Step 1: Docker =====================
-step 1 "Docker の確認"
+# =============================================================================
+#  環境チェック
+# =============================================================================
+head "環境チェック"
 
+# -- Docker ---
 command -v docker &>/dev/null \
-  || fail "Docker が見つかりません\n\n  macOS:   brew install --cask docker\n  Linux:   https://docs.docker.com/engine/install/\n  Windows: https://docs.docker.com/desktop/install/windows-install/"
+  || die "Docker が必要です\n\n     macOS:   ${CYN}brew install --cask docker${R}\n     Linux:   ${CYN}https://docs.docker.com/engine/install/${R}"
 
-docker info &>/dev/null 2>&1 \
-  || fail "Docker デーモンが起動していません → Docker Desktop を起動してから再実行してください"
+docker info >> "$LOG" 2>&1 \
+  || die "Docker が起動していません → ${B}Docker Desktop を起動${R}してから再実行してください"
 
-# Detect compose command
 COMPOSE="docker compose"
-if ! $COMPOSE version &>/dev/null 2>&1; then
+if ! $COMPOSE version >> "$LOG" 2>&1; then
   if command -v docker-compose &>/dev/null; then
     COMPOSE="docker-compose"
   else
-    fail "docker compose が見つかりません"
+    die "docker compose が見つかりません"
   fi
 fi
+ok "Docker $(docker --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)"
 
-success "Docker $(docker --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)"
-
-# ===================== Step 2: Node.js =====================
-step 2 "Node.js 22+ の確認"
-
+# -- Node.js ---
 install_node() {
-  info "Node.js 22 をインストールします..."
-
   if command -v fnm &>/dev/null; then
-    fnm install 22 && eval "$(fnm env)" && fnm use 22
+    fnm install 22 >> "$LOG" 2>&1 && eval "$(fnm env)" && fnm use 22 >> "$LOG" 2>&1
   elif [ -s "$HOME/.nvm/nvm.sh" ]; then
     # shellcheck source=/dev/null
     . "$HOME/.nvm/nvm.sh"
-    nvm install 22 && nvm use 22
+    nvm install 22 >> "$LOG" 2>&1 && nvm use 22 >> "$LOG" 2>&1
   elif command -v mise &>/dev/null; then
-    mise install node@22 && eval "$(mise activate bash)" && mise use --env local node@22
+    mise install node@22 >> "$LOG" 2>&1 && eval "$(mise activate bash)" && mise use --env local node@22 >> "$LOG" 2>&1
   else
-    info "fnm (Fast Node Manager) をインストール中..."
-    curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell >/dev/null 2>&1
-
+    echo -ne "  ${D}│${R}  ${CYN}◌${R} fnm (Node バージョン管理) をインストール中...${CLR}\r"
+    curl -fsSL https://fnm.vercel.app/install 2>/dev/null | bash -s -- --skip-shell >> "$LOG" 2>&1
     FNM_DIR="${FNM_DIR:-$HOME/.local/share/fnm}"
     [ -d "$FNM_DIR" ] || FNM_DIR="$HOME/.fnm"
     export PATH="$FNM_DIR:$PATH"
-    eval "$(fnm env 2>/dev/null)" || eval "$("$FNM_DIR/fnm" env)"
-
-    fnm install 22 && fnm use 22
+    eval "$(fnm env 2>/dev/null)" || eval "$("$FNM_DIR/fnm" env 2>/dev/null)"
+    echo -e "  ${D}│${R}  ${GRN}✔${R} fnm インストール完了${CLR}"
+    echo -ne "  ${D}│${R}  ${CYN}◌${R} Node.js 22 をインストール中...${CLR}\r"
+    fnm install 22 >> "$LOG" 2>&1 && fnm use 22 >> "$LOG" 2>&1
+    echo -e "  ${D}│${R}  ${GRN}✔${R} Node.js $(node -v) インストール完了${CLR}"
   fi
 }
 
 if command -v node &>/dev/null; then
   NODE_MAJOR=$(node -v | sed 's/v//' | cut -d. -f1)
   if [ "$NODE_MAJOR" -ge 22 ]; then
-    success "Node.js $(node -v)"
+    ok "Node.js $(node -v)"
   else
-    warn "Node.js $(node -v) が検出されましたが v22+ が必要です"
+    wrn "Node.js $(node -v) → v22+ が必要"
     install_node
-    success "Node.js $(node -v) インストール完了"
   fi
 else
   install_node
-  success "Node.js $(node -v) インストール完了"
 fi
 
-# ===================== Step 3: pnpm =====================
-step 3 "pnpm の確認"
-
+# -- pnpm ---
 if ! command -v pnpm &>/dev/null; then
-  info "pnpm をインストール中..."
+  echo -ne "  ${D}│${R}  ${CYN}◌${R} pnpm をインストール中...${CLR}\r"
   if command -v corepack &>/dev/null; then
-    corepack enable 2>/dev/null || true
-    corepack prepare pnpm@10.4.0 --activate 2>/dev/null || npm install -g pnpm@10
+    corepack enable >> "$LOG" 2>&1 || true
+    corepack prepare pnpm@10.4.0 --activate >> "$LOG" 2>&1 || npm install -g pnpm@10 >> "$LOG" 2>&1
   else
-    npm install -g pnpm@10
+    npm install -g pnpm@10 >> "$LOG" 2>&1
   fi
 fi
-success "pnpm $(pnpm --version)"
+ok "pnpm $(pnpm --version)"
 
-# ===================== Step 4: PostgreSQL =====================
-step 4 "PostgreSQL を起動"
+# =============================================================================
+#  PostgreSQL
+# =============================================================================
+head "データベース"
 
-$COMPOSE up -d db
+if port_in_use 54322; then
+  # Port already in use — check if we can use it as-is
+  ok "既存の PostgreSQL を検出 (localhost:54322)"
+  msg "${D}Supabase またはDocker が既に起動中 → そのまま使用します${R}"
+  SKIP_DOCKER=true
+else
+  run "PostgreSQL コンテナを起動" $COMPOSE up -d db \
+    || die "PostgreSQL の起動に失敗しました"
 
-info "PostgreSQL の起動を待機中..."
-for i in $(seq 1 30); do
-  if $COMPOSE exec -T db pg_isready -U postgres &>/dev/null; then
-    break
-  fi
-  sleep 1
-  if [ "$i" -eq 30 ]; then
-    fail "PostgreSQL の起動がタイムアウトしました（30秒）"
-  fi
-done
-success "PostgreSQL 起動完了 (localhost:54322)"
+  # Wait for ready
+  echo -ne "  ${D}│${R}  ${CYN}◌${R} PostgreSQL の起動を待機中...${CLR}\r"
+  for i in $(seq 1 30); do
+    if $COMPOSE exec -T db pg_isready -U postgres >> "$LOG" 2>&1; then
+      echo -e "  ${D}│${R}  ${GRN}✔${R} PostgreSQL 起動完了${CLR}"
+      break
+    fi
+    sleep 1
+    [ "$i" -eq 30 ] && die "PostgreSQL の起動がタイムアウトしました（30秒）"
+  done
+fi
 
-# ===================== Step 5: Dependencies =====================
-step 5 "依存関係をインストール"
+# =============================================================================
+#  パッケージインストール
+# =============================================================================
+head "パッケージ"
 
 if [ ! -f .env ]; then
   cp .env.example .env
-  info ".env ファイルを作成しました（デフォルト設定）"
+  ok ".env 作成（デフォルト設定 → localhost:54322）"
+else
+  ok ".env 既存（上書きなし）"
 fi
 
-pnpm install
-success "依存関係インストール完了"
+run "依存関係をインストール" pnpm install \
+  || die "pnpm install に失敗しました\n     ${D}ログ: $LOG${R}"
 
-# ===================== Step 6: Database =====================
-step 6 "データベースをセットアップ"
+# =============================================================================
+#  データベースセットアップ
+# =============================================================================
+head "データベースセットアップ"
 
-info "Prisma Client を生成中..."
-pnpm db:generate
+run "Prisma Client を生成" pnpm db:generate \
+  || die "Prisma Client の生成に失敗しました"
 
-info "スキーマを反映中..."
-pnpm --filter @ojpp/db push
+run "スキーマを DB に反映" pnpm --filter @ojpp/db push \
+  || die "スキーマの反映に失敗しました\n     ${D}DATABASE_URL を確認してください${R}"
 
-info "初期データを投入中..."
-pnpm db:seed || warn "初期データ投入をスキップ（既にデータがある可能性）"
+if run "初期データを投入 (政党・都道府県・議員)" pnpm db:seed; then
+  :
+else
+  wrn "スキップ（既にデータが存在）"
+fi
 
-info "データソースを取り込み中..."
-pnpm ingest:all || warn "データ取り込みをスキップ（既にデータがある可能性）"
+if run "データソースを取り込み (資金・議会・政策)" pnpm ingest:all; then
+  :
+else
+  wrn "スキップ（既にデータが存在）"
+fi
 
-success "データベースセットアップ完了"
+# =============================================================================
+#  アプリ起動
+# =============================================================================
+head "アプリ起動"
 
-# ===================== Step 7: Launch =====================
-step 7 "開発サーバーを起動"
-
-LOG_FILE="/tmp/ojpp-dev-$(date +%s).log"
-pnpm dev > "$LOG_FILE" 2>&1 &
+DEV_LOG="/tmp/ojpp-dev-$(date +%s).log"
+pnpm dev > "$DEV_LOG" 2>&1 &
 DEV_PID=$!
 
 # Cleanup handler
 cleanup() {
   echo ""
-  info "サーバーを停止中..."
+  echo -ne "  ${CYN}◇${R}  停止中...\r"
   kill "$DEV_PID" 2>/dev/null || true
   wait "$DEV_PID" 2>/dev/null || true
-  $COMPOSE down 2>/dev/null || true
-  success "停止完了"
+  if [ "$SKIP_DOCKER" = false ]; then
+    $COMPOSE down >> "$LOG" 2>&1 || true
+  fi
+  echo -e "  ${GRN}◆${R}  ${B}停止完了${R}      "
+  echo ""
 }
 trap cleanup INT TERM
 
-info "アプリの起動を待機中（初回はビルドに時間がかかります）..."
+msg "${D}初回起動はコンパイルに時間がかかります...${R}"
 
-wait_for_port() {
+wait_for_app() {
   local port=$1 name=$2
+  echo -ne "  ${D}│${R}  ${CYN}◌${R} ${name} を起動中...${CLR}\r"
   for i in $(seq 1 120); do
     if curl -sf -o /dev/null --connect-timeout 1 "http://localhost:$port" 2>/dev/null; then
-      success "$name → http://localhost:$port"
+      echo -e "  ${D}│${R}  ${GRN}✔${R} ${name}${CLR}"
       return 0
     fi
-    # Check if dev process is still running
     if ! kill -0 "$DEV_PID" 2>/dev/null; then
-      fail "開発サーバーが異常終了しました。ログを確認してください:\n  cat $LOG_FILE"
+      echo -e "  ${D}│${R}  ${RED}✖${R} ${name}${CLR}"
+      die "開発サーバーが異常終了しました\n     ${D}ログ: $DEV_LOG${R}"
     fi
     sleep 1
   done
-  warn "$name (localhost:$port) の応答待機がタイムアウトしました"
+  wrn "${name} の起動に時間がかかっています"
 }
 
-wait_for_port 3000 "MoneyGlass"
-wait_for_port 3002 "PolicyDiff"
-wait_for_port 3003 "ParliScope"
+wait_for_app 3000 "MoneyGlass"
+wait_for_app 3002 "PolicyDiff"
+wait_for_app 3003 "ParliScope"
 
-# --- Done ---
+# =============================================================================
+#  完了
+# =============================================================================
+ELAPSED=$((SECONDS - TOTAL_START))
+MINS=$((ELAPSED / 60))
+SECS=$((ELAPSED % 60))
+
 echo ""
-echo -e "  ${GREEN}${BOLD}=========================================${NC}"
-echo -e "  ${GREEN}${BOLD}  セットアップ完了！${NC}"
-echo -e "  ${GREEN}${BOLD}=========================================${NC}"
-echo ""
-echo -e "  ${BOLD}MoneyGlass${NC}   ${CYAN}http://localhost:3000${NC}   政治資金可視化"
-echo -e "  ${BOLD}PolicyDiff${NC}   ${CYAN}http://localhost:3002${NC}   政策比較"
-echo -e "  ${BOLD}ParliScope${NC}   ${CYAN}http://localhost:3003${NC}   議会監視"
-echo ""
-echo -e "  ${DIM}停止: Ctrl+C${NC}"
-echo -e "  ${DIM}ログ: $LOG_FILE${NC}"
-echo -e "  ${DIM}DB削除: docker compose down -v${NC}"
+echo -e "  ${GRN}◆${R}  ${B}${GRN}セットアップ完了！${R} ${D}(${MINS}分${SECS}秒)${R}"
+echo -e "  ${D}│${R}"
+echo -e "  ${D}│${R}  🏦 ${B}MoneyGlass${R}   ${CYN}http://localhost:3000${R}   政治資金可視化"
+echo -e "  ${D}│${R}  📋 ${B}PolicyDiff${R}   ${CYN}http://localhost:3002${R}   政策比較"
+echo -e "  ${D}│${R}  🏛️  ${B}ParliScope${R}   ${CYN}http://localhost:3003${R}   議会監視"
+echo -e "  ${D}│${R}"
+echo -e "  ${D}│${R}  ${D}管理画面: localhost:3001 (MoneyGlass) · localhost:3004 (ParliScope)${R}"
+echo -e "  ${D}│${R}"
+echo -e "  ${D}└${R}  ${D}Ctrl+C で停止 · ログ: ${DEV_LOG}${R}"
 echo ""
 
 # Keep running until Ctrl+C
