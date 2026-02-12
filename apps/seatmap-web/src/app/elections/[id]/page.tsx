@@ -1,3 +1,4 @@
+import { prisma } from "@ojpp/db";
 import { Card, HeroSection } from "@ojpp/ui";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -11,7 +12,7 @@ interface PartyResult {
   seatsWon: number;
   districtSeats: number | null;
   proportionalSeats: number | null;
-  totalVotes: string | null;
+  totalVotes: bigint | null;
   voteShare: number | null;
   party: {
     id: string;
@@ -25,7 +26,7 @@ interface ElectionData {
   id: string;
   name: string;
   chamber: "HOUSE_OF_REPRESENTATIVES" | "HOUSE_OF_COUNCILLORS";
-  date: string;
+  date: Date;
   totalSeats: number;
   districtSeats: number | null;
   proportionalSeats: number | null;
@@ -33,13 +34,19 @@ interface ElectionData {
   results: PartyResult[];
 }
 
-/* ---------- Data fetching ---------- */
+/* ---------- Data fetching (direct DB) ---------- */
 
 async function getElection(id: string): Promise<ElectionData | null> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3005";
-  const res = await fetch(`${baseUrl}/api/elections/${id}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  const election = await prisma.election.findUnique({
+    where: { id },
+    include: {
+      results: {
+        include: { party: true },
+        orderBy: { seatsWon: "desc" },
+      },
+    },
+  });
+  return election as unknown as ElectionData | null;
 }
 
 /* ---------- Helpers ---------- */
@@ -54,8 +61,8 @@ function chamberBadgeColor(chamber: string): string {
     : "bg-blue-100 text-blue-800";
 }
 
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr);
+function formatDate(dateStr: string | Date): string {
+  const d = typeof dateStr === "string" ? new Date(dateStr) : dateStr;
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 }
 
@@ -64,10 +71,10 @@ function getMajorityLine(_chamber: string, totalSeats: number) {
   return { seats: majority, label: `過半数 ${majority}` };
 }
 
-function formatVotes(votes: string | null): string {
-  if (!votes) return "-";
-  const n = Number(votes);
-  if (isNaN(n)) return votes;
+function formatVotes(votes: bigint | string | null): string {
+  if (votes == null) return "-";
+  const n = typeof votes === "bigint" ? Number(votes) : Number(votes);
+  if (isNaN(n)) return String(votes);
   return new Intl.NumberFormat("ja-JP").format(n);
 }
 
