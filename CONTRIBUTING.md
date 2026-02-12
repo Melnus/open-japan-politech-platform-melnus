@@ -50,11 +50,11 @@ pnpm dev
 
 | アプリ | ポート | 説明 |
 |--------|--------|------|
-| polimoney-web | 3000 | PoliMoney 公開画面 |
-| polimoney-admin | 3001 | PoliMoney 管理画面 |
-| polipolicy-web | 3002 | PoliPolicy 公開画面 |
-| poligikai-web | 3003 | PoliGikai 公開画面 |
-| poligikai-admin | 3004 | PoliGikai 管理画面 |
+| moneyglass-web | 3000 | MoneyGlass 公開画面 |
+| moneyglass-admin | 3001 | MoneyGlass 管理画面 |
+| policydiff-web | 3002 | PolicyDiff 公開画面 |
+| parliscope-web | 3003 | ParliScope 公開画面 |
+| parliscope-admin | 3004 | ParliScope 管理画面 |
 
 ## Pull Requestの作り方
 

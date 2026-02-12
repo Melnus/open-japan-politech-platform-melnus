@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PoliMoney Admin - 管理画面",
-  description: "PoliMoney管理画面 - 会計データの登録・管理",
+  title: "MoneyGlass Admin - 管理画面",
+  description: "MoneyGlass管理画面 - 政治資金データの取り込み・管理",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
         <div className="flex">
           <aside className="w-64 min-h-screen border-r bg-white p-6">
             <h1 className="mb-8 text-lg font-bold">
-              <span className="text-blue-600">Poli</span>Money
+              <span className="text-blue-600">Money</span>Glass
               <span className="ml-2 text-xs text-gray-400">Admin</span>
             </h1>
             <nav className="space-y-2 text-sm">

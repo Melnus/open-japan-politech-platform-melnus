@@ -6,9 +6,9 @@
   "packageManager": "pnpm@10.4.0",
   "scripts": {
     "dev": "pnpm --parallel --recursive run dev",
-    "dev:polimoney": "pnpm --filter polimoney-web dev & pnpm --filter polimoney-admin dev",
-    "dev:polipolicy": "pnpm --filter polipolicy-web dev",
-    "dev:poligikai": "pnpm --filter poligikai-web dev & pnpm --filter poligikai-admin dev",
+    "dev:moneyglass": "pnpm --filter moneyglass-web dev & pnpm --filter moneyglass-admin dev",
+    "dev:policydiff": "pnpm --filter policydiff-web dev",
+    "dev:parliscope": "pnpm --filter parliscope-web dev & pnpm --filter parliscope-admin dev",
     "build": "pnpm --recursive run build",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
