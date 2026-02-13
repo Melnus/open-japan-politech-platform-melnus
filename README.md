@@ -28,7 +28,7 @@
 ## 1行で起動
 
 ```bash
-git clone https://github.com/ochyai/open-japan-politech-platform.git && cd open-japan-politech-platform && bash setup.sh
+git clone https://github.com/ochyai/open-japan-politech-platform.git 2>/dev/null || true && cd open-japan-politech-platform && git pull && bash setup.sh
 ```
 
 > **必要なもの**: [Docker](https://docs.docker.com/get-docker/) と [Git](https://git-scm.com/) だけ。Node.js / pnpm は自動インストールされます。
