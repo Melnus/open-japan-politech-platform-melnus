@@ -832,6 +832,7 @@ PORT_PSA=$(find_free_port $((PORT_PS + 1)))
 PORT_SM=$(find_free_port $((PORT_PSA + 1)))
 PORT_CS=$(find_free_port $((PORT_SM + 1)))
 PORT_SG=$(find_free_port $((PORT_CS + 1)))
+PORT_PORTAL=$(find_free_port $((PORT_SG + 1)))
 
 if [ "$PORT_MG" -ne 3000 ] || [ "$PORT_MGA" -ne 3001 ] || [ "$PORT_PD" -ne 3002 ] || [ "$PORT_PS" -ne 3003 ] || [ "$PORT_PSA" -ne 3004 ] || [ "$PORT_SM" -ne 3005 ] || [ "$PORT_CS" -ne 3006 ] || [ "$PORT_SG" -ne 3007 ]; then
   wrn "一部のポートが使用中 → 空いてるポートを見つけたよ！"
@@ -868,6 +869,7 @@ start_all_apps() {
   [ -d "apps/seatmap-web" ]       && start_one_app "apps/seatmap-web"       "$PORT_SM" "sm-web"
   [ -d "apps/culturescope-web" ]  && start_one_app "apps/culturescope-web"  "$PORT_CS" "cs-web"
   [ -d "apps/socialguard-web" ]   && start_one_app "apps/socialguard-web"   "$PORT_SG" "sg-web"
+  [ -d "apps/portal-web" ]        && start_one_app "apps/portal-web"        "$PORT_PORTAL" "portal"
 }
 
 start_all_apps
@@ -882,7 +884,7 @@ cleanup() {
   for pid in "${APP_PIDS[@]}"; do
     wait "$pid" 2>/dev/null || true
   done
-  kill_ports "$PORT_MG" "$PORT_MGA" "$PORT_PD" "$PORT_PS" "$PORT_PSA" "$PORT_SM" "$PORT_CS" "$PORT_SG"
+  kill_ports "$PORT_MG" "$PORT_MGA" "$PORT_PD" "$PORT_PS" "$PORT_PSA" "$PORT_SM" "$PORT_CS" "$PORT_SG" "$PORT_PORTAL"
   if [ "$SKIP_DOCKER" = false ]; then
     $COMPOSE down >> "$LOG" 2>&1 || true
   fi
@@ -930,7 +932,7 @@ wait_for_app() {
         RETRY_DONE=true
         printf "${SHOW}\r  ${DGRAY}│${R}  ${GOLD}⚡${R} アプリ再起動するね...ちょっと待って${CLR}\n"
         rm -rf apps/*/.next 2>/dev/null || true
-        kill_ports "$PORT_MG" "$PORT_MGA" "$PORT_PD" "$PORT_PS" "$PORT_PSA" "$PORT_SM" "$PORT_CS" "$PORT_SG"
+        kill_ports "$PORT_MG" "$PORT_MGA" "$PORT_PD" "$PORT_PS" "$PORT_PSA" "$PORT_SM" "$PORT_CS" "$PORT_SG" "$PORT_PORTAL"
         sleep 1
         start_all_apps
         sleep 2
@@ -959,6 +961,7 @@ wait_for_app "$PORT_PS"  "ParliScope"    "🏛️ " "$PS_COLOR"
 [ -d "apps/seatmap-web" ]      && wait_for_app "$PORT_SM" "SeatMap"       "💺" "$SM_COLOR"
 [ -d "apps/culturescope-web" ] && wait_for_app "$PORT_CS" "CultureScope"  "🎨" "$CS_COLOR"
 [ -d "apps/socialguard-web" ]  && wait_for_app "$PORT_SG" "SocialGuard"   "🛡️ " "$SG_COLOR"
+[ -d "apps/portal-web" ]       && wait_for_app "$PORT_PORTAL" "Portal" "🌐" "$LIME"
 step_pct
 
 # =============================================================================
@@ -990,7 +993,7 @@ echo ""
 echo ""
 
 # ── App count ──
-APP_COUNT=6
+APP_COUNT=7
 [ -d "apps/moneyglass-admin" ] && APP_COUNT=$((APP_COUNT + 1))
 [ -d "apps/parliscope-admin" ] && APP_COUNT=$((APP_COUNT + 1))
 
@@ -1003,6 +1006,11 @@ echo -e "  ${DGRAY}╠═══════════════════�
 bx ""
 
 # ── Public apps ──
+bx "  ${LIME}${B}🌐⚡ OJPP Portal${R}    ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_PORTAL}${R}"
+bx "     ${WHT}🎮 Political Command Center — 全サービス一覧ダッシュボード ✨${R}"
+bx "     ${GRAY}🔢 6アプリ · WebGPU流体シェーダー · リアルタイムKPI${R}"
+bx ""
+
 bx "  ${MG_COLOR}${B}💰🏦 MoneyGlass${R}   ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_MG}${R}"
 bx "     ${PEACH}💎 政治資金を、ガラスのように透明に ✨${R}"
 bx "     ${GRAY}🔢 13政党 · 8年分 · 政治資金収支報告書${R}"
@@ -1083,6 +1091,11 @@ rainbow_bar
 echo ""
 echo -e "  ${PEACH}🎉🎊🥳 おめでとう！日本の政治データが手のひらに！🇯🇵✨${R}"
 echo -e "  ${GRAY}👆 上の URL をブラウザで開いて、6つのアプリで政治を探索しよう 🌏🔍${R}"
+echo ""
+[ -d "apps/portal-web" ] && {
+  echo -e "  ${LIME}${B}🚀 ポータルを自動で開いています...${R}"
+  open "http://localhost:${PORT_PORTAL}" 2>/dev/null || true
+}
 echo ""
 
 # Keep running — wait for any app to exit, then wait for all

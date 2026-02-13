@@ -24,6 +24,7 @@ cd "$REPO_ROOT"
 PREFIX="ojpp"
 
 APPS=(
+  portal-web
   moneyglass-web
   moneyglass-admin
   policydiff-web

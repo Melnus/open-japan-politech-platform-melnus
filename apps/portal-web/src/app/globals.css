@@ -1,0 +1,519 @@
+@import "tailwindcss";
+@import "@ojpp/ui/theme.css";
+
+/* ══════════════════════════════════════════════
+   OJPP — SETUP.SH × DATA ART × POP CULTURE
+   RAINBOW × FLUID × LENS × バキバキ
+   ══════════════════════════════════════════════ */
+
+:root {
+  --bg: #04040a;
+  --bg-raised: #0a0a14;
+  --bg-card: #0e0e18;
+  --border: rgba(255, 255, 255, 0.06);
+  --text: #f0f0f5;
+  --text-dim: #7a7a90;
+  --text-ghost: #3a3a4a;
+  --accent: #b4ff39;
+  --accent-dim: rgba(180, 255, 57, 0.15);
+  --neon-pink: #ff2d7b;
+  --neon-blue: #3b82f6;
+  --svc-moneyglass: #ff6b35;
+  --svc-parliscope: #a855f7;
+  --svc-policydiff: #3b82f6;
+  --svc-seatmap: #06d6d6;
+  --svc-culturescope: #fbbf24;
+  --svc-socialguard: #34d399;
+}
+
+/* ── Base ── */
+html {
+  background: #000;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ══════════════════════════════════════════════
+   FLUID GRADIENT MESH — RAINBOW BLOBS
+   ══════════════════════════════════════════════ */
+
+@keyframes mesh-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(60px, -80px) scale(1.15) rotate(5deg);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(0.9) rotate(-3deg);
+  }
+  75% {
+    transform: translate(20px, 60px) scale(1.1) rotate(2deg);
+  }
+}
+
+@keyframes mesh-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50px, -30px) scale(1.2) rotate(-4deg);
+  }
+  66% {
+    transform: translate(40px, 50px) scale(0.85) rotate(6deg);
+  }
+}
+
+@keyframes mesh-float-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(40px, -60px) scale(1.1);
+  }
+  40% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+  60% {
+    transform: translate(50px, 20px) scale(1.15);
+  }
+  80% {
+    transform: translate(-20px, -40px) scale(0.9);
+  }
+}
+
+.gradient-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gradient-mesh .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  will-change: transform;
+}
+
+.gradient-mesh .blob-1 {
+  width: 900px;
+  height: 900px;
+  background: var(--accent);
+  opacity: 0.2;
+  top: -15%;
+  left: -10%;
+  animation: mesh-float-1 25s ease-in-out infinite;
+}
+
+.gradient-mesh .blob-2 {
+  width: 800px;
+  height: 800px;
+  background: var(--neon-pink);
+  opacity: 0.18;
+  bottom: -15%;
+  right: -10%;
+  animation: mesh-float-2 22s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+.gradient-mesh .blob-3 {
+  width: 700px;
+  height: 700px;
+  background: var(--neon-blue);
+  opacity: 0.16;
+  top: 35%;
+  left: 45%;
+  animation: mesh-float-3 28s ease-in-out infinite;
+  animation-delay: -14s;
+}
+
+.gradient-mesh .blob-4 {
+  width: 600px;
+  height: 600px;
+  background: #ff6b35;
+  opacity: 0.14;
+  top: 60%;
+  left: 15%;
+  animation: mesh-float-1 30s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.gradient-mesh .blob-5 {
+  width: 550px;
+  height: 550px;
+  background: #a855f7;
+  opacity: 0.14;
+  top: 10%;
+  right: 20%;
+  animation: mesh-float-2 26s ease-in-out infinite;
+  animation-delay: -12s;
+}
+
+.gradient-mesh .blob-6 {
+  width: 500px;
+  height: 500px;
+  background: #06d6d6;
+  opacity: 0.12;
+  bottom: 20%;
+  left: 55%;
+  animation: mesh-float-3 24s ease-in-out infinite;
+  animation-delay: -18s;
+}
+
+/* ── Scan lines (very subtle CRT) ── */
+.scan-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+}
+
+/* ── Monospace ── */
+.mono {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ══════════════════════════════════════════════
+   HERO — MASSIVE TYPE + LENS EFFECTS
+   ══════════════════════════════════════════════ */
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 14rem);
+  line-height: 0.82;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+/* Chromatic aberration on title */
+.hero-chroma {
+  text-shadow:
+    -2px 0 rgba(255, 45, 123, 0.4),
+    2px 0 rgba(59, 130, 246, 0.4);
+}
+
+/* ── Japan dot — massive pink pulse ── */
+@keyframes japan-dot-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px var(--neon-pink),
+      0 0 60px var(--neon-pink);
+  }
+  50% {
+    box-shadow:
+      0 0 40px var(--neon-pink),
+      0 0 100px var(--neon-pink),
+      0 0 160px var(--neon-pink);
+  }
+}
+
+.japan-dot {
+  display: inline-block;
+  width: 0.12em;
+  height: 0.12em;
+  border-radius: 50%;
+  background: var(--neon-pink);
+  vertical-align: 0.12em;
+  margin-left: 0.04em;
+  animation: japan-dot-pulse 2s ease-in-out infinite;
+  box-shadow:
+    0 0 20px var(--neon-pink),
+    0 0 60px var(--neon-pink);
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+/* ── Progress bar ── */
+@keyframes bar-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar {
+  height: 100%;
+  transform-origin: left;
+  animation: bar-fill 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0s);
+  transform: scaleX(0);
+}
+
+/* ── Terminal check animation ── */
+@keyframes check-pop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.4) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.check-pop {
+  animation: check-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+}
+
+/* ── Card hover ── */
+.pop-card {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.pop-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-dim);
+  border-radius: 0;
+}
+
+/* ── Big number shimmer ── */
+@keyframes number-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px currentColor;
+  }
+  50% {
+    text-shadow:
+      0 0 40px currentColor,
+      0 0 80px currentColor;
+  }
+}
+
+.number-glow {
+  animation: number-glow 3s ease-in-out infinite;
+}
+
+/* ── Bento grid ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-auto-rows: minmax(320px, auto);
+  gap: 8px;
+}
+
+/* ── Terminal line appear ── */
+@keyframes line-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.term-line {
+  animation: line-appear 0.35s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+}
+
+/* ── Pulse dot ── */
+@keyframes data-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.data-pulse {
+  animation: data-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* ── Skeleton ── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+  border-radius: 4px;
+}
+
+/* ── Label ── */
+.label-upper {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+/* KPI value */
+.kpi-value {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Nav glass ── */
+.nav-glass {
+  background: rgba(4, 4, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Cursor blink ── */
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: "█";
+  animation: cursor-blink 1s step-end infinite;
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   SERVICE CARD GLOW
+   ══════════════════════════════════════════════ */
+
+.svc-glow-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.svc-glow-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 60px -15px rgba(0, 0, 0, 0.5),
+    0 0 30px -5px var(--svc-color);
+}
+
+.svc-glow-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--svc-color);
+  box-shadow: 0 0 12px var(--svc-color);
+  transition:
+    box-shadow 0.4s ease,
+    width 0.4s ease;
+}
+
+.svc-glow-card:hover::before {
+  width: 5px;
+  box-shadow:
+    0 0 25px var(--svc-color),
+    0 0 50px var(--svc-color);
+}
+
+/* ── Bar track ── */
+.bar-track {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+/* ── Score cell ── */
+@keyframes score-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.score-cell {
+  animation: score-in 0.5s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+}
+
+/* ── Map dash flow ── */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}

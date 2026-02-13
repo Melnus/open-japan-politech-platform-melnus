@@ -20,6 +20,7 @@ FILTER="${2:-all}"         # all, web, admin, single
 SINGLE_APP="${3:-}"        # FILTER=single のとき使う
 
 ALL_APPS=(
+  portal-web
   moneyglass-web
   moneyglass-admin
   policydiff-web

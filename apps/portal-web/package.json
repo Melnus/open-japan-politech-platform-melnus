@@ -1,0 +1,30 @@
+{
+  "name": "portal-web",
+  "version": "0.1.0",
+  "description": "OJPP Portal — 日本の政治インフラを一望する Political Command Center",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3008",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ojpp/api": "workspace:*",
+    "@ojpp/db": "workspace:*",
+    "@ojpp/ui": "workspace:*",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0"
+  }
+}

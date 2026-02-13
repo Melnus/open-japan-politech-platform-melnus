@@ -31,6 +31,8 @@
 (git clone https://github.com/ochyai/open-japan-politech-platform.git 2>/dev/null || true) && cd open-japan-politech-platform && git pull && bash setup.sh
 ```
 
+<img src="docs/screenshots/portal-preview.png" alt="OJPP Portal — Political Command Center" width="100%"/>
+
 > **必要なもの**: [Docker](https://docs.docker.com/get-docker/) と [Git](https://git-scm.com/) だけ。Node.js / pnpm は自動インストールされます。
 >
 > 停止 `Ctrl+C` / 再起動 `bash setup.sh` / DB削除 `docker compose down -v`
@@ -68,7 +70,14 @@ GovTech（行政DX）でもCivicTech（市民技術）でもない。**政治の
 
 <a id="6-apps"></a>
 
-## 6 Apps
+## Portal + 6 Apps
+
+### OJPP Portal `:3008`
+**Political Command Center — 全サービス一覧ダッシュボード**
+
+WebGPU流体シェーダー × レインボーグラデーション × 日本地図データビジュアライゼーション。6つのサービスアプリのリアルタイムKPIを一望するコマンドセンター。
+
+`WebGPU` `流体シミュレーション` `リアルタイムKPI` `6サービス統合`
 
 <table>
 <tr>
@@ -160,7 +169,8 @@ GovTech（行政DX）でもCivicTech（市民技術）でもない。**政治の
 ```
                           ブラウザ / AIエージェント / MCP
                                       │
-          ┌───────┬───────┬───────┬────┴────┬──────────┬──────────┐
+                              ┌──── Portal :3008 ────┐
+          ┌───────┬───────┬───┴───┬────┴────┬──────────┬──────────┐
           ▼       ▼       ▼       ▼         ▼          ▼          │
       MoneyGlass PolicyDiff ParliScope SeatMap CultureScope SocialGuard
        :3000      :3002     :3003    :3005    :3006      :3007     │
@@ -189,6 +199,7 @@ pnpm dev:parliscope    # ParliScope   :3003 + :3004
 pnpm dev:seatmap       # SeatMap      :3005
 pnpm dev:culturescope  # CultureScope :3006
 pnpm dev:socialguard   # SocialGuard  :3007
+pnpm dev:portal        # Portal       :3008
 ```
 
 <details>
@@ -386,7 +397,8 @@ open-japan-politech-platform/
 │   ├── parliscope-admin/     :3004       管理画面
 │   ├── seatmap-web/          :3005       議席勢力図
 │   ├── culturescope-web/     :3006       文化政策
-│   └── socialguard-web/      :3007       社会保障
+│   ├── socialguard-web/      :3007       社会保障
+│   └── portal-web/          :3008       ポータル (WebGPU流体シェーダー)
 ├── packages/
 │   ├── ui/                            @ojpp/ui  — 14+ コンポーネント + Motion + Lenis
 │   ├── db/                            @ojpp/db  — Prisma (29 models / 14 enums)
@@ -430,6 +442,7 @@ open-japan-politech-platform/
 - [x] 学術論文 (PoliTech 5地域比較分析)
 - [x] CultureScope — 文化政策可視化
 - [x] SocialGuard — 社会保障可視化
+- [x] ポータルダッシュボード (WebGPU流体シェーダー + リアルタイムKPI)
 - [x] Vercel デプロイ
 - [x] Entire 導入 (AIエージェントセッション共有・Attribution)
 - [ ] 認証・認可 (Supabase Auth)
