@@ -2,8 +2,9 @@
 set -euo pipefail
 
 # =============================================================================
-#  Open Japan PoliTech Platform — ✨ マジカルセットアップスクリプト ✨
+#  Open Japan PoliTech Platform — ✨🌈🔥 マジカルセットアップスクリプト 🔥🌈✨
 #  github.com/ochyai/open-japan-politech-platform
+#  🏛️💎🎌 AIエージェント時代の政治インフラを、あなたの手に 🎌💎🏛️
 # =============================================================================
 
 # -- 256-color palette --------------------------------------------------------
@@ -138,19 +139,19 @@ step_pct() {
 msg()     { echo -e "  ${DGRAY}│${R}  $*"; }
 ok()      { echo -e "  ${DGRAY}│${R}  ${GRN}✔${R} $*${CLR}"; }
 wrn()     { echo -e "  ${DGRAY}│${R}  ${GOLD}⚡${R} $*${CLR}"; }
-section() { echo -e "\n  ${HOT}♦${R}  ${B}$*${R}"; }
+section() { echo -e "\n  ${HOT}♦${R}  ${B}$*${R} ✨"; }
 
 die() {
   printf "\r${SHOW}"
   echo ""
   echo -e "  ${PINK}┌─────────────────────────────────────────────────────────────${R}"
   echo -e "  ${PINK}│${R}"
-  echo -e "  ${PINK}│${R}  ${HOT}(>_<)${R}  ${B}あわわ…うまくいかなかったよ${R}"
+  echo -e "  ${PINK}│${R}  ${HOT}(>_<)💦${R}  ${B}あわわ…うまくいかなかったよ 😭${R}"
   echo -e "  ${PINK}│${R}"
   printf  "  ${PINK}│${R}  %b\n" "$1"
   echo -e "  ${PINK}│${R}"
-  echo -e "  ${PINK}│${R}  ${GRAY}📋 ログ →${R} ${CYN}${LOG}${R}"
-  echo -e "  ${PINK}│${R}  ${GRAY}🔄 もう一度 →${R} ${CYN}bash setup.sh${R}"
+  echo -e "  ${PINK}│${R}  ${GRAY}📋🔎 ログ →${R} ${CYN}${LOG}${R}"
+  echo -e "  ${PINK}│${R}  ${GRAY}🔄💪 もう一度 →${R} ${CYN}bash setup.sh${R} ${GRAY}（諦めないで！）${R}"
   echo -e "  ${PINK}│${R}"
   echo -e "  ${PINK}└─────────────────────────────────────────────────────────────${R}"
   echo ""
@@ -235,10 +236,10 @@ echo -e "  \033[38;5;129m  ╚═════╝ \033[38;5;165m ╚════�
 echo ""
 echo -ne "  "; rainbow "Open Japan PoliTech Platform"; echo -e "  ${DGRAY}v0.1${R}"
 echo ""
-echo -e "  ${LAVD}🏛️  ${B}AIエージェント時代の政治インフラ${R} ${PINK}*:${R}${HOT}.${R}${GOLD}*${R}"
-echo -e "  ${GRAY}政党にも企業にもよらない、完全オープンな政治テクノロジー基盤${R}"
-echo -e "  ${MG_COLOR}${B}MoneyGlass${R}${DGRAY} · ${PD_COLOR}${B}PolicyDiff${R}${DGRAY} · ${PS_COLOR}${B}ParliScope${R}${DGRAY} · ${SM_COLOR}${B}SeatMap${R}${DGRAY} · ${CS_COLOR}${B}CultureScope${R}${DGRAY} · ${SG_COLOR}${B}SocialGuard${R}"
-echo -e "  ${GRAY}6つのアプリで日本の政治を丸ごと可視化 — 15政党・47都道府県対応 🎌${R}"
+echo -e "  ${LAVD}🏛️✨ ${B}AIエージェント時代の政治インフラ${R} ${PINK}*:${R}${HOT}.${R}${GOLD}*${R}${PINK}｡${R}${HOT}･ﾟ${R}${GOLD}✧${R}"
+echo -e "  ${GRAY}🌏 政党にも企業にもよらない、完全オープンな政治テクノロジー基盤 💫${R}"
+echo -e "  ${MG_COLOR}${B}💰MoneyGlass${R}${DGRAY} · ${PD_COLOR}${B}📜PolicyDiff${R}${DGRAY} · ${PS_COLOR}${B}🏛️ParliScope${R}${DGRAY} · ${SM_COLOR}${B}💺SeatMap${R}${DGRAY} · ${CS_COLOR}${B}🎨CultureScope${R}${DGRAY} · ${SG_COLOR}${B}🛡️SocialGuard${R}"
+echo -e "  ${GRAY}🔥 6つのアプリで日本の政治を丸ごと可視化 — 15政党・47都道府県対応 🎌🇯🇵${R}"
 echo ""
 rainbow_bar_block
 echo ""
@@ -251,7 +252,7 @@ grep -q "open-japan-politech-platform" package.json 2>/dev/null \
 #  0. Homebrew  (macOS のみ — brew がなければ自動インストール)
 # =============================================================================
 if [[ "$OSTYPE" == darwin* ]] && ! command -v brew &>/dev/null; then
-  section "🍺 Homebrew セットアップ ～はじめの一歩だよ～"
+  section "🍺🎉 Homebrew セットアップ ～はじめの一歩だよ～ ﾄﾞｷﾄﾞｷ"
   echo ""
   echo -e "  ${PEACH}┌───────────────────────────────────────────────────────────${R}"
   echo -e "  ${PEACH}│${R}  ${B}🍺 Homebrew が見つからないよ！${R}"
@@ -272,7 +273,7 @@ if [[ "$OSTYPE" == darwin* ]] && ! command -v brew &>/dev/null; then
 
     if command -v brew &>/dev/null; then
       echo ""
-      ok "Homebrew インストール完了！やったね 🍺✨"
+      ok "🍺🎊 Homebrew インストール完了！やったね！ﾔｯﾎｰ！✨"
     else
       die "Homebrew の PATH が通らなかった…\n     ターミナルを再起動して ${CYN}bash setup.sh${R} してみて"
     fi
@@ -284,7 +285,7 @@ fi
 # =============================================================================
 #  1. Docker  ～コンテナの魔法使い～
 # =============================================================================
-section "✨ まずは環境チェックだよ！"
+section "🔍💎 まずは環境チェックだよ！ (ﾟ∀ﾟ)"
 draw_bar 0
 echo ""
 
@@ -302,7 +303,7 @@ install_docker_mac() {
       echo -e "  ${DGRAY}│${R}  ${GRAY}${line}${R}"
     done; then
     echo ""
-    ok "Docker Desktop インストール完了 🐳🎉"
+    ok "🐳🎉💯 Docker Desktop インストール完了！すごい！ｸｼﾞﾗさんきた！"
     echo ""
     echo -e "  ${GOLD}┌───────────────────────────────────────────────────────────${R}"
     echo -e "  ${GOLD}│${R}"
@@ -470,7 +471,7 @@ if ! docker info >> "$LOG" 2>&1; then
         exit 1
       fi
     done
-    printf "${SHOW}\r  ${DGRAY}│${R}  ${GRN}✔${R} 🐳 Docker Desktop 起きた！おはよう！${CLR}\n"
+    printf "${SHOW}\r  ${DGRAY}│${R}  ${GRN}✔${R} 🐳☀️ Docker Desktop 起きた！おはよう！ﾑｸﾘ！${CLR}\n"
   else
     die "Docker が起動してないよ\n     ${CYN}sudo systemctl start docker${R}"
   fi
@@ -481,7 +482,7 @@ if ! $COMPOSE version >> "$LOG" 2>&1; then
   command -v docker-compose &>/dev/null && COMPOSE="docker-compose" || die "docker compose が見つからないよ…"
 fi
 DOCKER_VER=$(docker --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | /usr/bin/head -1)
-ok "🐳 Docker ${DOCKER_VER} — いい感じ！"
+ok "🐳✨ Docker ${DOCKER_VER} — いい感じ！ﾖｼ！"
 step_pct
 
 # =============================================================================
@@ -507,16 +508,16 @@ install_node() {
 if command -v node &>/dev/null; then
   NODE_MAJOR=$(node -v | sed 's/v//' | cut -d. -f1)
   if [ "$NODE_MAJOR" -ge 22 ]; then
-    ok "💚 Node.js $(node -v) — バッチリ！"
+    ok "💚🚀 Node.js $(node -v) — バッチリ！最高！(☆▽☆)"
   else
-    wrn "Node $(node -v) → v22+ にアップグレード中"
+    wrn "Node $(node -v) → v22+ にアップグレード中 🔄"
     install_node
-    ok "💚 Node.js $(node -v) — アップグレード完了！"
+    ok "💚⬆️ Node.js $(node -v) — アップグレード完了！ﾔｯﾀｰ！"
   fi
 else
-  msg "${SKY}💚 Node.js を自動インストールするね${R}"
+  msg "${SKY}💚📦 Node.js を自動インストールするね${R}"
   install_node
-  ok "💚 Node.js $(node -v) — ピカピカの新品！"
+  ok "💚🆕 Node.js $(node -v) — ピカピカの新品！✨"
 fi
 step_pct
 
@@ -531,16 +532,16 @@ if ! command -v pnpm &>/dev/null; then
     run_spin "📦 pnpm をインストール" npm install -g pnpm@10
   fi
 fi
-ok "📦 pnpm $(pnpm --version) — 爆速パッケージマネージャー！"
+ok "📦💨 pnpm $(pnpm --version) — 爆速パッケージマネージャー！ﾋﾞｭﾝﾋﾞｭﾝ！"
 step_pct
 
 # =============================================================================
 #  4. PostgreSQL  ～データの守護者～
 # =============================================================================
-section "🐘 データベースをセットアップ ～ここ大事！～"
+section "🐘💾 データベースをセットアップ ～ここ大事！～ (｀・ω・´)ゞ"
 
 if port_in_use 54322; then
-  ok "🐘 既存 PostgreSQL 発見 (localhost:54322) → そのまま使うよ 🎯"
+  ok "🐘🎯 既存 PostgreSQL 発見 (localhost:54322) → そのまま使うよ！ﾅｲｽ！"
   SKIP_DOCKER=true
 else
   run_spin "🐘 PostgreSQL 16 コンテナを召喚" $COMPOSE up -d db \
@@ -564,13 +565,13 @@ step_pct
 # =============================================================================
 #  5. .env + environment variables  ～秘密の設定ファイル～
 # =============================================================================
-section "📦 依存関係をぜんぶ入れちゃうぞ！"
+section "📦🎁 依存関係をぜんぶ入れちゃうぞ！ﾓﾘﾓﾘ！"
 
 if [ ! -f .env ]; then
   cp .env.example .env
-  ok "📝 .env を作成したよ"
+  ok "📝✏️ .env を作成したよ！秘密の設定ファイル完成 🔐"
 else
-  ok "📝 .env はもうあるね（上書きしないよ）"
+  ok "📝👌 .env はもうあるね（上書きしないよ♪）"
 fi
 
 # CRITICAL: Export all env vars so child processes (Next.js, Prisma) can see them
@@ -584,40 +585,40 @@ for app_dir in apps/*/; do
     ln -sf "../../.env" "${app_dir}.env"
   fi
 done
-ok "🔗 環境変数を全8アプリに配布完了 (DATABASE_URL etc.)"
+ok "🔗💌 環境変数を全8アプリに配布完了！(DATABASE_URL etc.) ﾊﾞｯﾁﾘ！"
 step_pct
 
 # =============================================================================
 #  6. pnpm install  ～パッケージもりもりタイム～
 # =============================================================================
 
-run_spin "📦 パッケージをもりもりインストール中..." pnpm install \
-  || die "pnpm install に失敗しちゃった…\n     ${GRAY}ログ: $LOG${R}"
+run_spin "📦🍱 パッケージをもりもりインストール中...ﾜｸﾜｸ" pnpm install \
+  || die "pnpm install に失敗しちゃった…😭\n     ${GRAY}ログ: $LOG${R}"
 step_pct
 
 # =============================================================================
 #  7. Database schema + seed  ～データの種まき～
 # =============================================================================
-section "🗄️ データベースにデータを流し込むよ！"
+section "🗄️🌊 データベースにデータを流し込むよ！ｻﾞﾊﾞｰ！"
 
-run_spin "⚡ Prisma Client をシャキッと生成" pnpm db:generate \
-  || die "Prisma Client の生成に失敗しちゃった…"
+run_spin "⚡💫 Prisma Client をシャキッと生成！ﾋﾟｶｯ！" pnpm db:generate \
+  || die "Prisma Client の生成に失敗しちゃった…😭"
 
-run_spin "🗄️ スキーマを DB に書き込み" pnpm --filter @ojpp/db push \
-  || die "スキーマの反映に失敗…\n     ${GRAY}DATABASE_URL を確認してみて${R}"
+run_spin "🗄️📝 スキーマを DB に書き込み！ｶﾞﾘｶﾞﾘ！" pnpm --filter @ojpp/db push \
+  || die "スキーマの反映に失敗…😢\n     ${GRAY}DATABASE_URL を確認してみて${R}"
 step_pct
 
-if run_spin "🌱 初期データをたっぷり投入 (15政党・47都道府県・議員)" pnpm db:seed; then :
-else wrn "スキップ（もうデータ入ってるみたい）"; fi
+if run_spin "🌱🎌 初期データをたっぷり投入！(15政党・47都道府県・713議員) ﾄﾞｻﾄﾞｻ！" pnpm db:seed; then :
+else wrn "スキップ（もうデータ入ってるみたい 👌）"; fi
 
-if run_spin "📊 政治データをごっそり取り込み (資金・議会・政策)" pnpm ingest:all; then :
-else wrn "スキップ（もうデータ入ってるみたい）"; fi
+if run_spin "📊🏛️ 政治データをごっそり取り込み！(資金・議会・政策・文化・社保) ﾊﾞﾘﾊﾞﾘ！" pnpm ingest:all; then :
+else wrn "スキップ（もうデータ入ってるみたい 👌）"; fi
 step_pct
 
 # =============================================================================
 #  7.5. DB connection verification  ～接続チェック～
 # =============================================================================
-section "🔍 データベース接続を最終チェック"
+section "🔍🔌 データベース接続を最終チェック！ﾄﾞｷﾄﾞｷ..."
 
 # Verify Prisma can actually connect and query data
 DB_CHECK_SCRIPT='
@@ -626,7 +627,7 @@ const p = new PrismaClient();
 p.election.count().then(c => { console.log("elections:" + c); p.$disconnect(); }).catch(e => { console.error(e.message); process.exit(1); });
 '
 if node -e "$DB_CHECK_SCRIPT" >> "$LOG" 2>&1; then
-  ok "🔗 Prisma → PostgreSQL 接続OK！データも確認済み"
+  ok "🔗✅ Prisma → PostgreSQL 接続OK！データも確認済み！ﾊﾟｰﾌｪｸﾄ！"
 else
   wrn "Prisma 接続に問題あり — 念のため接続をリセットするね"
   # Kill idle connections to free slots (use docker compose exec to auto-resolve container name)
@@ -645,10 +646,10 @@ step_pct
 # =============================================================================
 #  8. Clean caches + find free ports + start apps  ～いよいよ起動！～
 # =============================================================================
-section "🚀 アプリをぜんぶ起動するよ！ワクワク"
+section "🚀🔥💥 アプリをぜんぶ起動するよ！ﾜｸﾜｸが止まらない！(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧"
 
 # Clean stale caches
-run_spin "🧹 キャッシュをピカピカにお掃除" bash -c "rm -rf apps/*/.next apps/*/.turbo .turbo node_modules/.cache 2>/dev/null; echo ok"
+run_spin "🧹✨ キャッシュをピカピカにお掃除！ﾋﾟｯｶﾋﾟｶ！" bash -c "rm -rf apps/*/.next apps/*/.turbo .turbo node_modules/.cache 2>/dev/null; echo ok"
 
 # Kill any leftover OJPP processes on default ports
 kill_ports 3000 3001 3002 3003 3004 3005 3006 3007
@@ -718,12 +719,12 @@ cleanup() {
     $COMPOSE down >> "$LOG" 2>&1 || true
   fi
   echo ""
-  echo -e "  ${PINK}♦${R}  ${B}おつかれさまでした！${R} ${PEACH}またね♪${R} ${GRAY}(^_^)/~${R}"
+  echo -e "  ${PINK}♦${R}  ${B}おつかれさまでした！🙏✨${R} ${PEACH}またね♪${R} ${GRAY}(^_^)/~ 👋🌸${R}"
   echo ""
 }
 trap cleanup INT TERM
 
-msg "${GRAY}☕ 初回コンパイル中...ちょっとだけ待ってね${R}"
+msg "${GRAY}☕🍵 初回コンパイル中...ちょっとだけ待ってね ﾎﾟｯ${R}"
 
 # Wait for each public app to be ready
 RETRY_DONE=false
@@ -828,40 +829,40 @@ APP_COUNT=6
 # ── Decorative box top ──
 echo -e "  ${DGRAY}╔══════════════════════════════════════════════════════════════════════╗${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}  $(rainbow '★ 全 '"$APP_COUNT"' アプリ起動完了 ★')  ${WHT}${B}${MINS}分${SECS}秒${R}${GRAY}で構築${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  $(rainbow '🌟★🔥 全 '"$APP_COUNT"' アプリ起動完了 🔥★🌟')  ${WHT}${B}${MINS}分${SECS}秒${R}${GRAY}で構築${R}       ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 echo -e "  ${DGRAY}╠══════════════════════════════════════════════════════════════════════╣${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
 # ── Public apps ──
-echo -e "  ${DGRAY}║${R}  ${MG_COLOR}${B}🏦 MoneyGlass${R}    ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_MG}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${PEACH}政治資金を、ガラスのように透明に${R}                          ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}13政党 · 8年分 · 政治資金収支報告書${R}                       ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${MG_COLOR}${B}💰🏦 MoneyGlass${R}   ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_MG}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${PEACH}💎 政治資金を、ガラスのように透明に ✨${R}                   ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 13政党 · 8年分 · 政治資金収支報告書${R}                   ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
-echo -e "  ${DGRAY}║${R}  ${PD_COLOR}${B}📋 PolicyDiff${R}    ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_PD}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${MINT}全政党の政策を、差分で比較する${R}                            ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}15政党 · 10カテゴリ · マニフェスト比較${R}                    ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${PD_COLOR}${B}📜📋 PolicyDiff${R}   ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_PD}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${MINT}🔀 全政党の政策を、差分で比較する ✨${R}                     ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 15政党 · 10カテゴリ · マニフェスト比較${R}                ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
-echo -e "  ${DGRAY}║${R}  ${PS_COLOR}${B}🏛️  ParliScope${R}    ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_PS}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${LAVD}議会を、すべての人とエージェントに開く${R}                    ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}90法案 · 713議員 · 21会期${R}                                ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${PS_COLOR}${B}🏛️✨ ParliScope${R}   ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_PS}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${LAVD}🔭 議会を、すべての人とエージェントに開く ✨${R}             ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 90法案 · 713議員 · 21会期${R}                            ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
-echo -e "  ${DGRAY}║${R}  ${SM_COLOR}${B}💺 SeatMap${R}        ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_SM}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${ORNG}議会の勢力図を、ひと目で把握する${R}                          ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}衆参両院 · 9選挙 · スプリング物理${R}                        ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${SM_COLOR}${B}💺🗺️ SeatMap${R}       ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_SM}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${ORNG}🎯 議会の勢力図を、ひと目で把握する ✨${R}                   ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 衆参両院 · 9選挙 · スプリング物理${R}                    ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
-echo -e "  ${DGRAY}║${R}  ${CS_COLOR}${B}🎨 CultureScope${R}  ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_CS}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GOLD}文化を、政治の言語で読み解く${R}                              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}96予算 · 20プログラム · 12分野 · 13政党スタンス${R}           ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${CS_COLOR}${B}🎨🎭 CultureScope${R} ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_CS}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GOLD}🖼️ 文化を、政治の言語で読み解く ✨${R}                       ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 96予算 · 20プログラム · 12分野 · 13政党スタンス${R}       ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 
-echo -e "  ${DGRAY}║${R}  ${SG_COLOR}${B}🛡️  SocialGuard${R}   ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_SG}${R}              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${MINT}社会保障の全体像を、ひと目で${R}                              ${DGRAY}║${R}"
-echo -e "  ${DGRAY}║${R}     ${GRAY}64予算 · 15制度 · 47都道府県 · 13政党スタンス${R}             ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}  ${SG_COLOR}${B}🛡️🏥 SocialGuard${R}  ${DGRAY}─────${R}  ${CYN}${UL}http://localhost:${PORT_SG}${R}              ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${MINT}🤝 社会保障の全体像を、ひと目で ✨${R}                       ${DGRAY}║${R}"
+echo -e "  ${DGRAY}║${R}     ${GRAY}🔢 64予算 · 15制度 · 47都道府県 · 13政党スタンス${R}         ${DGRAY}║${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
 echo -e "  ${DGRAY}╠══════════════════════════════════════════════════════════════════════╣${R}"
 echo -e "  ${DGRAY}║${R}                                                                      ${DGRAY}║${R}"
@@ -872,17 +873,17 @@ echo ""
 
 # ── Data summary ──
 echo -e "  ${DGRAY}┌──────────────────────────────────────────────────────────────────┐${R}"
-echo -e "  ${DGRAY}│${R}  ${WHT}${B}📊 搭載データ${R}                                                   ${DGRAY}│${R}"
+echo -e "  ${DGRAY}│${R}  ${WHT}${B}📊🗂️ 搭載データ ～これだけ入ってるよ！～${R}                         ${DGRAY}│${R}"
 echo -e "  ${DGRAY}│${R}                                                                    ${DGRAY}│${R}"
 echo -e "  ${DGRAY}│${R}  ${HOT}15${R}${GRAY}政党${R}  ${PURP}713${R}${GRAY}議員${R}  ${SKY}90${R}${GRAY}法案${R}  ${GOLD}9${R}${GRAY}選挙${R}  ${MINT}47${R}${GRAY}都道府県${R}  ${ORNG}29${R}${GRAY}DBモデル${R}    ${DGRAY}│${R}"
 echo -e "  ${DGRAY}│${R}  ${CS_COLOR}96${R}${GRAY}文化予算${R}  ${SG_COLOR}64${R}${GRAY}社保予算${R}  ${SG_COLOR}15${R}${GRAY}社保制度${R}  ${CS_COLOR}20${R}${GRAY}文化プログラム${R}       ${DGRAY}│${R}"
 echo -e "  ${DGRAY}│${R}                                                                    ${DGRAY}│${R}"
-echo -e "  ${DGRAY}│${R}  ${GRAY}データソース: 総務省・文化庁・厚労省・財務省・衆参両院公式${R}        ${DGRAY}│${R}"
+echo -e "  ${DGRAY}│${R}  ${GRAY}📚 データソース: 総務省・文化庁・厚労省・財務省・衆参両院公式${R}    ${DGRAY}│${R}"
 echo -e "  ${DGRAY}└──────────────────────────────────────────────────────────────────┘${R}"
 echo ""
 
 # ── Tips ──
-echo -e "  ${GOLD}💡 ブラウザで開く方法${R}"
+echo -e "  ${GOLD}💡🌐 ブラウザで開く方法 ～かんたん3ステップ～${R}"
 echo -e "  ${GRAY}────────────────────────────────────────────${R}"
 echo -e "  ${WHT}方法①${R} ${GRAY}URLを ${WHT}右クリック${R} ${GRAY}→「リンクを開く」を選ぶ${R}"
 echo -e "  ${WHT}方法②${R} ${GRAY}URLをマウスで選択して ${WHT}コピー${R}${GRAY}（⌘+C）${R}"
@@ -890,18 +891,18 @@ echo -e "          ${GRAY}→ ブラウザのアドレスバーに ${WHT}ペー�
 echo -e "  ${WHT}方法③${R} ${GRAY}⌘ キーを押しながら URL をクリック${R}"
 echo ""
 
-echo -ne "  "; rainbow "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧  全 ${APP_COUNT} アプリ起動完了！！"; echo ""
-echo -e "  ${WHT}${B}${MINS}分${SECS}秒${R}${GRAY}で全環境が整ったよ！さあ政治を見に行こう！${R}"
+echo -ne "  "; rainbow "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧  全 ${APP_COUNT} アプリ起動完了！！ ﾔｯﾀｰ！！！"; echo ""
+echo -e "  ${WHT}${B}⚡ ${MINS}分${SECS}秒${R}${GRAY}で全環境が整ったよ！さあ政治を見に行こう！🏃‍♂️💨${R}"
 echo ""
 
-echo -e "  ${GRAY}やめるとき${R}      ${DGRAY}→${R}  ${WHT}Ctrl+C${R}"
-echo -e "  ${GRAY}もう一回やる${R}    ${DGRAY}→${R}  ${WHT}bash setup.sh${R}"
-echo -e "  ${GRAY}データも消す${R}    ${DGRAY}→${R}  ${WHT}docker compose down -v${R}"
+echo -e "  ${GRAY}🛑 やめるとき${R}      ${DGRAY}→${R}  ${WHT}Ctrl+C${R}"
+echo -e "  ${GRAY}🔄 もう一回やる${R}    ${DGRAY}→${R}  ${WHT}bash setup.sh${R}"
+echo -e "  ${GRAY}🗑️  データも消す${R}    ${DGRAY}→${R}  ${WHT}docker compose down -v${R}"
 echo ""
 rainbow_bar
 echo ""
-echo -e "  ${PEACH}🎉 おめでとう！日本の政治データが手のひらに！${R}"
-echo -e "  ${GRAY}上の URL をブラウザで開いて、6つのアプリで政治を探索しよう${R}"
+echo -e "  ${PEACH}🎉🎊🥳 おめでとう！日本の政治データが手のひらに！🇯🇵✨${R}"
+echo -e "  ${GRAY}👆 上の URL をブラウザで開いて、6つのアプリで政治を探索しよう 🌏🔍${R}"
 echo ""
 
 # Keep running — wait for any app to exit, then wait for all

@@ -78,7 +78,12 @@ function getCategoryLabel(category: string): string {
  */
 function formatAmount(value: number): string {
   if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}兆`;
-  if (value >= 100) return `${(value / 100).toFixed(0)}億`;
+  if (value >= 100) {
+    const oku = value / 100;
+    return oku >= 100
+      ? `${Math.round(oku).toLocaleString()}億`
+      : `${parseFloat(oku.toFixed(1))}億`;
+  }
   return `${value}百万`;
 }
 
