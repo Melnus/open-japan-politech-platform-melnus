@@ -25,12 +25,20 @@ export function middleware(request: NextRequest) {
   if (authHeader) {
     const [scheme, encoded] = authHeader.split(" ");
     if (scheme === "Basic" && encoded) {
-      const decoded = atob(encoded);
-      const [user, pass] = decoded.split(":");
-      const expectedUser = process.env.ADMIN_USERNAME ?? "admin";
+      try {
+        const decoded = atob(encoded);
+        const separator = decoded.indexOf(":");
+        if (separator !== -1) {
+          const user = decoded.slice(0, separator);
+          const pass = decoded.slice(separator + 1);
+          const expectedUser = process.env.ADMIN_USERNAME ?? "admin";
 
-      if (safeEqual(user, expectedUser) && safeEqual(pass, password)) {
-        return NextResponse.next();
+          if (safeEqual(user, expectedUser) && safeEqual(pass, password)) {
+            return NextResponse.next();
+          }
+        }
+      } catch {
+        // 不正な Authorization ヘッダは認証失敗として扱う
       }
     }
   }
