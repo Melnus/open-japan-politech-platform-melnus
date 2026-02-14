@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef, useState } from "react";
 
 interface PrefectureData {
   id: string;
@@ -72,16 +72,33 @@ export function PrefectureTable({ data, indicators, categoryLabels, year }: Prop
           onClick={() => setSortDir(sortDir === "desc" ? "asc" : "desc")}
           className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-slate-900 px-4 py-2 text-sm text-gray-300 shadow-sm transition-all hover:bg-slate-800 hover:border-emerald-500/30"
         >
-          <svg className="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            className="h-4 w-4 text-emerald-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             {sortDir === "desc" ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"
+              />
             )}
           </svg>
           {sortDir === "desc" ? "高い順" : "低い順"}
         </button>
-        <span className="text-xs text-gray-600">{year}年度 | {data.length}都道府県</span>
+        <span className="text-xs text-gray-600">
+          {year}年度 | {data.length}都道府県
+        </span>
       </div>
 
       {/* Table */}
@@ -113,9 +130,7 @@ export function PrefectureTable({ data, indicators, categoryLabels, year }: Prop
                 >
                   <td className="px-5 py-3 text-gray-600 text-xs">{i + 1}</td>
                   <td className="px-5 py-3 font-medium text-gray-200">{pref.name}</td>
-                  <td className="px-5 py-3 text-gray-500 text-xs">
-                    {pref.region ?? "-"}
-                  </td>
+                  <td className="px-5 py-3 text-gray-500 text-xs">{pref.region ?? "-"}</td>
                   <td className="px-5 py-3 text-right">
                     <span
                       className={`inline-block rounded px-2 py-0.5 text-xs ${getHeatColor(value, min, max)}`}

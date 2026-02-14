@@ -7,30 +7,10 @@ export default function AdminHome() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          label="登録法案数"
-          value="0"
-          sub="件"
-          accentClass="bg-purple-500"
-        />
-        <AdminStatCard
-          label="審議中"
-          value="0"
-          sub="件"
-          accentClass="bg-amber-500"
-        />
-        <AdminStatCard
-          label="議論スレッド"
-          value="0"
-          sub="件"
-          accentClass="bg-blue-500"
-        />
-        <AdminStatCard
-          label="参加者数"
-          value="0"
-          sub="人"
-          accentClass="bg-green-500"
-        />
+        <AdminStatCard label="登録法案数" value="0" sub="件" accentClass="bg-purple-500" />
+        <AdminStatCard label="審議中" value="0" sub="件" accentClass="bg-amber-500" />
+        <AdminStatCard label="議論スレッド" value="0" sub="件" accentClass="bg-blue-500" />
+        <AdminStatCard label="参加者数" value="0" sub="人" accentClass="bg-green-500" />
       </div>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">

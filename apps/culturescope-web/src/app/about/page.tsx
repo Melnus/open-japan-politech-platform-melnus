@@ -15,7 +15,8 @@ export default function AboutPage() {
           <div className="glass-card p-6">
             <h2 className="mb-4 text-lg font-bold text-white">CultureScope とは</h2>
             <p className="leading-relaxed text-zinc-400">
-              CultureScope は、日本の文化政策に関するデータを可視化するオープンソースプロジェクトです。
+              CultureScope
+              は、日本の文化政策に関するデータを可視化するオープンソースプロジェクトです。
               文化庁予算の推移、芸術振興プログラム、文化財保護施策、各政党の文化政策スタンスを
               透明性のある形で提示します。
             </p>
@@ -63,9 +64,15 @@ export default function AboutPage() {
             <h2 className="mb-4 text-lg font-bold text-white">文化政策の分野</h2>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {[
-                "芸術文化振興", "文化財保護", "メディア芸術",
-                "国際文化交流", "著作権", "国語・日本語教育",
-                "文化産業", "文化施設整備", "デジタルアーカイブ",
+                "芸術文化振興",
+                "文化財保護",
+                "メディア芸術",
+                "国際文化交流",
+                "著作権",
+                "国語・日本語教育",
+                "文化産業",
+                "文化施設整備",
+                "デジタルアーカイブ",
                 "地域文化振興",
               ].map((label) => (
                 <span
@@ -83,7 +90,8 @@ export default function AboutPage() {
           <div className="glass-card p-6">
             <h2 className="mb-4 text-lg font-bold text-white">非党派性</h2>
             <p className="leading-relaxed text-zinc-400">
-              CultureScope は Open Japan PoliTech Platform (OJPP) の一部として、完全な非党派性を維持しています。
+              CultureScope は Open Japan PoliTech Platform (OJPP)
+              の一部として、完全な非党派性を維持しています。
               特定の政党・政治的立場を推進することなく、すべての政党の文化政策データを公平に表示します。
             </p>
           </div>

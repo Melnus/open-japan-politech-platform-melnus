@@ -32,7 +32,9 @@ export function DiscussionThread({ discussions }: { discussions: Discussion[] })
           <div key={d.id} className="border-l-2 border-white/[0.1] pl-4">
             <div className="flex items-center gap-2">
               {stanceConfig && (
-                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${stanceConfig.bg} ${stanceConfig.color}`}>
+                <span
+                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${stanceConfig.bg} ${stanceConfig.color}`}
+                >
                   {stanceConfig.label}
                 </span>
               )}
@@ -49,7 +51,9 @@ export function DiscussionThread({ discussions }: { discussions: Discussion[] })
                     <div key={r.id} className="border-l border-white/[0.06] pl-3">
                       <div className="flex items-center gap-2">
                         {replyStance && (
-                          <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${replyStance.bg} ${replyStance.color}`}>
+                          <span
+                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${replyStance.bg} ${replyStance.color}`}
+                          >
                             {replyStance.label}
                           </span>
                         )}

@@ -1,7 +1,7 @@
 "use client";
 
-import { type ReactNode, useRef, useState, useCallback } from "react";
 import { motion } from "motion/react";
+import { type ReactNode, useCallback, useRef, useState } from "react";
 
 interface GlowCardProps {
   children: ReactNode;
@@ -21,17 +21,14 @@ export function GlowCard({
   const [glowPosition, setGlowPosition] = useState({ x: 50, y: 50 });
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const card = cardRef.current;
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      setGlowPosition({ x, y });
-    },
-    [],
-  );
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setGlowPosition({ x, y });
+  }, []);
 
   const handleMouseEnter = useCallback(() => setIsHovering(true), []);
   const handleMouseLeave = useCallback(() => setIsHovering(false), []);

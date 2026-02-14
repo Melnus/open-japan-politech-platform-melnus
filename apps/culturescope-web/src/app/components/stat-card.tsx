@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface StatCardProps {
   label: string;
@@ -66,9 +66,7 @@ export function StatCard({
     zinc: "text-zinc-500",
   };
 
-  const displayValue = numericValue != null
-    ? `${prefix}${count.toLocaleString()}${suffix}`
-    : value;
+  const displayValue = numericValue != null ? `${prefix}${count.toLocaleString()}${suffix}` : value;
 
   return (
     <motion.div
@@ -83,16 +81,10 @@ export function StatCard({
         delay,
       }}
     >
-      <p className="text-xs font-medium tracking-wide text-zinc-400">
-        {label}
-      </p>
-      <p className="mt-2 text-2xl font-bold tracking-tight text-amber-400">
-        {displayValue}
-      </p>
+      <p className="text-xs font-medium tracking-wide text-zinc-400">{label}</p>
+      <p className="mt-2 text-2xl font-bold tracking-tight text-amber-400">{displayValue}</p>
       {subtext && (
-        <p className={`mt-1 text-xs font-medium ${subtextColors[subtextColor]}`}>
-          {subtext}
-        </p>
+        <p className={`mt-1 text-xs font-medium ${subtextColors[subtextColor]}`}>{subtext}</p>
       )}
     </motion.div>
   );

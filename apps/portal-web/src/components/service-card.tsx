@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedCounter, StaggerItem } from "@ojpp/ui";
-import { type ServiceDefinition, getServiceUrl } from "@/lib/constants";
+import { getServiceUrl, type ServiceDefinition } from "@/lib/constants";
 import { DataPulse } from "./data-pulse";
 
 interface KpiData {

@@ -58,7 +58,8 @@
 
 /* Glow pulse for accent elements */
 @keyframes glow-breathe {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
   }
   50% {

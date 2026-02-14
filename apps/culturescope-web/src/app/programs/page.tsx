@@ -80,12 +80,8 @@ export default async function ProgramsPage() {
     return (
       <div className="mx-auto max-w-7xl px-6 py-20">
         <FadeIn>
-          <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
-            文化施策一覧
-          </h1>
-          <p className="mb-8 text-zinc-400">
-            文化庁の補助金・助成金プログラムと文化政策を網羅
-          </p>
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white">文化施策一覧</h1>
+          <p className="mb-8 text-zinc-400">文化庁の補助金・助成金プログラムと文化政策を網羅</p>
         </FadeIn>
         <div className="glass-card p-8">
           {fetchError ? (
@@ -117,9 +113,7 @@ export default async function ProgramsPage() {
         <div className="absolute -top-20 right-1/4 h-40 w-80 rounded-full bg-amber-500/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <h1 className="text-3xl font-extrabold tracking-tight text-white">
-              文化施策一覧
-            </h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-white">文化施策一覧</h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mt-3 text-base text-zinc-400">
@@ -149,7 +143,9 @@ export default async function ProgramsPage() {
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300 transition-all hover:border-amber-500/30 hover:bg-amber-500/10 hover:text-amber-400"
                 >
                   {getCategoryLabel(cat)}
-                  <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] text-zinc-400">{count}</span>
+                  <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] text-zinc-400">
+                    {count}
+                  </span>
                 </a>
               );
             })}
@@ -167,7 +163,9 @@ export default async function ProgramsPage() {
                 <h2 className="mb-6 flex items-center gap-3 text-xl font-bold text-white">
                   <span className="inline-block h-5 w-1 rounded-full bg-amber-500" />
                   {getCategoryLabel(cat)}
-                  <span className="text-sm font-normal text-zinc-500">({catPrograms.length}件)</span>
+                  <span className="text-sm font-normal text-zinc-500">
+                    ({catPrograms.length}件)
+                  </span>
                 </h2>
               </FadeIn>
 

@@ -1,21 +1,21 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
   Area,
-  PieChart,
-  Pie,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
   Cell,
   Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
 
 /* ---------- Types ---------- */
@@ -65,8 +65,17 @@ const CATEGORY_CHART_COLORS: Record<string, string> = {
 };
 
 const PIE_COLORS = [
-  "#f59e0b", "#10b981", "#8b5cf6", "#3b82f6", "#f43f5e",
-  "#06b6d4", "#78716c", "#d946ef", "#84cc16", "#6366f1", "#f97316",
+  "#f59e0b",
+  "#10b981",
+  "#8b5cf6",
+  "#3b82f6",
+  "#f43f5e",
+  "#06b6d4",
+  "#78716c",
+  "#d946ef",
+  "#84cc16",
+  "#6366f1",
+  "#f97316",
 ];
 
 function getCategoryLabel(category: string): string {
@@ -80,16 +89,18 @@ function formatAmount(value: number): string {
   if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}兆`;
   if (value >= 100) {
     const oku = value / 100;
-    return oku >= 100
-      ? `${Math.round(oku).toLocaleString()}億`
-      : `${parseFloat(oku.toFixed(1))}億`;
+    return oku >= 100 ? `${Math.round(oku).toLocaleString()}億` : `${parseFloat(oku.toFixed(1))}億`;
   }
   return `${value}百万`;
 }
 
 /* ---------- Dark Tooltip ---------- */
 
-function DarkTooltip({ active, payload, label }: {
+function DarkTooltip({
+  active,
+  payload,
+  label,
+}: {
   active?: boolean;
   payload?: Array<{ value: number; name: string; color: string }>;
   label?: string;
@@ -128,7 +139,9 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
 
   /* --- Category breakdown by year (for BarChart) --- */
   const years = [...new Set(budgets.map((b) => b.fiscalYear))].sort();
-  const categories = [...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category))];
+  const categories = [
+    ...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category)),
+  ];
 
   const barData = years.map((year) => {
     const row: Record<string, number | string> = { year: `${year}` };
@@ -171,7 +184,11 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
                       <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke="rgba(255,255,255,0.05)"
+                    vertical={false}
+                  />
                   <XAxis
                     dataKey="year"
                     tick={{ fontSize: 12, fill: "#71717a" }}
@@ -217,7 +234,11 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
             >
               <ResponsiveContainer width="100%" height={400}>
                 <BarChart data={barData} margin={{ top: 10, right: 30, left: 20, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke="rgba(255,255,255,0.05)"
+                    vertical={false}
+                  />
                   <XAxis
                     dataKey="year"
                     tick={{ fontSize: 12, fill: "#71717a" }}
@@ -240,8 +261,13 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
                             .filter((entry) => (entry.value as number) > 0)
                             .sort((a, b) => (b.value as number) - (a.value as number))
                             .map((entry, i) => (
-                              <p key={i} className="text-xs" style={{ color: entry.color as string }}>
-                                {getCategoryLabel(entry.dataKey as string)}: {formatAmount(entry.value as number)}
+                              <p
+                                key={i}
+                                className="text-xs"
+                                style={{ color: entry.color as string }}
+                              >
+                                {getCategoryLabel(entry.dataKey as string)}:{" "}
+                                {formatAmount(entry.value as number)}
                               </p>
                             ))}
                         </div>
@@ -250,7 +276,9 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
                   />
                   <Legend
                     formatter={(value: string) => (
-                      <span style={{ color: "#a1a1aa", fontSize: 11 }}>{getCategoryLabel(value)}</span>
+                      <span style={{ color: "#a1a1aa", fontSize: 11 }}>
+                        {getCategoryLabel(value)}
+                      </span>
                     )}
                     wrapperStyle={{ fontSize: 11 }}
                   />
@@ -300,10 +328,7 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
                     labelLine={{ stroke: "#52525b" }}
                   >
                     {pieData.map((_entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={PIE_COLORS[index % PIE_COLORS.length]}
-                      />
+                      <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
                     ))}
                   </Pie>
                   <Tooltip
@@ -358,7 +383,9 @@ export function BudgetCharts({ budgets }: BudgetChartsProps) {
                         {getCategoryLabel(b.category)}
                       </span>
                     </td>
-                    <td className="py-3 text-right font-bold text-amber-400">{formatAmount(b.amount)}</td>
+                    <td className="py-3 text-right font-bold text-amber-400">
+                      {formatAmount(b.amount)}
+                    </td>
                   </tr>
                 ))}
             </tbody>

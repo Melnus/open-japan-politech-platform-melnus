@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 import {
   Area,
   AreaChart,
@@ -42,7 +42,11 @@ export function BudgetTrendChart({ data, categoryKeys, colorMap }: TrendChartPro
               ))}
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-            <XAxis dataKey="year" tick={{ fontSize: 12, fill: "#6B7280" }} stroke="rgba(255,255,255,0.06)" />
+            <XAxis
+              dataKey="year"
+              tick={{ fontSize: 12, fill: "#6B7280" }}
+              stroke="rgba(255,255,255,0.06)"
+            />
             <YAxis
               tickFormatter={(v: number) =>
                 v >= 10000 ? `${(v / 10000).toFixed(0)}兆` : `${v.toLocaleString()}億`
@@ -67,9 +71,7 @@ export function BudgetTrendChart({ data, categoryKeys, colorMap }: TrendChartPro
               itemStyle={{ color: "#D1D5DB" }}
               labelStyle={{ color: "#9CA3AF" }}
             />
-            <Legend
-              wrapperStyle={{ color: "#9CA3AF", fontSize: "12px" }}
-            />
+            <Legend wrapperStyle={{ color: "#9CA3AF", fontSize: "12px" }} />
             {categoryKeys.map((key, i) => (
               <Area
                 key={key}
@@ -129,7 +131,12 @@ export function BudgetPieChart({ data }: { data: PieData[] }) {
               labelLine={{ stroke: "#4B5563", strokeWidth: 1 }}
             >
               {data.map((d) => (
-                <Cell key={d.name} fill={`url(#pie-${d.name})`} stroke="rgba(255,255,255,0.05)" strokeWidth={2} />
+                <Cell
+                  key={d.name}
+                  fill={`url(#pie-${d.name})`}
+                  stroke="rgba(255,255,255,0.05)"
+                  strokeWidth={2}
+                />
               ))}
             </Pie>
             <Tooltip

@@ -29,7 +29,9 @@ export function FilterBar({ filters, onChange }: FilterBarProps) {
             onChange={(e) => onChange(filter.key, e.target.value)}
             className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] px-3 py-1.5 text-sm text-[#f0f0f0] outline-none transition-colors focus:border-[rgba(255,107,53,0.4)] focus:ring-1 focus:ring-[rgba(255,107,53,0.2)]"
           >
-            <option value="" className="bg-[#1a1a2e]">すべて</option>
+            <option value="" className="bg-[#1a1a2e]">
+              すべて
+            </option>
             {filter.options.map((opt) => (
               <option key={opt.value} value={opt.value} className="bg-[#1a1a2e]">
                 {opt.label}

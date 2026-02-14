@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface BillItem {
   id: string;
@@ -66,10 +66,7 @@ export function DashboardBillsPanel({ bills }: { bills: BillItem[] }) {
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <div
-      ref={ref}
-      className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6"
-    >
+    <div ref={ref} className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
       <div className="mb-5 flex items-center justify-between">
         <h3 className="text-base font-semibold text-white">最新法案</h3>
         <a

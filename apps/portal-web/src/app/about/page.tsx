@@ -110,8 +110,8 @@ export default function AboutPage() {
         <section className="mt-10 border border-[var(--border)] bg-[var(--bg-card)] p-5 text-xs leading-relaxed text-[var(--text-ghost)]">
           <p className="label-upper mb-2 tracking-[3px] text-[var(--text-dim)]">NOTE</p>
           <p>
-            ポータルおよび各サービスに表示されているデータは v{PLATFORM_META.version} 時点の仮データです。
-            正式なデータソースとの連携は今後のアップデートで順次対応予定です。
+            ポータルおよび各サービスに表示されているデータは v{PLATFORM_META.version}{" "}
+            時点の仮データです。 正式なデータソースとの連携は今後のアップデートで順次対応予定です。
           </p>
         </section>
       </ScrollReveal>

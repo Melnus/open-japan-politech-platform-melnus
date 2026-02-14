@@ -44,9 +44,7 @@ function loadPrefectures(): PrefectureData[] {
   for (const pref of data) {
     const num = Number.parseInt(pref.code, 10);
     if (num < 1 || num > 47) {
-      throw new Error(
-        `[prefectures] 不正なコード: ${pref.code} (${pref.name})`,
-      );
+      throw new Error(`[prefectures] 不正なコード: ${pref.code} (${pref.name})`);
     }
   }
 

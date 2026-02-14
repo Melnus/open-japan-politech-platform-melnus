@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { StaggerGrid, StaggerItem, motion, AnimatePresence } from "@ojpp/ui";
+import { AnimatePresence, motion, StaggerGrid, StaggerItem } from "@ojpp/ui";
+import { useMemo, useState } from "react";
 
 type SortKey = "income" | "expenditure" | "organizations" | "name";
 type SortOrder = "asc" | "desc";
@@ -92,9 +92,7 @@ export function PartyCards({ parties }: PartyCardsProps) {
             >
               {opt.label}
               {isActive && (
-                <span className="text-xs">
-                  {sortOrder === "desc" ? "\u25BC" : "\u25B2"}
-                </span>
+                <span className="text-xs">{sortOrder === "desc" ? "\u25BC" : "\u25B2"}</span>
               )}
             </button>
           );

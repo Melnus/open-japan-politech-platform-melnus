@@ -1,14 +1,14 @@
 "use client";
 
-import { type ReactNode, useRef } from "react";
 import {
+  AnimatePresence,
   motion,
   useInView,
   useScroll,
   useTransform,
-  AnimatePresence,
   type Variants,
 } from "motion/react";
+import { type ReactNode, useRef } from "react";
 
 /* ───── FadeIn ───── */
 interface FadeInProps {
@@ -58,11 +58,7 @@ interface ScrollRevealProps {
   width?: "fit-content" | "100%";
 }
 
-export function ScrollReveal({
-  children,
-  className,
-  width = "100%",
-}: ScrollRevealProps) {
+export function ScrollReveal({ children, className, width = "100%" }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -120,13 +116,7 @@ export function StaggerGrid({ children, className }: StaggerGridProps) {
   );
 }
 
-export function StaggerItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <motion.div className={className} variants={staggerItem}>
       {children}
@@ -191,11 +181,7 @@ export function AnimatedBar({
               minWidth: seg.value > 0 ? "2px" : "0",
             }}
             initial={{ width: "0%" }}
-            animate={
-              isInView
-                ? { width: `${(seg.value / total) * 100}%` }
-                : { width: "0%" }
-            }
+            animate={isInView ? { width: `${(seg.value / total) * 100}%` } : { width: "0%" }}
             transition={{
               duration: 0.8,
               delay: i * 0.05,
@@ -205,9 +191,7 @@ export function AnimatedBar({
             }}
             title={seg.label}
           >
-            {seg.value >= total * 0.05 && (
-              <span className="truncate px-1">{seg.label}</span>
-            )}
+            {seg.value >= total * 0.05 && <span className="truncate px-1">{seg.label}</span>}
           </motion.div>
         ))}
       </div>

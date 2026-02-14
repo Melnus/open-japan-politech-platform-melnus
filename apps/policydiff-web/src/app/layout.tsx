@@ -1,4 +1,4 @@
-import { NavigationBar, SmoothScrollProvider, ScrollReveal } from "@ojpp/ui";
+import { NavigationBar, ScrollReveal, SmoothScrollProvider } from "@ojpp/ui";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
@@ -56,9 +56,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ScrollReveal>
           <footer className="border-t border-slate-800 bg-slate-950 px-6 py-12 text-center text-sm text-slate-500">
             <div className="mx-auto max-w-7xl">
-              <p>AIエージェント時代の政策比較 -- あなたのエージェントが全政党の政策を常時分析する</p>
+              <p>
+                AIエージェント時代の政策比較 -- あなたのエージェントが全政党の政策を常時分析する
+              </p>
               <p className="mt-2">政党にも企業にもよらない、完全オープンな政治テクノロジー基盤</p>
-              <p className="mt-1 text-slate-600">Open Japan PoliTech Platform v0.1 | AGPL-3.0-or-later</p>
+              <p className="mt-1 text-slate-600">
+                Open Japan PoliTech Platform v0.1 | AGPL-3.0-or-later
+              </p>
             </div>
           </footer>
         </ScrollReveal>

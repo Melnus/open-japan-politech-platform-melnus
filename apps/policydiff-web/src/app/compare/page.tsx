@@ -1,8 +1,8 @@
 "use client";
 
+import { AnimatePresence, motion } from "@ojpp/ui";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "@ojpp/ui";
 
 interface Party {
   id: string;
@@ -56,7 +56,9 @@ function renderMarkdown(text: string): ReactNode[] {
           li++;
         }
         elements.push(
-          <ul key={`${bi}-list-${li}`} className="list-disc">{items}</ul>,
+          <ul key={`${bi}-list-${li}`} className="list-disc">
+            {items}
+          </ul>,
         );
       } else {
         if (line.trim()) {
@@ -145,9 +147,7 @@ export default function ComparePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="mb-2 text-3xl font-extrabold tracking-tight text-white">
-            政党比較
-          </h2>
+          <h2 className="mb-2 text-3xl font-extrabold tracking-tight text-white">政党比較</h2>
           <p className="mb-10 text-slate-400">
             カテゴリと政党を選択して、各政党の政策を横並びで比較できます。
           </p>
@@ -169,9 +169,7 @@ export default function ComparePage() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`filter-chip ${
-                  selectedCategory === cat ? "filter-chip--active" : ""
-                }`}
+                className={`filter-chip ${selectedCategory === cat ? "filter-chip--active" : ""}`}
               >
                 {cat}
               </button>
@@ -200,14 +198,12 @@ export default function ComparePage() {
                   className="inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-medium transition-all"
                   style={{
                     borderColor: isSelected
-                      ? party.color ?? "#6b7280"
+                      ? (party.color ?? "#6b7280")
                       : `${party.color ?? "#6b7280"}40`,
                     color: isSelected
-                      ? party.color ?? "#94a3b8"
+                      ? (party.color ?? "#94a3b8")
                       : `${party.color ?? "#94a3b8"}80`,
-                    backgroundColor: isSelected
-                      ? `${party.color ?? "#6b7280"}15`
-                      : "transparent",
+                    backgroundColor: isSelected ? `${party.color ?? "#6b7280"}15` : "transparent",
                     opacity: isSelected ? 1 : 0.5,
                   }}
                   whileHover={{ scale: 1.04, opacity: 1 }}
@@ -235,8 +231,19 @@ export default function ComparePage() {
               transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
             >
               <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               読み込み中...
             </motion.div>
@@ -304,8 +311,18 @@ export default function ComparePage() {
                           className="inline-flex items-center gap-1 text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
                         >
                           詳細を見る
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          <svg
+                            className="h-4 w-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </a>
                       </div>
@@ -314,9 +331,7 @@ export default function ComparePage() {
                 </div>
               ) : (
                 <div className="glass-card p-12 text-center">
-                  <p className="text-slate-500">
-                    カテゴリと政党を選択してください。
-                  </p>
+                  <p className="text-slate-500">カテゴリと政党を選択してください。</p>
                 </div>
               )}
             </motion.div>

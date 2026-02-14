@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 /* ---------- Types ---------- */
 
@@ -55,9 +55,7 @@ export function SeatBarChart({
   }
 
   // Majority line position as percentage of the bar container
-  const majorityPct = majorityLine
-    ? (majorityLine.seats / maxSeats) * 100
-    : null;
+  const majorityPct = majorityLine ? (majorityLine.seats / maxSeats) * 100 : null;
 
   return (
     <div ref={ref} className="relative">
@@ -325,9 +323,7 @@ export function SeatBar({
               }}
               initial={{ width: "0%" }}
               animate={
-                isInView
-                  ? { width: `${(r.seatsWon / totalSeats) * 100}%` }
-                  : { width: "0%" }
+                isInView ? { width: `${(r.seatsWon / totalSeats) * 100}%` } : { width: "0%" }
               }
               transition={{
                 duration: 0.8,

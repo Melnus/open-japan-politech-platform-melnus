@@ -1,7 +1,7 @@
 "use client";
 
-import { type ReactNode, useRef } from "react";
 import { motion, useInView } from "motion/react";
+import { type ReactNode, useRef } from "react";
 
 interface MotionCardProps {
   children: ReactNode;

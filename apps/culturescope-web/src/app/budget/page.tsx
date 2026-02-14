@@ -49,12 +49,8 @@ export default async function BudgetPage() {
     return (
       <div className="mx-auto max-w-7xl px-6 py-20">
         <FadeIn>
-          <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
-            文化庁予算推移
-          </h1>
-          <p className="mb-8 text-zinc-400">
-            年度別・分野別の文化予算データをグラフで可視化
-          </p>
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white">文化庁予算推移</h1>
+          <p className="mb-8 text-zinc-400">年度別・分野別の文化予算データをグラフで可視化</p>
         </FadeIn>
         <div className="glass-card p-8">
           {fetchError ? (
@@ -86,9 +82,7 @@ export default async function BudgetPage() {
         <div className="absolute -top-20 left-1/4 h-40 w-80 rounded-full bg-amber-500/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <h1 className="text-3xl font-extrabold tracking-tight text-white">
-              文化庁予算推移
-            </h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-white">文化庁予算推移</h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mt-3 text-base text-zinc-400">

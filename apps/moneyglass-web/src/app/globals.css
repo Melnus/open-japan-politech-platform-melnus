@@ -6,10 +6,10 @@
   --mg-bg-primary: #0f1119;
   --mg-bg-secondary: #1a1a2e;
   --mg-bg-tertiary: #16213e;
-  --mg-accent: #FF6B35;
-  --mg-accent-light: #FF8C5A;
-  --mg-accent-muted: #FFAD80;
-  --mg-accent-pale: #FFD4B8;
+  --mg-accent: #ff6b35;
+  --mg-accent-light: #ff8c5a;
+  --mg-accent-muted: #ffad80;
+  --mg-accent-pale: #ffd4b8;
   --mg-accent-glow: rgba(255, 107, 53, 0.15);
   --mg-border: rgba(255, 255, 255, 0.06);
   --mg-border-accent: rgba(255, 107, 53, 0.3);
@@ -37,18 +37,28 @@
 
 /* Glow effects */
 .glow-orange {
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.1), 0 0 60px rgba(255, 107, 53, 0.05);
+  box-shadow:
+    0 0 20px rgba(255, 107, 53, 0.1),
+    0 0 60px rgba(255, 107, 53, 0.05);
 }
 
 .glow-orange-hover:hover {
-  box-shadow: 0 0 30px rgba(255, 107, 53, 0.2), 0 0 80px rgba(255, 107, 53, 0.1);
+  box-shadow:
+    0 0 30px rgba(255, 107, 53, 0.2),
+    0 0 80px rgba(255, 107, 53, 0.1);
 }
 
 /* Animated gradient background */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animated-gradient-bg {

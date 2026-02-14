@@ -1,7 +1,7 @@
 import { prisma } from "@ojpp/db";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SeatBar } from "../../seat-bar";
 
@@ -93,11 +93,7 @@ export async function generateMetadata({
 
 /* ---------- Page ---------- */
 
-export default async function ElectionDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function ElectionDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const election = await getElection(id);
 
@@ -152,18 +148,24 @@ export default async function ElectionDetailPage({
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-4">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">総定数</p>
-            <p className="mt-1 text-lg font-bold tabular-nums text-white">{election.totalSeats}議席</p>
+            <p className="mt-1 text-lg font-bold tabular-nums text-white">
+              {election.totalSeats}議席
+            </p>
           </div>
           {election.districtSeats != null && (
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-4">
               <p className="text-[10px] uppercase tracking-wider text-slate-500">選挙区</p>
-              <p className="mt-1 text-lg font-bold tabular-nums text-white">{election.districtSeats}議席</p>
+              <p className="mt-1 text-lg font-bold tabular-nums text-white">
+                {election.districtSeats}議席
+              </p>
             </div>
           )}
           {election.proportionalSeats != null && (
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-4">
               <p className="text-[10px] uppercase tracking-wider text-slate-500">比例代表</p>
-              <p className="mt-1 text-lg font-bold tabular-nums text-white">{election.proportionalSeats}議席</p>
+              <p className="mt-1 text-lg font-bold tabular-nums text-white">
+                {election.proportionalSeats}議席
+              </p>
             </div>
           )}
           {election.turnout != null && (
@@ -257,7 +259,9 @@ export default async function ElectionDetailPage({
                           )}
                         </span>
                       </td>
-                      <td className="px-6 py-3 text-right font-bold tabular-nums text-white">{r.seatsWon}</td>
+                      <td className="px-6 py-3 text-right font-bold tabular-nums text-white">
+                        {r.seatsWon}
+                      </td>
                       {election.districtSeats != null && (
                         <td className="px-6 py-3 text-right tabular-nums text-slate-400">
                           {r.districtSeats ?? "-"}
@@ -268,7 +272,9 @@ export default async function ElectionDetailPage({
                           {r.proportionalSeats ?? "-"}
                         </td>
                       )}
-                      <td className="px-6 py-3 text-right tabular-nums text-slate-400">{seatPct}%</td>
+                      <td className="px-6 py-3 text-right tabular-nums text-slate-400">
+                        {seatPct}%
+                      </td>
                       <td className="px-6 py-3 text-right tabular-nums text-slate-400">
                         {formatVotes(r.totalVotes)}
                       </td>
@@ -285,7 +291,9 @@ export default async function ElectionDetailPage({
                 <tr className="border-t border-white/[0.06] font-medium">
                   <td className="px-6 py-3" />
                   <td className="px-6 py-3 text-slate-400">合計</td>
-                  <td className="px-6 py-3 text-right font-bold tabular-nums text-white">{totalWon}</td>
+                  <td className="px-6 py-3 text-right font-bold tabular-nums text-white">
+                    {totalWon}
+                  </td>
                   {election.districtSeats != null && (
                     <td className="px-6 py-3 text-right tabular-nums text-slate-400">
                       {partiesWithSeats.reduce((s, r) => s + (r.districtSeats ?? 0), 0) || "-"}
@@ -366,8 +374,7 @@ export default async function ElectionDetailPage({
                     </div>
                   </div>
                   <span className="w-20 text-right text-sm tabular-nums text-slate-300">
-                    {r.seatsWon}{" "}
-                    <span className="text-xs text-slate-600">({pct.toFixed(1)}%)</span>
+                    {r.seatsWon} <span className="text-xs text-slate-600">({pct.toFixed(1)}%)</span>
                   </span>
                 </div>
               );

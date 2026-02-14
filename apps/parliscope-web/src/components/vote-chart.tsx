@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface VoteCount {
   FOR: number;
@@ -20,10 +20,34 @@ export function VoteChart({ votes }: { votes: VoteCount }) {
   }
 
   const items = [
-    { label: "賛成", count: votes.FOR, color: "bg-emerald-500", hex: "#22c55e", textColor: "text-emerald-400" },
-    { label: "反対", count: votes.AGAINST, color: "bg-red-500", hex: "#ef4444", textColor: "text-red-400" },
-    { label: "棄権", count: votes.ABSTAIN, color: "bg-yellow-500", hex: "#eab308", textColor: "text-yellow-400" },
-    { label: "欠席", count: votes.ABSENT, color: "bg-gray-500", hex: "#6b7280", textColor: "text-gray-400" },
+    {
+      label: "賛成",
+      count: votes.FOR,
+      color: "bg-emerald-500",
+      hex: "#22c55e",
+      textColor: "text-emerald-400",
+    },
+    {
+      label: "反対",
+      count: votes.AGAINST,
+      color: "bg-red-500",
+      hex: "#ef4444",
+      textColor: "text-red-400",
+    },
+    {
+      label: "棄権",
+      count: votes.ABSTAIN,
+      color: "bg-yellow-500",
+      hex: "#eab308",
+      textColor: "text-yellow-400",
+    },
+    {
+      label: "欠席",
+      count: votes.ABSENT,
+      color: "bg-gray-500",
+      hex: "#6b7280",
+      textColor: "text-gray-400",
+    },
   ];
 
   return (
@@ -40,11 +64,7 @@ export function VoteChart({ votes }: { votes: VoteCount }) {
                   className="h-full rounded-md"
                   style={{ backgroundColor: item.hex }}
                   initial={{ width: "0%" }}
-                  animate={
-                    isInView
-                      ? { width: `${(item.count / total) * 100}%` }
-                      : { width: "0%" }
-                  }
+                  animate={isInView ? { width: `${(item.count / total) * 100}%` } : { width: "0%" }}
                   transition={{
                     duration: 0.8,
                     delay: i * 0.1,

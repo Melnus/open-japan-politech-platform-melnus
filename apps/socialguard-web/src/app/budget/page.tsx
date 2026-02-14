@@ -1,7 +1,7 @@
 import { prisma } from "@ojpp/db";
 import { FadeIn } from "@ojpp/ui";
 import { unstable_noStore as noStore } from "next/cache";
-import { BudgetTrendChart, BudgetPieChart } from "./budget-charts";
+import { BudgetPieChart, BudgetTrendChart } from "./budget-charts";
 
 export const dynamic = "force-dynamic";
 
@@ -60,13 +60,18 @@ export default async function BudgetPage() {
     return (
       <div className="min-h-screen">
         <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }} />
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">予算推移</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              予算推移
+            </h1>
             <p className="mt-3 text-gray-400">社会保障関係費の年度別推移を可視化</p>
           </div>
         </section>
@@ -75,7 +80,8 @@ export default async function BudgetPage() {
             <p className="text-center text-gray-500">
               社会保障予算データがまだありません。
               <br />
-              <code className="text-xs text-gray-400">pnpm ingest:social-security</code> を実行してデータを投入してください。
+              <code className="text-xs text-gray-400">pnpm ingest:social-security</code>{" "}
+              を実行してデータを投入してください。
             </p>
           </div>
         </div>
@@ -85,7 +91,9 @@ export default async function BudgetPage() {
 
   /* --- Prepare chart data --- */
   const years = [...new Set(budgets.map((b) => b.fiscalYear))].sort();
-  const categories = [...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category))];
+  const categories = [
+    ...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category)),
+  ];
 
   const trendData = years.map((year) => {
     const row: Record<string, number | string> = { year: `${year}` };
@@ -110,7 +118,7 @@ export default async function BudgetPage() {
 
   const categoryKeys = categories.map((c) => categoryLabel(c));
   const colorMap = Object.fromEntries(
-    categories.map((c) => [categoryLabel(c), CATEGORY_COLORS[c] ?? "#6B7280"])
+    categories.map((c) => [categoryLabel(c), CATEGORY_COLORS[c] ?? "#6B7280"]),
   );
 
   const totalByYear = years.map((year) => {
@@ -122,16 +130,23 @@ export default async function BudgetPage() {
     <div className="min-h-screen">
       {/* ====== Hero ====== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-8">
-          <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">予算推移</h1>
+          <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            予算推移
+          </h1>
           <p className="mb-4 text-gray-400">社会保障関係費の年度別推移を可視化</p>
           <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-            <span>期間: {years[0]}〜{years[years.length - 1]}年度</span>
+            <span>
+              期間: {years[0]}〜{years[years.length - 1]}年度
+            </span>
             <span>カテゴリ: {categories.length}分野</span>
           </div>
         </div>
@@ -146,11 +161,7 @@ export default async function BudgetPage() {
               分野別予算推移
             </h2>
             <div className="dark-card p-8">
-              <BudgetTrendChart
-                data={trendData}
-                categoryKeys={categoryKeys}
-                colorMap={colorMap}
-              />
+              <BudgetTrendChart data={trendData} categoryKeys={categoryKeys} colorMap={colorMap} />
             </div>
           </section>
         </FadeIn>

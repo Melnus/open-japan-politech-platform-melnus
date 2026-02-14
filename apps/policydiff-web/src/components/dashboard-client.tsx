@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "@ojpp/ui";
+import { AnimatePresence, motion, useInView } from "@ojpp/ui";
+import { useRef, useState } from "react";
 
 interface DashboardProps {
   stats: {
@@ -30,15 +30,7 @@ interface DashboardProps {
 }
 
 /* ── Animated Stat Card ── */
-function StatCard({
-  label,
-  value,
-  delay,
-}: {
-  label: string;
-  value: number;
-  delay: number;
-}) {
+function StatCard({ label, value, delay }: { label: string; value: number; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
@@ -99,16 +91,12 @@ function PolicyCard({
             style={{ backgroundColor: policy.partyColor }}
           />
         )}
-        <span className="text-sm font-semibold text-white">
-          {policy.partyName ?? "不明"}
-        </span>
+        <span className="text-sm font-semibold text-white">{policy.partyName ?? "不明"}</span>
       </div>
 
       {/* Content preview */}
       <p className="mb-4 text-sm leading-relaxed text-slate-400">
-        {policy.content.length > 80
-          ? `${policy.content.slice(0, 80)}...`
-          : policy.content}
+        {policy.content.length > 80 ? `${policy.content.slice(0, 80)}...` : policy.content}
       </p>
 
       {/* Tags */}
@@ -224,9 +212,7 @@ export function DashboardClient({
               <button
                 key={cat}
                 type="button"
-                onClick={() =>
-                  setSelectedCategory((prev) => (prev === cat ? null : cat))
-                }
+                onClick={() => setSelectedCategory((prev) => (prev === cat ? null : cat))}
                 className={`filter-chip ${selectedCategory === cat ? "filter-chip--active" : ""}`}
               >
                 {cat}
@@ -252,9 +238,7 @@ export function DashboardClient({
                 ))
               ) : (
                 <div className="col-span-full py-16 text-center">
-                  <p className="text-slate-500">
-                    該当する政策がありません。
-                  </p>
+                  <p className="text-slate-500">該当する政策がありません。</p>
                 </div>
               )}
             </motion.div>

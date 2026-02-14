@@ -40,10 +40,7 @@ export function HeroStats({
           <div className="glass-card-accent glow-orange rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] glow-orange-hover">
             <p className="text-sm font-medium text-[#8b949e]">{item.label}</p>
             <p className="mt-2 text-3xl font-bold text-[#FF6B35]">
-              <AnimatedCounter
-                end={values[item.key]}
-                suffix={item.suffix}
-              />
+              <AnimatedCounter end={values[item.key]} suffix={item.suffix} />
             </p>
           </div>
         </StaggerItem>

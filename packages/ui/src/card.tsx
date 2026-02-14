@@ -30,9 +30,7 @@ export function Card({
       ? "rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.03)] backdrop-blur-sm"
       : "rounded-xl border bg-white shadow-card";
   return (
-    <div
-      className={`${variantClass} ${paddingClass} ${hoverClass} ${animateClass} ${className}`}
-    >
+    <div className={`${variantClass} ${paddingClass} ${hoverClass} ${animateClass} ${className}`}>
       {children}
     </div>
   );

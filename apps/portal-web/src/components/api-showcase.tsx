@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { ScrollReveal } from "@ojpp/ui";
+import { useState } from "react";
 
 /* ── Copy button ── */
 function CopyBtn({ text, label }: { text: string; label?: string }) {
@@ -18,11 +18,15 @@ function CopyBtn({ text, label }: { text: string; label?: string }) {
       className="mono shrink-0 border border-[var(--border)] px-2 py-0.5 text-[0.55rem] tracking-wider transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]"
       style={
         copied
-          ? { borderColor: "var(--accent)", color: "var(--accent)", textShadow: "0 0 8px var(--accent)" }
+          ? {
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+              textShadow: "0 0 8px var(--accent)",
+            }
           : {}
       }
     >
-      {copied ? "COPIED!" : label ?? "COPY"}
+      {copied ? "COPIED!" : (label ?? "COPY")}
     </button>
   );
 }
@@ -54,7 +58,9 @@ function TermCard({
   className?: string;
 }) {
   return (
-    <div className={`flex flex-col border border-[var(--border)] bg-[var(--bg)] ${className ?? ""}`}>
+    <div
+      className={`flex flex-col border border-[var(--border)] bg-[var(--bg)] ${className ?? ""}`}
+    >
       {/* dots */}
       <div className="flex items-center gap-2 border-b border-[var(--border)] px-3 py-1.5">
         <span className="h-2 w-2 rounded-full bg-[var(--neon-pink)]" style={{ opacity: 0.6 }} />
@@ -126,10 +132,7 @@ export function ApiShowcase() {
             </TermCard>
 
             {/* 開発する — 1/3 width */}
-            <TermCard
-              title="setup — 1 command"
-              desc="ワンコマンドで全6サービスが起動"
-            >
+            <TermCard title="setup — 1 command" desc="ワンコマンドで全6サービスが起動">
               <div className="flex flex-1 flex-col">
                 <CmdBlock cmd={SETUP_CMD} comment="all-in-one" />
                 <div className="mt-auto border-t border-[var(--border)] px-3 py-2">
@@ -169,7 +172,9 @@ export function ApiShowcase() {
                     <span className="kpi-value text-[0.55rem] text-[var(--text-ghost)]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="kpi-value w-8 font-bold text-[var(--accent)]">{ep.method}</span>
+                    <span className="kpi-value w-8 font-bold text-[var(--accent)]">
+                      {ep.method}
+                    </span>
                     <span className="kpi-value flex-1 text-[var(--text)]">{ep.path}</span>
                     <span
                       className="kpi-value text-[0.5rem] tracking-[1px]"

@@ -1,4 +1,4 @@
-import { Card, Stat, ScrollReveal, StaggerGrid, StaggerItem } from "@ojpp/ui";
+import { Card, ScrollReveal, StaggerGrid, StaggerItem, Stat } from "@ojpp/ui";
 import { notFound } from "next/navigation";
 import { formatCurrency, getBaseUrl } from "@/lib/format";
 import { PartyDetailCharts } from "./party-detail-charts";

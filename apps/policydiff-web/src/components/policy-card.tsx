@@ -52,18 +52,13 @@ export function PolicyCard({
                 style={{ backgroundColor: partyColor }}
               />
             )}
-            <span
-              className="text-xs font-medium"
-              style={{ color: partyColor ?? "#94a3b8" }}
-            >
+            <span className="text-xs font-medium" style={{ color: partyColor ?? "#94a3b8" }}>
               {partyName}
             </span>
           </div>
         )}
         <h3 className="mb-2 text-sm font-bold leading-snug text-white">{title}</h3>
-        {contentPreview && (
-          <p className="line-clamp-2 text-xs text-slate-500">{contentPreview}</p>
-        )}
+        {contentPreview && <p className="line-clamp-2 text-xs text-slate-500">{contentPreview}</p>}
       </div>
     </a>
   );

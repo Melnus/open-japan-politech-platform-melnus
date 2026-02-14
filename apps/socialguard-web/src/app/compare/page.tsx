@@ -1,5 +1,5 @@
 import { prisma } from "@ojpp/db";
-import { FadeIn, StaggerGrid, StaggerItem, Badge } from "@ojpp/ui";
+import { Badge, FadeIn, StaggerGrid, StaggerItem } from "@ojpp/ui";
 import { unstable_noStore as noStore } from "next/cache";
 
 export const dynamic = "force-dynamic";
@@ -24,7 +24,10 @@ interface StanceRow {
 
 /* ---------- Helpers ---------- */
 
-function stanceBadge(stance: string): { variant: "success" | "danger" | "warning" | "info" | "default"; label: string } {
+function stanceBadge(stance: string): {
+  variant: "success" | "danger" | "warning" | "info" | "default";
+  label: string;
+} {
   const s = stance.toLowerCase();
   if (s.includes("賛成") || s.includes("推進") || s.includes("拡充")) {
     return { variant: "success", label: stance };
@@ -57,13 +60,18 @@ export default async function ComparePage() {
     return (
       <div className="min-h-screen">
         <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }} />
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">政党比較</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              政党比較
+            </h1>
             <p className="mt-3 text-gray-400">社会保障政策に対する各党のスタンスを比較</p>
           </div>
         </section>
@@ -72,7 +80,8 @@ export default async function ComparePage() {
             <p className="text-center text-gray-500">
               政党スタンスデータがまだありません。
               <br />
-              <code className="text-xs text-gray-400">pnpm ingest:social-security</code> を実行してデータを投入してください。
+              <code className="text-xs text-gray-400">pnpm ingest:social-security</code>{" "}
+              を実行してデータを投入してください。
             </p>
           </div>
         </div>
@@ -81,7 +90,10 @@ export default async function ComparePage() {
   }
 
   /* --- Group by party --- */
-  const partyMap = new Map<string, { name: string; shortName: string | null; color: string | null; stances: StanceRow[] }>();
+  const partyMap = new Map<
+    string,
+    { name: string; shortName: string | null; color: string | null; stances: StanceRow[] }
+  >();
   for (const s of stances) {
     if (!partyMap.has(s.partyId)) {
       partyMap.set(s.partyId, {
@@ -102,13 +114,18 @@ export default async function ComparePage() {
     <div className="min-h-screen">
       {/* ====== Hero ====== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-8">
-          <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">政党比較</h1>
+          <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            政党比較
+          </h1>
           <p className="mb-4 text-gray-400">社会保障政策に対する各党のスタンスを比較</p>
           <div className="flex flex-wrap gap-4 text-sm text-gray-500">
             <span>政党: {parties.length}党</span>
@@ -167,7 +184,9 @@ export default async function ComparePage() {
                             <Badge variant={badge.variant} dot>
                               {badge.label}
                             </Badge>
-                            <p className="mt-1 text-xs text-gray-500 line-clamp-2">{stance.summary}</p>
+                            <p className="mt-1 text-xs text-gray-500 line-clamp-2">
+                              {stance.summary}
+                            </p>
                           </td>
                         );
                       })}
@@ -201,9 +220,7 @@ export default async function ComparePage() {
                         </div>
                         <div>
                           <h3 className="font-bold text-white">{p.name}</h3>
-                          {p.shortName && (
-                            <p className="text-xs text-gray-500">{p.shortName}</p>
-                          )}
+                          {p.shortName && <p className="text-xs text-gray-500">{p.shortName}</p>}
                         </div>
                       </div>
 

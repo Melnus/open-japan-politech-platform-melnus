@@ -1,4 +1,10 @@
-import { parsePagination, buildPaginatedResponse, handleApiError, jsonResponse, serializeBigInt } from "@ojpp/api";
+import {
+  buildPaginatedResponse,
+  handleApiError,
+  jsonResponse,
+  parsePagination,
+  serializeBigInt,
+} from "@ojpp/api";
 import { prisma } from "@ojpp/db";
 import type { NextRequest } from "next/server";
 
@@ -24,7 +30,11 @@ export async function GET(request: NextRequest) {
       prisma.culturalProgram.count({ where }),
     ]);
 
-    const response = buildPaginatedResponse(serializeBigInt(programs), total, { page, limit, skip });
+    const response = buildPaginatedResponse(serializeBigInt(programs), total, {
+      page,
+      limit,
+      skip,
+    });
     return jsonResponse(response);
   } catch (error) {
     return handleApiError(error);

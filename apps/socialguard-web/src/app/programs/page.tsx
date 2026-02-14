@@ -75,10 +75,13 @@ export default async function ProgramsPage() {
     <div className="min-h-screen">
       {/* ====== Hero ====== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-8">
           <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
@@ -101,7 +104,8 @@ export default async function ProgramsPage() {
             <p className="text-center text-gray-500">
               社会保障制度データがまだありません。
               <br />
-              <code className="text-xs text-gray-400">pnpm ingest:social-security</code> を実行してデータを投入してください。
+              <code className="text-xs text-gray-400">pnpm ingest:social-security</code>{" "}
+              を実行してデータを投入してください。
             </p>
           </div>
         ) : (
@@ -137,7 +141,9 @@ export default async function ProgramsPage() {
                         style={{ backgroundColor: CATEGORY_COLORS[cat] ?? "#6B7280" }}
                       />
                       {categoryLabel(cat)}
-                      <span className="text-sm font-normal text-gray-500">({catPrograms.length}件)</span>
+                      <span className="text-sm font-normal text-gray-500">
+                        ({catPrograms.length}件)
+                      </span>
                     </h2>
                     <StaggerGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {catPrograms.map((p) => (
@@ -148,7 +154,9 @@ export default async function ProgramsPage() {
                               <div className="mb-3 flex items-start justify-between">
                                 <span
                                   className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium text-white"
-                                  style={{ backgroundColor: CATEGORY_COLORS[p.category] ?? "#6B7280" }}
+                                  style={{
+                                    backgroundColor: CATEGORY_COLORS[p.category] ?? "#6B7280",
+                                  }}
                                 >
                                   {categoryLabel(p.category)}
                                 </span>
@@ -160,7 +168,9 @@ export default async function ProgramsPage() {
                               </div>
 
                               {/* Title */}
-                              <h3 className="text-base font-bold leading-tight text-white">{p.name}</h3>
+                              <h3 className="text-base font-bold leading-tight text-white">
+                                {p.name}
+                              </h3>
 
                               {/* Description */}
                               <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-400">
@@ -171,13 +181,17 @@ export default async function ProgramsPage() {
                               <div className="mt-4 space-y-2 border-t border-white/5 pt-3">
                                 {p.eligibility && (
                                   <div className="flex gap-2 text-xs">
-                                    <span className="shrink-0 font-medium text-gray-500">対象:</span>
+                                    <span className="shrink-0 font-medium text-gray-500">
+                                      対象:
+                                    </span>
                                     <span className="text-gray-400">{p.eligibility}</span>
                                   </div>
                                 )}
                                 {p.benefit && (
                                   <div className="flex gap-2 text-xs">
-                                    <span className="shrink-0 font-medium text-gray-500">給付:</span>
+                                    <span className="shrink-0 font-medium text-gray-500">
+                                      給付:
+                                    </span>
                                     <span className="text-gray-400">{p.benefit}</span>
                                   </div>
                                 )}
@@ -187,24 +201,54 @@ export default async function ProgramsPage() {
                               <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-gray-500">
                                 {p.recipients != null && (
                                   <span className="inline-flex items-center gap-1">
-                                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <svg
+                                      className="h-3 w-3"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                                      />
                                     </svg>
                                     約{p.recipients.toLocaleString()}万人
                                   </span>
                                 )}
                                 {p.budget != null && (
                                   <span className="inline-flex items-center gap-1">
-                                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    <svg
+                                      className="h-3 w-3"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                      />
                                     </svg>
                                     {formatAmount(p.budget)}
                                   </span>
                                 )}
                                 {p.lastReformed && (
                                   <span className="inline-flex items-center gap-1">
-                                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    <svg
+                                      className="h-3 w-3"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                      />
                                     </svg>
                                     {p.lastReformed}年改正
                                   </span>

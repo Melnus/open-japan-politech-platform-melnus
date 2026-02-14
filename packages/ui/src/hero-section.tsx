@@ -1,7 +1,7 @@
 "use client";
 
-import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { type ReactNode, useRef } from "react";
 
 interface HeroSectionProps {
   title: string;

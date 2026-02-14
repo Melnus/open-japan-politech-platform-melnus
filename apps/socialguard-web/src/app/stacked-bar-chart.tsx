@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface YearData {
   year: number;
@@ -81,9 +81,7 @@ export function StackedBarChart({
         {latestTotal && (
           <div className="absolute -right-2 top-0 flex flex-col items-end">
             <span className="text-sm font-semibold text-emerald-400">{latestTotal}</span>
-            {changePercent && (
-              <span className="text-xs text-gray-500">{changePercent}</span>
-            )}
+            {changePercent && <span className="text-xs text-gray-500">{changePercent}</span>}
           </div>
         )}
       </div>

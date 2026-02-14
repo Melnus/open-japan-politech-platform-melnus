@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface DarkStatCardProps {
   label: string;

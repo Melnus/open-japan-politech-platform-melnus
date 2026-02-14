@@ -219,7 +219,9 @@ export default async function ComparePage() {
                                 style={{ background: style.heatColor }}
                               >
                                 <div className="flex flex-col items-center gap-1">
-                                  <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-medium ${style.bg} ${style.text}`}>
+                                  <span
+                                    className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-medium ${style.bg} ${style.text}`}
+                                  >
                                     <span className={`h-1.5 w-1.5 rounded-full ${style.dot}`} />
                                     {topicStance.stance}
                                   </span>
@@ -294,7 +296,9 @@ export default async function ComparePage() {
                           <div className="mb-2 flex items-center justify-between">
                             <span className="text-sm font-medium text-zinc-200">{s.topic}</span>
                             <div className="flex items-center gap-2">
-                              <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${style.bg} ${style.text}`}>
+                              <span
+                                className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${style.bg} ${style.text}`}
+                              >
                                 <span className={`h-1.5 w-1.5 rounded-full ${style.dot}`} />
                                 {s.stance}
                               </span>

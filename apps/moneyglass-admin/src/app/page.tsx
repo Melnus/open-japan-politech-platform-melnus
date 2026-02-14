@@ -7,30 +7,10 @@ export default function AdminHome() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          label="総収入"
-          value="--"
-          sub="未集計"
-          accentClass="bg-green-500"
-        />
-        <AdminStatCard
-          label="総支出"
-          value="--"
-          sub="未集計"
-          accentClass="bg-red-500"
-        />
-        <AdminStatCard
-          label="取引件数"
-          value="0"
-          sub="件"
-          accentClass="bg-blue-500"
-        />
-        <AdminStatCard
-          label="報告書"
-          value="0"
-          sub="件"
-          accentClass="bg-amber-500"
-        />
+        <AdminStatCard label="総収入" value="--" sub="未集計" accentClass="bg-green-500" />
+        <AdminStatCard label="総支出" value="--" sub="未集計" accentClass="bg-red-500" />
+        <AdminStatCard label="取引件数" value="0" sub="件" accentClass="bg-blue-500" />
+        <AdminStatCard label="報告書" value="0" sub="件" accentClass="bg-amber-500" />
       </div>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">

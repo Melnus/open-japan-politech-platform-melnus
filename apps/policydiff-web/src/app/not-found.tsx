@@ -7,10 +7,7 @@ export default function NotFound() {
           <p className="mb-6 text-slate-400">
             お探しのページは存在しないか、移動した可能性があります。
           </p>
-          <a
-            href="/"
-            className="text-blue-400 transition-colors hover:text-blue-300"
-          >
+          <a href="/" className="text-blue-400 transition-colors hover:text-blue-300">
             トップページに戻る
           </a>
         </div>

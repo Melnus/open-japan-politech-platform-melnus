@@ -3,22 +3,17 @@ import { prisma } from "@ojpp/db";
 
 export async function GET() {
   try {
-    const [
-      budgetCount,
-      programCount,
-      welfareStatCount,
-      stanceCount,
-      latestBudget,
-    ] = await Promise.all([
-      prisma.socialSecurityBudget.count(),
-      prisma.socialSecurityProgram.count(),
-      prisma.welfareStat.count(),
-      prisma.socialSecurityStance.count(),
-      prisma.socialSecurityBudget.findFirst({
-        where: { category: "TOTAL" },
-        orderBy: { fiscalYear: "desc" },
-      }),
-    ]);
+    const [budgetCount, programCount, welfareStatCount, stanceCount, latestBudget] =
+      await Promise.all([
+        prisma.socialSecurityBudget.count(),
+        prisma.socialSecurityProgram.count(),
+        prisma.welfareStat.count(),
+        prisma.socialSecurityStance.count(),
+        prisma.socialSecurityBudget.findFirst({
+          where: { category: "TOTAL" },
+          orderBy: { fiscalYear: "desc" },
+        }),
+      ]);
 
     return jsonResponse(
       serializeBigInt({

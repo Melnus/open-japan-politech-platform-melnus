@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "@ojpp/ui";
+import { useRef } from "react";
 
 export function DashboardHero() {
   const ref = useRef<HTMLElement>(null);
@@ -12,10 +12,7 @@ export function DashboardHero() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden pb-20 pt-16"
-    >
+    <section ref={ref} className="relative overflow-hidden pb-20 pt-16">
       {/* Animated dot grid background */}
       <motion.div
         className="absolute inset-0 opacity-[0.04]"

@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 import {
   Bar,
   BarChart,
@@ -81,11 +81,21 @@ export function YearlyBarChart({ data }: { data: YearlyData[] }) {
               }}
               labelStyle={{ color: "#8b949e" }}
             />
-            <Legend
-              wrapperStyle={{ color: "#8b949e" }}
+            <Legend wrapperStyle={{ color: "#8b949e" }} />
+            <Bar
+              dataKey="収入"
+              fill="url(#incomeGradient)"
+              radius={[4, 4, 0, 0]}
+              animationDuration={1200}
+              animationBegin={200}
             />
-            <Bar dataKey="収入" fill="url(#incomeGradient)" radius={[4, 4, 0, 0]} animationDuration={1200} animationBegin={200} />
-            <Bar dataKey="支出" fill="url(#expenditureGradient)" radius={[4, 4, 0, 0]} animationDuration={1200} animationBegin={400} />
+            <Bar
+              dataKey="支出"
+              fill="url(#expenditureGradient)"
+              radius={[4, 4, 0, 0]}
+              animationDuration={1200}
+              animationBegin={400}
+            />
           </BarChart>
         </ResponsiveContainer>
       )}
@@ -199,8 +209,20 @@ export function PartyComparisonChart({ data }: { data: PartyBarData[] }) {
               labelStyle={{ color: "#8b949e" }}
             />
             <Legend wrapperStyle={{ color: "#8b949e" }} />
-            <Bar dataKey="収入" fill="url(#incomeGradientH)" radius={[0, 4, 4, 0]} animationDuration={1200} animationBegin={200} />
-            <Bar dataKey="支出" fill="url(#expenditureGradientH)" radius={[0, 4, 4, 0]} animationDuration={1200} animationBegin={400} />
+            <Bar
+              dataKey="収入"
+              fill="url(#incomeGradientH)"
+              radius={[0, 4, 4, 0]}
+              animationDuration={1200}
+              animationBegin={200}
+            />
+            <Bar
+              dataKey="支出"
+              fill="url(#expenditureGradientH)"
+              radius={[0, 4, 4, 0]}
+              animationDuration={1200}
+              animationBegin={400}
+            />
           </BarChart>
         </ResponsiveContainer>
       )}

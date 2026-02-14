@@ -218,18 +218,18 @@ const CULTURAL_BUDGET_DATA: CulturalBudgetYear[] = [
   // ※「文化資源の磨き上げによる好循環の創出」171億円が大幅増の主因
   {
     fiscalYear: 2019,
-    artsPromotion: 8_500n,       // 85億円 - 舞台芸術創造活動、子供育成等
-    culturalProperty: 47_200n,   // 472億円 - 国宝・重文保存修理、埋蔵文化財等
-    mediaArts: 2_800n,           // 28億円 - メディア芸術祭、アニメ・漫画アーカイブ
-    international: 3_500n,       // 35億円 - 国際文化交流、日本博34.7億円等
-    copyright: 1_350n,           // 13.5億円 - 著作権制度整備、海賊版対策
-    japaneseLanguage: 3_800n,    // 38億円 - 国語施策、日本語教育推進
-    religiousAffairs: 580n,      // 5.8億円 - 宗教法人関連事務
-    creativeIndustry: 17_100n,   // 171億円 - 文化資源磨き上げ（国際観光旅客税活用）
-    culturalFacility: 27_000n,   // 270億円 - 国立文化施設運営費等
-    digitalArchive: 1_500n,      // 15億円 - 文化財デジタルアーカイブ構築
-    localCulture: 3_379n,        // 33.8億円 - 地域文化財総合活用等
-    total: 116_709n,             // 1,167億円
+    artsPromotion: 8_500n, // 85億円 - 舞台芸術創造活動、子供育成等
+    culturalProperty: 47_200n, // 472億円 - 国宝・重文保存修理、埋蔵文化財等
+    mediaArts: 2_800n, // 28億円 - メディア芸術祭、アニメ・漫画アーカイブ
+    international: 3_500n, // 35億円 - 国際文化交流、日本博34.7億円等
+    copyright: 1_350n, // 13.5億円 - 著作権制度整備、海賊版対策
+    japaneseLanguage: 3_800n, // 38億円 - 国語施策、日本語教育推進
+    religiousAffairs: 580n, // 5.8億円 - 宗教法人関連事務
+    creativeIndustry: 17_100n, // 171億円 - 文化資源磨き上げ（国際観光旅客税活用）
+    culturalFacility: 27_000n, // 270億円 - 国立文化施設運営費等
+    digitalArchive: 1_500n, // 15億円 - 文化財デジタルアーカイブ構築
+    localCulture: 3_379n, // 33.8億円 - 地域文化財総合活用等
+    total: 116_709n, // 1,167億円
   },
   // 出典: 文化庁令和2年度予算の概要 / 美術手帖 2020/1/10
   // https://bijutsutecho.com/magazine/news/headline/21354
@@ -237,54 +237,54 @@ const CULTURAL_BUDGET_DATA: CulturalBudgetYear[] = [
   // 首里城火災等受け防災対策促進プラン39億円、日本博45.3億円
   {
     fiscalYear: 2020,
-    artsPromotion: 8_500n,       // 85億円（舞台芸術+子供育成等）
-    culturalProperty: 46_800n,   // 468億円（防災対策促進プラン39億円含む）
-    mediaArts: 2_900n,           // 29億円
-    international: 4_500n,       // 45億円（日本博45.3億円含む）
-    copyright: 1_400n,           // 14億円
-    japaneseLanguage: 3_900n,    // 39億円
-    religiousAffairs: 590n,      // 5.9億円
-    creativeIndustry: 5_600n,    // 56億円
-    culturalFacility: 27_000n,   // 270億円（国立文化施設運営費等）
-    digitalArchive: 1_700n,      // 17億円
-    localCulture: 3_825n,        // 38.25億円
-    total: 106_715n,             // 1,067億円
+    artsPromotion: 8_500n, // 85億円（舞台芸術+子供育成等）
+    culturalProperty: 46_800n, // 468億円（防災対策促進プラン39億円含む）
+    mediaArts: 2_900n, // 29億円
+    international: 4_500n, // 45億円（日本博45.3億円含む）
+    copyright: 1_400n, // 14億円
+    japaneseLanguage: 3_900n, // 39億円
+    religiousAffairs: 590n, // 5.9億円
+    creativeIndustry: 5_600n, // 56億円
+    culturalFacility: 27_000n, // 270億円（国立文化施設運営費等）
+    digitalArchive: 1_700n, // 17億円
+    localCulture: 3_825n, // 38.25億円
+    total: 106_715n, // 1,067億円
   },
   // 出典: 文化庁令和3年度予算の概要
   // https://www.bunka.go.jp/seisaku/bunkashingikai/seisaku/18/04/pdf/93064301_09.pdf
   // 総額1,075億円（前年度1,067億円から0.7%増）
   {
     fiscalYear: 2021,
-    artsPromotion: 8_800n,       // 88億円（コロナ影響下だが当初予算は微増）
-    culturalProperty: 46_500n,   // 465億円
-    mediaArts: 2_850n,           // 28.5億円
-    international: 4_000n,       // 40億円（コロナで渡航制限）
-    copyright: 1_450n,           // 14.5億円
-    japaneseLanguage: 4_000n,    // 40億円
-    religiousAffairs: 580n,      // 5.8億円
-    creativeIndustry: 5_400n,    // 54億円
-    culturalFacility: 28_000n,   // 280億円（国立文化施設運営費等）
-    digitalArchive: 2_200n,      // 22億円（デジタル化推進強化）
-    localCulture: 3_720n,        // 37.2億円
-    total: 107_500n,             // 1,075億円
+    artsPromotion: 8_800n, // 88億円（コロナ影響下だが当初予算は微増）
+    culturalProperty: 46_500n, // 465億円
+    mediaArts: 2_850n, // 28.5億円
+    international: 4_000n, // 40億円（コロナで渡航制限）
+    copyright: 1_450n, // 14.5億円
+    japaneseLanguage: 4_000n, // 40億円
+    religiousAffairs: 580n, // 5.8億円
+    creativeIndustry: 5_400n, // 54億円
+    culturalFacility: 28_000n, // 280億円（国立文化施設運営費等）
+    digitalArchive: 2_200n, // 22億円（デジタル化推進強化）
+    localCulture: 3_720n, // 37.2億円
+    total: 107_500n, // 1,075億円
   },
   // 出典: 日本オーケストラ連盟 令和4年度文化庁予算
   // https://www.orchestra.or.jp/orchestra-news/4/
   // 総額1,076億円（前年度比0.1%増）
   {
     fiscalYear: 2022,
-    artsPromotion: 9_000n,       // 90億円（文化芸術活動再開支援）
-    culturalProperty: 46_500n,   // 465億円
-    mediaArts: 2_900n,           // 29億円
-    international: 4_200n,       // 42億円（徐々に回復）
-    copyright: 1_500n,           // 15億円
-    japaneseLanguage: 4_100n,    // 41億円
-    religiousAffairs: 590n,      // 5.9億円
-    creativeIndustry: 5_700n,    // 57億円
-    culturalFacility: 28_500n,   // 285億円（国立文化施設運営費等）
-    digitalArchive: 2_300n,      // 23億円
-    localCulture: 2_310n,        // 23.1億円
-    total: 107_600n,             // 1,076億円
+    artsPromotion: 9_000n, // 90億円（文化芸術活動再開支援）
+    culturalProperty: 46_500n, // 465億円
+    mediaArts: 2_900n, // 29億円
+    international: 4_200n, // 42億円（徐々に回復）
+    copyright: 1_500n, // 15億円
+    japaneseLanguage: 4_100n, // 41億円
+    religiousAffairs: 590n, // 5.9億円
+    creativeIndustry: 5_700n, // 57億円
+    culturalFacility: 28_500n, // 285億円（国立文化施設運営費等）
+    digitalArchive: 2_300n, // 23億円
+    localCulture: 2_310n, // 23.1億円
+    total: 107_600n, // 1,076億円
   },
   // 出典: 文化庁令和5年度予算の概要 / 美術手帖 2023/2/1、過去最大一般会計記事
   // https://bijutsutecho.com/magazine/news/headline/26589
@@ -294,18 +294,18 @@ const CULTURAL_BUDGET_DATA: CulturalBudgetYear[] = [
   // ※拠点整備369億円の大半は国立文化施設（独立行政法人運営費交付金等）
   {
     fiscalYear: 2023,
-    artsPromotion: 9_400n,       // 94億円（舞台芸術等総合支援事業）
-    culturalProperty: 44_700n,   // 447億円（文化財事業）
-    mediaArts: 2_500n,           // 25億円
-    international: 2_000n,       // 20億円（インバウンド回復）
-    copyright: 1_600n,           // 16億円（AI・著作権議論活発化）
-    japaneseLanguage: 4_200n,    // 42億円
-    religiousAffairs: 600n,      // 6億円
-    creativeIndustry: 3_000n,    // 30億円
-    culturalFacility: 32_300n,   // 323億円（国立文化施設の機能強化）
-    digitalArchive: 2_500n,      // 25億円
-    localCulture: 4_900n,        // 49億円
-    total: 107_700n,             // 1,077億円  ※旧ファイル109,300は誤り
+    artsPromotion: 9_400n, // 94億円（舞台芸術等総合支援事業）
+    culturalProperty: 44_700n, // 447億円（文化財事業）
+    mediaArts: 2_500n, // 25億円
+    international: 2_000n, // 20億円（インバウンド回復）
+    copyright: 1_600n, // 16億円（AI・著作権議論活発化）
+    japaneseLanguage: 4_200n, // 42億円
+    religiousAffairs: 600n, // 6億円
+    creativeIndustry: 3_000n, // 30億円
+    culturalFacility: 32_300n, // 323億円（国立文化施設の機能強化）
+    digitalArchive: 2_500n, // 25億円
+    localCulture: 4_900n, // 49億円
+    total: 107_700n, // 1,077億円  ※旧ファイル109,300は誤り
   },
   // 出典: 文化庁令和6年度予算（案）の概要 / 美術手帖 2024/1/10
   // https://bijutsutecho.com/magazine/news/headline/28264
@@ -315,18 +315,18 @@ const CULTURAL_BUDGET_DATA: CulturalBudgetYear[] = [
   // 拠点整備・充実359億円（国立施設323億円+劇場音楽堂27億円+その他）
   {
     fiscalYear: 2024,
-    artsPromotion: 9_400n,       // 94億円（舞台芸術等総合支援事業）
-    culturalProperty: 44_500n,   // 445億円（文化財修理256億円+多様な文化遺産188億円）
-    mediaArts: 900n,             // 9億円（メディア芸術の創造・発信プラン）
-    international: 1_500n,       // 15億円
-    copyright: 1_200n,           // 12億円（AI著作権法改正準備）
-    japaneseLanguage: 3_800n,    // 38億円
-    religiousAffairs: 500n,      // 5億円
-    creativeIndustry: 2_500n,    // 25億円
-    culturalFacility: 32_300n,   // 323億円（国立文化施設の機能強化）
-    digitalArchive: 2_000n,      // 20億円
-    localCulture: 7_600n,        // 76億円（劇場・音楽堂27億円+地域文化振興+子供育成等）
-    total: 106_200n,             // 1,062億円  ※旧ファイル113,000は誤り
+    artsPromotion: 9_400n, // 94億円（舞台芸術等総合支援事業）
+    culturalProperty: 44_500n, // 445億円（文化財修理256億円+多様な文化遺産188億円）
+    mediaArts: 900n, // 9億円（メディア芸術の創造・発信プラン）
+    international: 1_500n, // 15億円
+    copyright: 1_200n, // 12億円（AI著作権法改正準備）
+    japaneseLanguage: 3_800n, // 38億円
+    religiousAffairs: 500n, // 5億円
+    creativeIndustry: 2_500n, // 25億円
+    culturalFacility: 32_300n, // 323億円（国立文化施設の機能強化）
+    digitalArchive: 2_000n, // 20億円
+    localCulture: 7_600n, // 76億円（劇場・音楽堂27億円+地域文化振興+子供育成等）
+    total: 106_200n, // 1,062億円  ※旧ファイル113,000は誤り
   },
   // 出典: 文化庁令和7年度予算（案）の概要（前年度比0.1%増）
   // https://www.bunka.go.jp/seisaku/bunkashingikai/bunka_keizai/04/05/pdf/94160801_06.pdf
@@ -334,36 +334,36 @@ const CULTURAL_BUDGET_DATA: CulturalBudgetYear[] = [
   // 国立文化施設373.5億円+事項要求（R7概算要求資料より、当初予算は325億円程度）
   {
     fiscalYear: 2025,
-    artsPromotion: 9_500n,       // 95億円（大阪万博開催年、舞台芸術等総合支援）
-    culturalProperty: 44_700n,   // 447億円
-    mediaArts: 1_000n,           // 10億円
-    international: 1_500n,       // 15億円（万博文化プログラム）
-    copyright: 1_200n,           // 12億円（AI著作権対策強化）
-    japaneseLanguage: 3_800n,    // 38億円
-    religiousAffairs: 500n,      // 5億円
-    creativeIndustry: 2_500n,    // 25億円
-    culturalFacility: 32_500n,   // 325億円（国立文化施設の機能強化）
-    digitalArchive: 2_200n,      // 22億円
-    localCulture: 6_900n,        // 69億円
-    total: 106_300n,             // 1,063億円  ※旧ファイル115,000は誤り
+    artsPromotion: 9_500n, // 95億円（大阪万博開催年、舞台芸術等総合支援）
+    culturalProperty: 44_700n, // 447億円
+    mediaArts: 1_000n, // 10億円
+    international: 1_500n, // 15億円（万博文化プログラム）
+    copyright: 1_200n, // 12億円（AI著作権対策強化）
+    japaneseLanguage: 3_800n, // 38億円
+    religiousAffairs: 500n, // 5億円
+    creativeIndustry: 2_500n, // 25億円
+    culturalFacility: 32_500n, // 325億円（国立文化施設の機能強化）
+    digitalArchive: 2_200n, // 22億円
+    localCulture: 6_900n, // 69億円
+    total: 106_300n, // 1,063億円  ※旧ファイル115,000は誤り
   },
   // 出典: 令和8年度概算要求の概要（2025年8月公表、約1,400億円要求）
   // https://www.bunka.go.jp/seisaku/bunka_gyosei/yosan/pdf/94263701_01.pdf
   // 当初予算は未確定のため、近年の傾向（前年度比0.1%増）から推計
   {
     fiscalYear: 2026,
-    artsPromotion: 9_500n,       // 95億円（ポスト万博の文化レガシー）
-    culturalProperty: 44_800n,   // 448億円
-    mediaArts: 1_000n,           // 10億円
-    international: 1_500n,       // 15億円
-    copyright: 1_300n,           // 13億円（AI著作権法制度拡充）
-    japaneseLanguage: 3_900n,    // 39億円
-    religiousAffairs: 500n,      // 5億円
-    creativeIndustry: 2_600n,    // 26億円
-    culturalFacility: 32_700n,   // 327億円
-    digitalArchive: 2_300n,      // 23億円
-    localCulture: 6_400n,        // 64億円
-    total: 106_500n,             // 1,065億円（推計値）  ※旧ファイル117,000は誤り
+    artsPromotion: 9_500n, // 95億円（ポスト万博の文化レガシー）
+    culturalProperty: 44_800n, // 448億円
+    mediaArts: 1_000n, // 10億円
+    international: 1_500n, // 15億円
+    copyright: 1_300n, // 13億円（AI著作権法制度拡充）
+    japaneseLanguage: 3_900n, // 39億円
+    religiousAffairs: 500n, // 5億円
+    creativeIndustry: 2_600n, // 26億円
+    culturalFacility: 32_700n, // 327億円
+    digitalArchive: 2_300n, // 23億円
+    localCulture: 6_400n, // 64億円
+    total: 106_500n, // 1,065億円（推計値）  ※旧ファイル117,000は誤り
   },
 ];
 
@@ -957,42 +957,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "賛成",
-        summary: "文化芸術立国の実現に向け、文化芸術振興費の拡充を推進。文化GDPの拡大を目標とし、官民連携による文化投資を促進。アーツカウンシル機能の強化も提唱。",
+        summary:
+          "文化芸術立国の実現に向け、文化芸術振興費の拡充を推進。文化GDPの拡大を目標とし、官民連携による文化投資を促進。アーツカウンシル機能の強化も提唱。",
         manifesto: "文化芸術立国の実現 - 文化芸術振興基本法に基づく施策の充実",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "積極推進",
-        summary: "文化財の高精細デジタルアーカイブ化を推進。ジャパンサーチの機能拡充、3Dデータの活用促進、文化DXの加速を政策に掲げる。海外への日本文化発信にもデジタル技術を活用。",
+        summary:
+          "文化財の高精細デジタルアーカイブ化を推進。ジャパンサーチの機能拡充、3Dデータの活用促進、文化DXの加速を政策に掲げる。海外への日本文化発信にもデジタル技術を活用。",
         manifesto: "デジタル田園都市国家構想に文化DXを組み込み推進",
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "積極推進",
-        summary: "クールジャパン戦略の再構築を推進。コンテンツ産業の海外展開支援、アニメ・ゲームの知的財産保護、クリエイターへの支援拡充。クールジャパン機構の改革にも取り組む。",
+        summary:
+          "クールジャパン戦略の再構築を推進。コンテンツ産業の海外展開支援、アニメ・ゲームの知的財産保護、クリエイターへの支援拡充。クールジャパン機構の改革にも取り組む。",
         manifesto: "新時代のクールジャパン戦略 - コンテンツ産業の成長と文化輸出の拡大",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "慎重推進",
-        summary: "AI学習における著作物利用について、クリエイターの権利保護と技術革新のバランスを重視。2024年に文化審議会で検討開始。オプトアウト制度の導入を検討しつつ、過度な規制は避ける姿勢。",
+        summary:
+          "AI学習における著作物利用について、クリエイターの権利保護と技術革新のバランスを重視。2024年に文化審議会で検討開始。オプトアウト制度の導入を検討しつつ、過度な規制は避ける姿勢。",
         manifesto: "AI時代の著作権制度の在り方について検討を加速",
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "条件付き支持",
-        summary: "表現の自由を基本的に尊重するが、青少年保護の観点から一定の規制も容認。漫画・アニメ等の表現規制強化には慎重だが、児童ポルノ規制の文脈では議論あり。",
+        summary:
+          "表現の自由を基本的に尊重するが、青少年保護の観点から一定の規制も容認。漫画・アニメ等の表現規制強化には慎重だが、児童ポルノ規制の文脈では議論あり。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "賛成",
-        summary: "文化庁予算の段階的増額を支持。特に文化財保護と文化DXへの重点配分を推進。文化庁京都移転を契機とした予算増額の実績あり。GDP比での文化予算の引き上げを目標。",
+        summary:
+          "文化庁予算の段階的増額を支持。特に文化財保護と文化DXへの重点配分を推進。文化庁京都移転を契機とした予算増額の実績あり。GDP比での文化予算の引き上げを目標。",
         manifesto: "文化予算の拡充と文化庁京都移転の効果最大化",
         year: 2024,
       },
@@ -1004,42 +1010,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "強く賛成",
-        summary: "文化芸術関係者の待遇改善と社会的地位向上を重視。フリーランス芸術家への社会保障充実、最低報酬基準の設定を提唱。文化芸術基本法の改正による権利保障の強化。",
+        summary:
+          "文化芸術関係者の待遇改善と社会的地位向上を重視。フリーランス芸術家への社会保障充実、最低報酬基準の設定を提唱。文化芸術基本法の改正による権利保障の強化。",
         manifesto: "アーティストの社会的地位向上と待遇改善 - 文化芸術で食べていける社会",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "文化財デジタル化を推進しつつ、デジタルデータのオープンアクセスを重視。公費で作成されたデジタルアーカイブの無料公開を原則とすべきと主張。",
+        summary:
+          "文化財デジタル化を推進しつつ、デジタルデータのオープンアクセスを重視。公費で作成されたデジタルアーカイブの無料公開を原則とすべきと主張。",
         manifesto: "文化財デジタルアーカイブのオープンデータ化推進",
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "見直し要求",
-        summary: "クールジャパン機構の運営実態を批判し、抜本的改革を要求。現場のクリエイターに直接届く支援制度を提唱。コンテンツ産業の労働環境改善（アニメーターの賃金等）を重視。",
+        summary:
+          "クールジャパン機構の運営実態を批判し、抜本的改革を要求。現場のクリエイターに直接届く支援制度を提唱。コンテンツ産業の労働環境改善（アニメーターの賃金等）を重視。",
         manifesto: "クールジャパン機構の見直しと現場クリエイター支援の充実",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "クリエイター保護重視",
-        summary: "AI学習における著作権について、クリエイターの権利を優先的に保護すべきと主張。オプトアウト権の明確化、AI生成物の著作権帰属ルールの厳格化を要求。",
+        summary:
+          "AI学習における著作権について、クリエイターの権利を優先的に保護すべきと主張。オプトアウト権の明確化、AI生成物の著作権帰属ルールの厳格化を要求。",
         manifesto: "AI時代のクリエイター保護 - 著作権法の抜本改正",
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "強く支持",
-        summary: "表現の自由を最大限尊重。あいちトリエンナーレ問題を踏まえ、公的助成と表現の自由の関係を明確化。行政による事前検閲的な対応に強く反対。",
+        summary:
+          "表現の自由を最大限尊重。あいちトリエンナーレ問題を踏まえ、公的助成と表現の自由の関係を明確化。行政による事前検閲的な対応に強く反対。",
         manifesto: "表現の自由の擁護 - 公的支援と表現の独立性の両立",
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "強く賛成",
-        summary: "文化予算の大幅増額を要求。国家予算に占める文化予算の割合をフランス並み（約1%）に引き上げることを長期目標に設定。現状の0.1%台は先進国最低水準と批判。",
+        summary:
+          "文化予算の大幅増額を要求。国家予算に占める文化予算の割合をフランス並み（約1%）に引き上げることを長期目標に設定。現状の0.1%台は先進国最低水準と批判。",
         manifesto: "文化予算を国家予算の0.5%以上に - 文化投資国家への転換",
         year: 2024,
       },
@@ -1051,42 +1063,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "賛成",
-        summary: "文化芸術振興の拡充に賛成。特に地域の文化活動支援と若手芸術家の育成を重視。文化芸術による社会包摂（障害者アート、高齢者の文化参加）を推進。",
+        summary:
+          "文化芸術振興の拡充に賛成。特に地域の文化活動支援と若手芸術家の育成を重視。文化芸術による社会包摂（障害者アート、高齢者の文化参加）を推進。",
         manifesto: "文化芸術の力で社会を元気に - 誰もが文化に親しめる社会",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "文化財デジタル化を支持。特に教育現場での活用、バーチャルミュージアムによる地方創生を重視。デジタルアーカイブの多言語化も推進。",
+        summary:
+          "文化財デジタル化を支持。特に教育現場での活用、バーチャルミュージアムによる地方創生を重視。デジタルアーカイブの多言語化も推進。",
         manifesto: "文化財デジタル化で全国の子どもたちに等しく文化体験を",
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "賛成",
-        summary: "クールジャパン戦略を基本的に支持。人材育成とクリエイターの権利保護を特に重視。中小コンテンツ制作企業への支援拡充を提唱。",
+        summary:
+          "クールジャパン戦略を基本的に支持。人材育成とクリエイターの権利保護を特に重視。中小コンテンツ制作企業への支援拡充を提唱。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "バランス重視",
-        summary: "AI学習と著作権のバランスを重視。クリエイターの権利保護と技術革新の両立を目指す。教育・研究目的の利用は柔軟に、商業利用は厳格に区分すべきと主張。",
+        summary:
+          "AI学習と著作権のバランスを重視。クリエイターの権利保護と技術革新の両立を目指す。教育・研究目的の利用は柔軟に、商業利用は厳格に区分すべきと主張。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "支持",
-        summary: "表現の自由を基本的に支持。ただし、公序良俗に反する表現については一定の配慮を求める。ヘイトスピーチ規制は推進。",
+        summary:
+          "表現の自由を基本的に支持。ただし、公序良俗に反する表現については一定の配慮を求める。ヘイトスピーチ規制は推進。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "賛成",
-        summary: "文化庁予算の着実な増額を支持。特に地域文化振興、障害者文化芸術、子どもの文化体験機会の拡充に重点配分を要望。",
+        summary:
+          "文化庁予算の着実な増額を支持。特に地域文化振興、障害者文化芸術、子どもの文化体験機会の拡充に重点配分を要望。",
         manifesto: "子どもの文化体験活動の無料化推進",
         year: 2024,
       },
@@ -1098,42 +1116,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "効率化重視",
-        summary: "文化芸術支援は民間主導・市場メカニズムを重視。行政による直接補助よりも、寄附税制の拡充や民間ファンドの活用を提唱。「稼げる文化」を目指す。",
+        summary:
+          "文化芸術支援は民間主導・市場メカニズムを重視。行政による直接補助よりも、寄附税制の拡充や民間ファンドの活用を提唱。「稼げる文化」を目指す。",
         manifesto: "文化芸術の自立経営を支援 - 規制改革と税制優遇で民間投資促進",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "積極推進",
-        summary: "文化財デジタル化を積極推進。NFT・ブロックチェーン技術の活用による文化財の新たな価値創出を提唱。大阪万博でのデジタルアート展示を推進した実績。",
+        summary:
+          "文化財デジタル化を積極推進。NFT・ブロックチェーン技術の活用による文化財の新たな価値創出を提唱。大阪万博でのデジタルアート展示を推進した実績。",
         manifesto: "文化財×テクノロジーで新産業創出",
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "抜本改革",
-        summary: "クールジャパン機構の失敗を厳しく批判し、抜本的な改革・民営化を主張。官僚主導から民間主導への転換を要求。コンテンツ産業の規制緩和を重視。",
+        summary:
+          "クールジャパン機構の失敗を厳しく批判し、抜本的な改革・民営化を主張。官僚主導から民間主導への転換を要求。コンテンツ産業の規制緩和を重視。",
         manifesto: "クールジャパン機構の民営化と規制緩和による市場主導のコンテンツ振興",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "技術革新重視",
-        summary: "AI学習における著作物利用を幅広く認める立場。過度な規制は日本のAI産業の国際競争力を損なうと警告。権利侵害が明白な場合のみ規制すべきとの姿勢。",
+        summary:
+          "AI学習における著作物利用を幅広く認める立場。過度な規制は日本のAI産業の国際競争力を損なうと警告。権利侵害が明白な場合のみ規制すべきとの姿勢。",
         manifesto: "AI活用を阻害しない著作権制度への改革",
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "強く支持",
-        summary: "表現の自由を最大限擁護。漫画・アニメ等の表現規制に強く反対。表現規制は最小限に留めるべきとの立場。ネット上の表現規制にも慎重。",
+        summary:
+          "表現の自由を最大限擁護。漫画・アニメ等の表現規制に強く反対。表現規制は最小限に留めるべきとの立場。ネット上の表現規制にも慎重。",
         manifesto: "表現の自由の最大限の保障 - 行政の過剰介入排除",
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "効率化優先",
-        summary: "予算総額の増額よりも既存事業の効率化・スクラップ＆ビルドを重視。文化庁の京都移転コストに疑問を呈しつつ、費用対効果の検証を求める。",
+        summary:
+          "予算総額の増額よりも既存事業の効率化・スクラップ＆ビルドを重視。文化庁の京都移転コストに疑問を呈しつつ、費用対効果の検証を求める。",
         manifesto: "文化予算のエビデンスに基づく配分最適化",
         year: 2024,
       },
@@ -1145,28 +1169,32 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "賛成",
-        summary: "文化芸術支援の拡充に賛成。特にクリエイターの所得向上と安定雇用を重視。フリーランス芸術家への契約保護法制を提唱。「手取りを増やす」政策の文化版を展開。",
+        summary:
+          "文化芸術支援の拡充に賛成。特にクリエイターの所得向上と安定雇用を重視。フリーランス芸術家への契約保護法制を提唱。「手取りを増やす」政策の文化版を展開。",
         manifesto: "クリエイターの手取りを増やす - 文化芸術人材への投資拡大",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "文化財デジタル化を推進。教育政策との連携を重視し、デジタル教科書での文化財活用、VR技術による体験学習を提唱。",
+        summary:
+          "文化財デジタル化を推進。教育政策との連携を重視し、デジタル教科書での文化財活用、VR技術による体験学習を提唱。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "改善を要求",
-        summary: "クールジャパン戦略の方向性は支持するが、実施体制の改善を要求。コンテンツ産業の税制優遇拡充、人材育成の強化を重視。",
+        summary:
+          "クールジャパン戦略の方向性は支持するが、実施体制の改善を要求。コンテンツ産業の税制優遇拡充、人材育成の強化を重視。",
         manifesto: "コンテンツ産業の税制支援拡充と人材育成強化",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "バランス重視",
-        summary: "AI学習と著作権のバランスを重視。クリエイターの適正な対価確保のための制度設計を提唱。AI生成物への課金制度（著作権使用料のプール制度）の検討を提案。",
+        summary:
+          "AI学習と著作権のバランスを重視。クリエイターの適正な対価確保のための制度設計を提唱。AI生成物への課金制度（著作権使用料のプール制度）の検討を提案。",
         manifesto: "AI時代の著作権 - クリエイターへの適正対価と技術革新の両立",
         year: 2024,
       },
@@ -1180,7 +1208,8 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "文化庁予算増額",
         stance: "賛成",
-        summary: "文化庁予算の増額に賛成。文化への投資は経済成長にも寄与するとの立場。教育予算との一体的な拡充を主張。",
+        summary:
+          "文化庁予算の増額に賛成。文化への投資は経済成長にも寄与するとの立場。教育予算との一体的な拡充を主張。",
         manifesto: "文化・教育予算の一体的拡充",
         year: 2024,
       },
@@ -1192,42 +1221,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "強く賛成",
-        summary: "文化予算の大幅増額と芸術家の生活保障を強く主張。国の文化予算を欧州水準に引き上げることを要求。文化芸術活動への公的支援を「権利」として位置づけ。",
+        summary:
+          "文化予算の大幅増額と芸術家の生活保障を強く主張。国の文化予算を欧州水準に引き上げることを要求。文化芸術活動への公的支援を「権利」として位置づけ。",
         manifesto: "文化予算の抜本的拡充 - 芸術家が安心して創作できる社会を",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "文化財デジタル化を支持。ただし、デジタル化が文化財の現物保護の代替になってはならないと警告。デジタルアーカイブの完全無料公開を主張。",
+        summary:
+          "文化財デジタル化を支持。ただし、デジタル化が文化財の現物保護の代替になってはならないと警告。デジタルアーカイブの完全無料公開を主張。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "批判的",
-        summary: "クールジャパン戦略を「文化の商品化」として批判。文化の多様性と非商業的な文化活動の保護を重視。クールジャパン機構への税金投入に強く反対。",
+        summary:
+          "クールジャパン戦略を「文化の商品化」として批判。文化の多様性と非商業的な文化活動の保護を重視。クールジャパン機構への税金投入に強く反対。",
         manifesto: "文化の商品化反対 - 多様な文化活動への公的支援拡充",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "クリエイター保護最優先",
-        summary: "AI学習における著作物の無断使用に強く反対。クリエイターの同意なしにAI学習に著作物を使用することを原則禁止すべきと主張。",
+        summary:
+          "AI学習における著作物の無断使用に強く反対。クリエイターの同意なしにAI学習に著作物を使用することを原則禁止すべきと主張。",
         manifesto: "AI企業によるクリエイターの搾取を許さない - 著作権の厳格な保護",
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "強く支持",
-        summary: "表現の自由を最大限擁護。国家権力による表現規制に強く反対。あいちトリエンナーレ問題では表現の自由を守る立場を鮮明にした。",
+        summary:
+          "表現の自由を最大限擁護。国家権力による表現規制に強く反対。あいちトリエンナーレ問題では表現の自由を守る立場を鮮明にした。",
         manifesto: "表現の自由の完全な保障 - 権力による介入を許さない",
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "大幅増額要求",
-        summary: "文化庁予算を現在の3倍以上に引き上げることを要求。軍事費増額分を文化・教育・福祉に回すべきと主張。文化庁の省への格上げも提唱。",
+        summary:
+          "文化庁予算を現在の3倍以上に引き上げることを要求。軍事費増額分を文化・教育・福祉に回すべきと主張。文化庁の省への格上げも提唱。",
         manifesto: "文化庁予算3倍増・文化省設置 - 文化大国日本の実現",
         year: 2024,
       },
@@ -1239,28 +1274,32 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "強く賛成",
-        summary: "文化芸術関係者への直接給付制度の創設を提唱。全てのアーティストに最低生活保障を提供し、創作活動に専念できる環境を整備。「文化はぜいたく品ではなく生活必需品」との立場。",
+        summary:
+          "文化芸術関係者への直接給付制度の創設を提唱。全てのアーティストに最低生活保障を提供し、創作活動に専念できる環境を整備。「文化はぜいたく品ではなく生活必需品」との立場。",
         manifesto: "アーティストへのベーシックインカム的支援制度の創設",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "文化財デジタル化を支持。デジタルアーカイブの無料公開と誰もがアクセスできる環境整備を重視。",
+        summary:
+          "文化財デジタル化を支持。デジタルアーカイブの無料公開と誰もがアクセスできる環境整備を重視。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "現場優先に転換",
-        summary: "クールジャパン戦略の恩恵が現場のクリエイターに届いていないと批判。アニメーター、漫画家アシスタント等への直接支援を優先すべきと主張。",
+        summary:
+          "クールジャパン戦略の恩恵が現場のクリエイターに届いていないと批判。アニメーター、漫画家アシスタント等への直接支援を優先すべきと主張。",
         manifesto: "現場のクリエイターに届く支援 - 中間搾取の排除",
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "クリエイター保護重視",
-        summary: "AI学習による著作権侵害からクリエイターを守る立場。AI企業への課税と、その財源をクリエイター支援に充てることを提唱。",
+        summary:
+          "AI学習による著作権侵害からクリエイターを守る立場。AI企業への課税と、その財源をクリエイター支援に充てることを提唱。",
         manifesto: null,
         year: 2024,
       },
@@ -1274,7 +1313,8 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "文化庁予算増額",
         stance: "大幅増額要求",
-        summary: "文化庁予算の大幅増額を要求。国債発行も辞さない積極財政で文化投資を拡充すべきとの立場。",
+        summary:
+          "文化庁予算の大幅増額を要求。国債発行も辞さない積極財政で文化投資を拡充すべきとの立場。",
         manifesto: "文化予算の大幅増額 - 積極財政で文化投資",
         year: 2024,
       },
@@ -1286,7 +1326,8 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "強く賛成",
-        summary: "文化芸術支援の拡充を強く支持。特に地域の草の根的な文化活動、マイノリティの文化表現への支援を重視。平和文化の推進も含む。",
+        summary:
+          "文化芸術支援の拡充を強く支持。特に地域の草の根的な文化活動、マイノリティの文化表現への支援を重視。平和文化の推進も含む。",
         manifesto: "地域文化とマイノリティの文化権保障",
         year: 2024,
       },
@@ -1300,21 +1341,24 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "クールジャパン戦略",
         stance: "批判的",
-        summary: "クールジャパン戦略を国家主義的な文化利用として警戒。多文化共生の観点からの文化政策を重視。",
+        summary:
+          "クールジャパン戦略を国家主義的な文化利用として警戒。多文化共生の観点からの文化政策を重視。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "クリエイター保護重視",
-        summary: "AI学習における著作権問題について、クリエイターの権利保護を優先。労働者の権利保護の延長線上で捉える。",
+        summary:
+          "AI学習における著作権問題について、クリエイターの権利保護を優先。労働者の権利保護の延長線上で捉える。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "強く支持",
-        summary: "表現の自由を強く擁護。ヘイトスピーチ規制は推進しつつ、芸術表現の自由は最大限守るべきとの立場。",
+        summary:
+          "表現の自由を強く擁護。ヘイトスピーチ規制は推進しつつ、芸術表現の自由は最大限守るべきとの立場。",
         manifesto: null,
         year: 2024,
       },
@@ -1333,7 +1377,8 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "中立",
-        summary: "NHK改革が最優先課題であり、文化政策については特に目立った主張なし。NHKの文化番組制作については批判的。",
+        summary:
+          "NHK改革が最優先課題であり、文化政策については特に目立った主張なし。NHKの文化番組制作については批判的。",
         manifesto: null,
         year: 2024,
       },
@@ -1380,21 +1425,24 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "伝統文化重視",
-        summary: "日本の伝統文化・伝統芸能の保護と継承を最重視。現代アートやサブカルチャーへの支援よりも、伝統文化教育の充実を優先。",
+        summary:
+          "日本の伝統文化・伝統芸能の保護と継承を最重視。現代アートやサブカルチャーへの支援よりも、伝統文化教育の充実を優先。",
         manifesto: "日本の伝統文化復興 - 神社仏閣・伝統芸能・武道の次世代継承",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "条件付き賛成",
-        summary: "文化財のデジタル化は手段として認めるが、実物体験の価値を重視。デジタル化が実物の代替にならないよう警告。",
+        summary:
+          "文化財のデジタル化は手段として認めるが、実物体験の価値を重視。デジタル化が実物の代替にならないよう警告。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "日本文化発信重視",
-        summary: "クールジャパン戦略を支持するが、サブカルチャー偏重を是正し、伝統文化・精神文化の海外発信を強化すべきと主張。",
+        summary:
+          "クールジャパン戦略を支持するが、サブカルチャー偏重を是正し、伝統文化・精神文化の海外発信を強化すべきと主張。",
         manifesto: "日本文化の本質を海外に発信 - 表層的なポップカルチャーからの脱却",
         year: 2024,
       },
@@ -1408,14 +1456,16 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "表現の自由",
         stance: "条件付き支持",
-        summary: "表現の自由を基本的に認めるが、日本の伝統的価値観や公序良俗を損なう表現には批判的。反日的な表現への公的助成には反対。",
+        summary:
+          "表現の自由を基本的に認めるが、日本の伝統的価値観や公序良俗を損なう表現には批判的。反日的な表現への公的助成には反対。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "伝統文化に重点",
-        summary: "文化庁予算の増額は支持するが、伝統文化・文化財保護への重点配分を強く要望。現代アートへの予算配分には疑問を呈する。",
+        summary:
+          "文化庁予算の増額は支持するが、伝統文化・文化財保護への重点配分を強く要望。現代アートへの予算配分には疑問を呈する。",
         manifesto: "伝統文化保護予算の重点強化",
         year: 2024,
       },
@@ -1427,42 +1477,48 @@ const CULTURAL_STANCE_DATA: CulturalStanceData[] = [
       {
         topic: "芸術支援拡充",
         stance: "伝統重視",
-        summary: "日本の伝統文化・歴史遺産の保護を重視。現代アートへの公的助成には懐疑的。特に反日的・自虐史観的な芸術作品への公費投入に強く反対。",
+        summary:
+          "日本の伝統文化・歴史遺産の保護を重視。現代アートへの公的助成には懐疑的。特に反日的・自虐史観的な芸術作品への公費投入に強く反対。",
         manifesto: "日本の伝統文化を守り育てる - 公的助成の適正化",
         year: 2024,
       },
       {
         topic: "文化財デジタル化",
         stance: "賛成",
-        summary: "日本の歴史・文化財のデジタル保存・発信を支持。特に正しい歴史認識の発信ツールとしてデジタル技術の活用を推進。",
+        summary:
+          "日本の歴史・文化財のデジタル保存・発信を支持。特に正しい歴史認識の発信ツールとしてデジタル技術の活用を推進。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "クールジャパン戦略",
         stance: "改革推進",
-        summary: "クールジャパン機構の改革を推進。日本の伝統文化・精神性を含めた総合的な日本文化発信を提唱。",
+        summary:
+          "クールジャパン機構の改革を推進。日本の伝統文化・精神性を含めた総合的な日本文化発信を提唱。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "著作権法改正（AI学習）",
         stance: "バランス重視",
-        summary: "AI学習と著作権のバランスを重視。日本のコンテンツ産業の競争力を維持しつつ、クリエイターの権利も保護すべきとの立場。",
+        summary:
+          "AI学習と著作権のバランスを重視。日本のコンテンツ産業の競争力を維持しつつ、クリエイターの権利も保護すべきとの立場。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "表現の自由",
         stance: "条件付き支持",
-        summary: "表現の自由を基本的に認めるが、国家の尊厳を損なう表現への公費助成には反対。反日的・侮辱的な芸術作品への税金投入を批判。",
+        summary:
+          "表現の自由を基本的に認めるが、国家の尊厳を損なう表現への公費助成には反対。反日的・侮辱的な芸術作品への税金投入を批判。",
         manifesto: null,
         year: 2024,
       },
       {
         topic: "文化庁予算増額",
         stance: "適正配分重視",
-        summary: "文化庁予算の総額よりも配分の適正化を重視。伝統文化・歴史遺産の保護に重点配分すべきと主張。",
+        summary:
+          "文化庁予算の総額よりも配分の適正化を重視。伝統文化・歴史遺産の保護に重点配分すべきと主張。",
         manifesto: null,
         year: 2024,
       },
@@ -1581,18 +1637,66 @@ export async function seedCulturalData(): Promise<void> {
 
   for (const yearData of CULTURAL_BUDGET_DATA) {
     const entries: { category: string; amount: bigint; description: string }[] = [
-      { category: "ARTS_PROMOTION", amount: yearData.artsPromotion, description: `${yearData.fiscalYear}年度 芸術文化振興費` },
-      { category: "CULTURAL_PROPERTY", amount: yearData.culturalProperty, description: `${yearData.fiscalYear}年度 文化財保護費` },
-      { category: "MEDIA_ARTS", amount: yearData.mediaArts, description: `${yearData.fiscalYear}年度 メディア芸術振興費` },
-      { category: "INTERNATIONAL", amount: yearData.international, description: `${yearData.fiscalYear}年度 国際文化交流費` },
-      { category: "COPYRIGHT", amount: yearData.copyright, description: `${yearData.fiscalYear}年度 著作権関連経費` },
-      { category: "JAPANESE_LANGUAGE", amount: yearData.japaneseLanguage, description: `${yearData.fiscalYear}年度 国語・日本語教育費` },
-      { category: "RELIGIOUS_AFFAIRS", amount: yearData.religiousAffairs, description: `${yearData.fiscalYear}年度 宗務関連経費` },
-      { category: "CREATIVE_INDUSTRY", amount: yearData.creativeIndustry, description: `${yearData.fiscalYear}年度 文化産業振興費` },
-      { category: "CULTURAL_FACILITY", amount: yearData.culturalFacility, description: `${yearData.fiscalYear}年度 文化施設整備費` },
-      { category: "DIGITAL_ARCHIVE", amount: yearData.digitalArchive, description: `${yearData.fiscalYear}年度 デジタルアーカイブ推進費` },
-      { category: "LOCAL_CULTURE", amount: yearData.localCulture, description: `${yearData.fiscalYear}年度 地域文化振興費` },
-      { category: "TOTAL", amount: yearData.total, description: `${yearData.fiscalYear}年度 文化庁予算合計` },
+      {
+        category: "ARTS_PROMOTION",
+        amount: yearData.artsPromotion,
+        description: `${yearData.fiscalYear}年度 芸術文化振興費`,
+      },
+      {
+        category: "CULTURAL_PROPERTY",
+        amount: yearData.culturalProperty,
+        description: `${yearData.fiscalYear}年度 文化財保護費`,
+      },
+      {
+        category: "MEDIA_ARTS",
+        amount: yearData.mediaArts,
+        description: `${yearData.fiscalYear}年度 メディア芸術振興費`,
+      },
+      {
+        category: "INTERNATIONAL",
+        amount: yearData.international,
+        description: `${yearData.fiscalYear}年度 国際文化交流費`,
+      },
+      {
+        category: "COPYRIGHT",
+        amount: yearData.copyright,
+        description: `${yearData.fiscalYear}年度 著作権関連経費`,
+      },
+      {
+        category: "JAPANESE_LANGUAGE",
+        amount: yearData.japaneseLanguage,
+        description: `${yearData.fiscalYear}年度 国語・日本語教育費`,
+      },
+      {
+        category: "RELIGIOUS_AFFAIRS",
+        amount: yearData.religiousAffairs,
+        description: `${yearData.fiscalYear}年度 宗務関連経費`,
+      },
+      {
+        category: "CREATIVE_INDUSTRY",
+        amount: yearData.creativeIndustry,
+        description: `${yearData.fiscalYear}年度 文化産業振興費`,
+      },
+      {
+        category: "CULTURAL_FACILITY",
+        amount: yearData.culturalFacility,
+        description: `${yearData.fiscalYear}年度 文化施設整備費`,
+      },
+      {
+        category: "DIGITAL_ARCHIVE",
+        amount: yearData.digitalArchive,
+        description: `${yearData.fiscalYear}年度 デジタルアーカイブ推進費`,
+      },
+      {
+        category: "LOCAL_CULTURE",
+        amount: yearData.localCulture,
+        description: `${yearData.fiscalYear}年度 地域文化振興費`,
+      },
+      {
+        category: "TOTAL",
+        amount: yearData.total,
+        description: `${yearData.fiscalYear}年度 文化庁予算合計`,
+      },
     ];
 
     for (const entry of entries) {
@@ -1600,7 +1704,19 @@ export async function seedCulturalData(): Promise<void> {
         where: {
           fiscalYear_category: {
             fiscalYear: yearData.fiscalYear,
-            category: entry.category as "ARTS_PROMOTION" | "CULTURAL_PROPERTY" | "MEDIA_ARTS" | "INTERNATIONAL" | "COPYRIGHT" | "JAPANESE_LANGUAGE" | "RELIGIOUS_AFFAIRS" | "CREATIVE_INDUSTRY" | "CULTURAL_FACILITY" | "DIGITAL_ARCHIVE" | "LOCAL_CULTURE" | "TOTAL",
+            category: entry.category as
+              | "ARTS_PROMOTION"
+              | "CULTURAL_PROPERTY"
+              | "MEDIA_ARTS"
+              | "INTERNATIONAL"
+              | "COPYRIGHT"
+              | "JAPANESE_LANGUAGE"
+              | "RELIGIOUS_AFFAIRS"
+              | "CREATIVE_INDUSTRY"
+              | "CULTURAL_FACILITY"
+              | "DIGITAL_ARCHIVE"
+              | "LOCAL_CULTURE"
+              | "TOTAL",
           },
         },
         update: {
@@ -1610,7 +1726,19 @@ export async function seedCulturalData(): Promise<void> {
         },
         create: {
           fiscalYear: yearData.fiscalYear,
-          category: entry.category as "ARTS_PROMOTION" | "CULTURAL_PROPERTY" | "MEDIA_ARTS" | "INTERNATIONAL" | "COPYRIGHT" | "JAPANESE_LANGUAGE" | "RELIGIOUS_AFFAIRS" | "CREATIVE_INDUSTRY" | "CULTURAL_FACILITY" | "DIGITAL_ARCHIVE" | "LOCAL_CULTURE" | "TOTAL",
+          category: entry.category as
+            | "ARTS_PROMOTION"
+            | "CULTURAL_PROPERTY"
+            | "MEDIA_ARTS"
+            | "INTERNATIONAL"
+            | "COPYRIGHT"
+            | "JAPANESE_LANGUAGE"
+            | "RELIGIOUS_AFFAIRS"
+            | "CREATIVE_INDUSTRY"
+            | "CULTURAL_FACILITY"
+            | "DIGITAL_ARCHIVE"
+            | "LOCAL_CULTURE"
+            | "TOTAL",
           amount: entry.amount,
           description: entry.description,
           sourceUrl: "https://www.bunka.go.jp/seisaku/bunka_gyosei/yosan/",
@@ -1642,7 +1770,19 @@ export async function seedCulturalData(): Promise<void> {
       await prisma.culturalProgram.update({
         where: { id: existing.id },
         data: {
-          category: program.category as "ARTS_PROMOTION" | "CULTURAL_PROPERTY" | "MEDIA_ARTS" | "INTERNATIONAL" | "COPYRIGHT" | "JAPANESE_LANGUAGE" | "RELIGIOUS_AFFAIRS" | "CREATIVE_INDUSTRY" | "CULTURAL_FACILITY" | "DIGITAL_ARCHIVE" | "LOCAL_CULTURE" | "TOTAL",
+          category: program.category as
+            | "ARTS_PROMOTION"
+            | "CULTURAL_PROPERTY"
+            | "MEDIA_ARTS"
+            | "INTERNATIONAL"
+            | "COPYRIGHT"
+            | "JAPANESE_LANGUAGE"
+            | "RELIGIOUS_AFFAIRS"
+            | "CREATIVE_INDUSTRY"
+            | "CULTURAL_FACILITY"
+            | "DIGITAL_ARCHIVE"
+            | "LOCAL_CULTURE"
+            | "TOTAL",
           description: program.description,
           budget: program.budget,
           startYear: program.startYear,
@@ -1657,7 +1797,19 @@ export async function seedCulturalData(): Promise<void> {
       await prisma.culturalProgram.create({
         data: {
           name: program.name,
-          category: program.category as "ARTS_PROMOTION" | "CULTURAL_PROPERTY" | "MEDIA_ARTS" | "INTERNATIONAL" | "COPYRIGHT" | "JAPANESE_LANGUAGE" | "RELIGIOUS_AFFAIRS" | "CREATIVE_INDUSTRY" | "CULTURAL_FACILITY" | "DIGITAL_ARCHIVE" | "LOCAL_CULTURE" | "TOTAL",
+          category: program.category as
+            | "ARTS_PROMOTION"
+            | "CULTURAL_PROPERTY"
+            | "MEDIA_ARTS"
+            | "INTERNATIONAL"
+            | "COPYRIGHT"
+            | "JAPANESE_LANGUAGE"
+            | "RELIGIOUS_AFFAIRS"
+            | "CREATIVE_INDUSTRY"
+            | "CULTURAL_FACILITY"
+            | "DIGITAL_ARCHIVE"
+            | "LOCAL_CULTURE"
+            | "TOTAL",
           description: program.description,
           budget: program.budget,
           startYear: program.startYear,

@@ -1,4 +1,4 @@
-import { SmoothScrollProvider, ScrollReveal } from "@ojpp/ui";
+import { ScrollReveal, SmoothScrollProvider } from "@ojpp/ui";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
@@ -9,10 +9,12 @@ const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], variable: "--font-noto-san
 
 export const metadata: Metadata = {
   title: "SeatMap - 国会の議席勢力図を可視化",
-  description: "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
+  description:
+    "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
   openGraph: {
     title: "SeatMap - 国会の議席勢力図を可視化",
-    description: "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
+    description:
+      "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
     siteName: "Open Japan PoliTech Platform",
     locale: "ja_JP",
     type: "website",
@@ -20,7 +22,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SeatMap - 国会の議席勢力図を可視化",
-    description: "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
+    description:
+      "衆議院・参議院の議席構成を一目で把握。過去10年の選挙結果を比較し、政治勢力の変遷を可視化する。",
   },
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface DonutSegment {
   label: string;

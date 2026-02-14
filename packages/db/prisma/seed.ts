@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -16,14 +16,10 @@ async function main() {
 
   // 都道府県マスタ（data/prefectures.json から読み込み）
   const prefecturesPath = resolve(__dirname, "../../../data/prefectures.json");
-  const prefectures: PrefectureData[] = JSON.parse(
-    readFileSync(prefecturesPath, "utf-8"),
-  );
+  const prefectures: PrefectureData[] = JSON.parse(readFileSync(prefecturesPath, "utf-8"));
 
   if (prefectures.length !== 47) {
-    throw new Error(
-      `Expected 47 prefectures, got ${prefectures.length}`,
-    );
+    throw new Error(`Expected 47 prefectures, got ${prefectures.length}`);
   }
 
   for (const pref of prefectures) {
@@ -66,7 +62,12 @@ async function main() {
       color: "#4A90D9",
       website: "https://craj.jp/",
     },
-    { name: "沖縄社会大衆党", shortName: "社大", color: "#FF4500", website: "https://okinawa-shadai.jp/" },
+    {
+      name: "沖縄社会大衆党",
+      shortName: "社大",
+      color: "#FF4500",
+      website: "https://okinawa-shadai.jp/",
+    },
     { name: "無所属", shortName: "無", color: "#808080", website: null },
   ];
 

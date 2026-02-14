@@ -7,7 +7,13 @@ interface PaginationProps {
   theme?: "light" | "dark";
 }
 
-export function Pagination({ currentPage, totalPages, baseHref, className = "", theme = "light" }: PaginationProps) {
+export function Pagination({
+  currentPage,
+  totalPages,
+  baseHref,
+  className = "",
+  theme = "light",
+}: PaginationProps) {
   if (totalPages <= 1) return null;
 
   const pages: (number | "...")[] = [];
@@ -49,10 +55,7 @@ export function Pagination({ currentPage, totalPages, baseHref, className = "", 
   return (
     <nav className={`flex items-center justify-center gap-1 ${className}`}>
       {currentPage > 1 && (
-        <a
-          href={getHref(currentPage - 1)}
-          className={navBtnClass}
-        >
+        <a href={getHref(currentPage - 1)} className={navBtnClass}>
           前へ
         </a>
       )}
@@ -74,10 +77,7 @@ export function Pagination({ currentPage, totalPages, baseHref, className = "", 
         ),
       )}
       {currentPage < totalPages && (
-        <a
-          href={getHref(currentPage + 1)}
-          className={navBtnClass}
-        >
+        <a href={getHref(currentPage + 1)} className={navBtnClass}>
           次へ
         </a>
       )}

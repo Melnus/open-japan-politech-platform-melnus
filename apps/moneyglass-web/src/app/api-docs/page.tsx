@@ -108,7 +108,10 @@ export default function ApiDocsPage() {
                   </thead>
                   <tbody>
                     {endpoint.params.map((param) => (
-                      <tr key={param.name} className="border-b border-[rgba(255,255,255,0.03)] last:border-0">
+                      <tr
+                        key={param.name}
+                        className="border-b border-[rgba(255,255,255,0.03)] last:border-0"
+                      >
                         <td className="py-2 pr-4">
                           <code className="text-xs text-[#FF6B35]">{param.name}</code>
                         </td>

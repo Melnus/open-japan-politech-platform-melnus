@@ -1,8 +1,8 @@
 "use client";
 
+import { motion, useInView } from "motion/react";
 import type { ReactNode } from "react";
 import { useMemo, useRef, useState } from "react";
-import { motion, useInView } from "motion/react";
 
 interface Column<T> {
   key: string;
@@ -54,7 +54,10 @@ export function DataTable<T extends Record<string, unknown>>({
     align === "right" ? "text-right" : align === "center" ? "text-center" : "text-left";
 
   return (
-    <div ref={tableRef} className={`overflow-x-auto rounded-xl border bg-white shadow-card ${className}`}>
+    <div
+      ref={tableRef}
+      className={`overflow-x-auto rounded-xl border bg-white shadow-card ${className}`}
+    >
       <table className="w-full text-left text-sm">
         <thead className="border-b bg-gray-50/80">
           <tr>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 interface NavItem {
   href: string;
@@ -46,21 +46,15 @@ export function NavigationBar({
       ? "bg-white/70 backdrop-blur-xl shadow-sm"
       : "bg-white/80 backdrop-blur-md";
 
-  const borderClass = isDark
-    ? "border-b border-[rgba(255,255,255,0.06)]"
-    : "border-b";
+  const borderClass = isDark ? "border-b border-[rgba(255,255,255,0.06)]" : "border-b";
 
   const textColor = isDark ? "text-[#8b949e]" : "";
   const hoverTextColor = isDark ? "hover:text-[#f0f0f0]" : "";
-  const mobileBg = isDark
-    ? "bg-[#0d1117]/95 backdrop-blur-lg"
-    : "bg-white/95 backdrop-blur-lg";
+  const mobileBg = isDark ? "bg-[#0d1117]/95 backdrop-blur-lg" : "bg-white/95 backdrop-blur-lg";
   const mobileItemHover = isDark ? "hover:text-[#FF6B35]" : "hover:text-blue-600";
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${borderClass} ${headerBg}`}
-    >
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${borderClass} ${headerBg}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href={brandHref} className="text-xl font-bold">
           {brandParts ? (

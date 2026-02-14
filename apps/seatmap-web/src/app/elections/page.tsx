@@ -53,12 +53,24 @@ export default async function ElectionsPage() {
           <table className="w-full text-left text-sm">
             <thead className="border-b border-white/[0.06] bg-white/[0.02]">
               <tr>
-                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">選挙名</th>
-                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">院</th>
-                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">投票日</th>
-                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">総定数</th>
-                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">投票率</th>
-                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">政党数</th>
+                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">
+                  選挙名
+                </th>
+                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">
+                  院
+                </th>
+                <th className="px-6 py-4 text-xs font-medium uppercase tracking-wider text-slate-500">
+                  投票日
+                </th>
+                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">
+                  総定数
+                </th>
+                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">
+                  投票率
+                </th>
+                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-slate-500">
+                  政党数
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -81,11 +93,15 @@ export default async function ElectionsPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-slate-400">{formatDate(election.date)}</td>
-                  <td className="px-6 py-4 text-right tabular-nums text-slate-300">{election.totalSeats}</td>
+                  <td className="px-6 py-4 text-right tabular-nums text-slate-300">
+                    {election.totalSeats}
+                  </td>
                   <td className="px-6 py-4 text-right tabular-nums text-slate-400">
                     {election.turnout != null ? `${election.turnout.toFixed(2)}%` : "-"}
                   </td>
-                  <td className="px-6 py-4 text-right tabular-nums text-slate-400">{election._count.results}</td>
+                  <td className="px-6 py-4 text-right tabular-nums text-slate-400">
+                    {election._count.results}
+                  </td>
                 </tr>
               ))}
             </tbody>

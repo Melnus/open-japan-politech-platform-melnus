@@ -1,7 +1,7 @@
 import { prisma } from "@ojpp/db";
 import { FadeIn, StaggerGrid, StaggerItem } from "@ojpp/ui";
-import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
+import Link from "next/link";
 import { DashboardCharts } from "./components/dashboard-charts";
 import { StatCard } from "./components/stat-card";
 
@@ -110,7 +110,7 @@ export default async function Home() {
   /* --- Compute stats --- */
   const latestYear = budgets.length > 0 ? budgets[0].fiscalYear : null;
   const latestTotalBudget = budgets.find(
-    (b) => b.fiscalYear === latestYear && b.category === "TOTAL"
+    (b) => b.fiscalYear === latestYear && b.category === "TOTAL",
   );
 
   /* Previous year for YoY comparison */
@@ -129,7 +129,7 @@ export default async function Home() {
 
   /* --- Latest year budgets (non-TOTAL) --- */
   const latestYearBudgets = budgets.filter(
-    (b) => b.fiscalYear === latestYear && b.category !== "TOTAL"
+    (b) => b.fiscalYear === latestYear && b.category !== "TOTAL",
   );
   const uniqueCategories = new Set(latestYearBudgets.map((b) => b.category));
 
@@ -143,10 +143,7 @@ export default async function Home() {
     }));
 
   /* --- Category breakdown for horizontal bars --- */
-  const maxCatAmount = Math.max(
-    ...latestYearBudgets.map((b) => Number(b.amount)),
-    1
-  );
+  const maxCatAmount = Math.max(...latestYearBudgets.map((b) => Number(b.amount)), 1);
   const categoryBreakdown = latestYearBudgets
     .sort((a, b) => Number(b.amount) - Number(a.amount))
     .map((b) => ({
@@ -157,9 +154,7 @@ export default async function Home() {
     }));
 
   /* --- Budget numeric value for count-up --- */
-  const budgetNumeric = latestTotalBudget
-    ? Math.round(Number(latestTotalBudget.amount) / 100)
-    : 0;
+  const budgetNumeric = latestTotalBudget ? Math.round(Number(latestTotalBudget.amount) / 100) : 0;
 
   /* --- Empty state --- */
   if (budgets.length === 0 && programs.length === 0) {
@@ -179,14 +174,22 @@ export default async function Home() {
           ) : (
             <div className="text-center py-12">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-amber-950/50 border border-amber-800/30">
-                <svg className="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                <svg
+                  className="h-8 w-8 text-amber-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
                 </svg>
               </div>
               <p className="text-lg font-medium text-zinc-300">データ未投入</p>
-              <p className="mt-3 text-sm text-zinc-500">
-                文化政策データがまだ投入されていません。
-              </p>
+              <p className="mt-3 text-sm text-zinc-500">文化政策データがまだ投入されていません。</p>
               <code className="mt-4 inline-block rounded-lg bg-amber-950/40 border border-amber-800/20 px-4 py-2 text-xs font-mono text-amber-400">
                 pnpm ingest:culture
               </code>
@@ -215,9 +218,7 @@ export default async function Home() {
           <FadeIn delay={0.1}>
             <p className="mt-3 max-w-xl text-base text-zinc-400">
               文化庁予算{uniqueCategories.size > 0 ? `${uniqueCategories.size}` : "12"}分野
-              {totalByYear.length > 0
-                ? `×${totalByYear.length}年分`
-                : "×8年分"}
+              {totalByYear.length > 0 ? `×${totalByYear.length}年分` : "×8年分"}
               の推移を可視化
             </p>
           </FadeIn>
@@ -238,7 +239,9 @@ export default async function Home() {
             />
             <StatCard
               label="前年比"
-              value={yoyChange != null ? `${yoyChange >= 0 ? "+" : ""}${yoyChange.toFixed(1)}%` : "---"}
+              value={
+                yoyChange != null ? `${yoyChange >= 0 ? "+" : ""}${yoyChange.toFixed(1)}%` : "---"
+              }
               subtext={yoyChange != null ? (yoyChange >= 0 ? "増加" : "減少") : undefined}
               subtextColor={yoyChange != null ? (yoyChange >= 0 ? "green" : "red") : "zinc"}
               delay={0.05}
@@ -263,10 +266,7 @@ export default async function Home() {
         {/* ====== Area Chart + Category Bars ====== */}
         <section className="mb-10">
           <FadeIn>
-            <DashboardCharts
-              totalByYear={totalByYear}
-              categoryBreakdown={categoryBreakdown}
-            />
+            <DashboardCharts totalByYear={totalByYear} categoryBreakdown={categoryBreakdown} />
           </FadeIn>
         </section>
 
@@ -294,9 +294,7 @@ export default async function Home() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-base font-bold tracking-tight text-white">
-                      {p.name}
-                    </h3>
+                    <h3 className="text-base font-bold tracking-tight text-white">{p.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-zinc-400 line-clamp-3">
                       {p.description}
                     </p>

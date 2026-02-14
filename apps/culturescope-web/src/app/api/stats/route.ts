@@ -3,16 +3,15 @@ import { prisma } from "@ojpp/db";
 
 export async function GET() {
   try {
-    const [budgetCount, programCount, stanceCount, latestBudget] =
-      await Promise.all([
-        prisma.culturalBudget.count(),
-        prisma.culturalProgram.count(),
-        prisma.culturalStance.count(),
-        prisma.culturalBudget.findFirst({
-          where: { category: "TOTAL" },
-          orderBy: { fiscalYear: "desc" },
-        }),
-      ]);
+    const [budgetCount, programCount, stanceCount, latestBudget] = await Promise.all([
+      prisma.culturalBudget.count(),
+      prisma.culturalProgram.count(),
+      prisma.culturalStance.count(),
+      prisma.culturalBudget.findFirst({
+        where: { category: "TOTAL" },
+        orderBy: { fiscalYear: "desc" },
+      }),
+    ]);
 
     return jsonResponse(
       serializeBigInt({

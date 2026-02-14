@@ -2,9 +2,9 @@ import { prisma } from "@ojpp/db";
 import { FadeIn, StaggerGrid, StaggerItem } from "@ojpp/ui";
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
+import { DarkStatCard } from "./dark-stat-card";
 import { DonutChart } from "./donut-chart";
 import { StackedBarChart } from "./stacked-bar-chart";
-import { DarkStatCard } from "./dark-stat-card";
 
 export const dynamic = "force-dynamic";
 
@@ -71,7 +71,10 @@ async function getData() {
     prisma.socialSecurityBudget.findMany({ orderBy: { fiscalYear: "desc" } }),
     prisma.socialSecurityProgram.findMany({ orderBy: { name: "asc" } }),
   ]);
-  return { budgets: budgets as unknown as BudgetRow[], programs: programs as unknown as ProgramRow[] };
+  return {
+    budgets: budgets as unknown as BudgetRow[],
+    programs: programs as unknown as ProgramRow[],
+  };
 }
 
 /* ---------- Main Page ---------- */
@@ -112,7 +115,9 @@ export default async function Home() {
 
   /* --- Stacked bar chart data (year-over-year) --- */
   const allYears = [...new Set(budgets.map((b) => b.fiscalYear))].sort();
-  const categories = [...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category))];
+  const categories = [
+    ...new Set(budgets.filter((b) => b.category !== "TOTAL").map((b) => b.category)),
+  ];
   const yearBarData = allYears.map((year) => {
     const yearBudgets = budgets.filter((b) => b.fiscalYear === year && b.category !== "TOTAL");
     const yearTotal = budgets.find((b) => b.fiscalYear === year && b.category === "TOTAL");
@@ -144,7 +149,9 @@ export default async function Home() {
   }
 
   /* --- GDP ratio estimate --- */
-  const gdpRatio = totalBudget ? ((Number(totalBudget.amount) / 10000 / 560) * 100).toFixed(1) : null;
+  const gdpRatio = totalBudget
+    ? ((Number(totalBudget.amount) / 10000 / 560) * 100).toFixed(1)
+    : null;
 
   /* --- Empty state --- */
   if (budgets.length === 0 && programs.length === 0) {
@@ -152,10 +159,13 @@ export default async function Home() {
       <div className="min-h-screen">
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-20 pb-24">
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }} />
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
           <div className="relative mx-auto max-w-7xl px-8">
             <h1 className="text-4xl font-extrabold tracking-tight text-white">
               社会保障の全体像を、ひと目で
@@ -223,29 +233,19 @@ export default async function Home() {
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             <DarkStatCard
               label={latestYear ? `${latestYear}年度総額` : "総額"}
-              value={totalBudget ? `\u00A5${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : "-"}
+              value={
+                totalBudget ? `\u00A5${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : "-"
+              }
               index={0}
             />
-            <DarkStatCard
-              label="対象制度"
-              value={`${activePrograms.length}制度`}
-              index={1}
-            />
+            <DarkStatCard label="対象制度" value={`${activePrograms.length}制度`} index={1} />
             <DarkStatCard
               label="国民1人あたり"
               value={perCapita ? `${perCapita.toLocaleString()}万円` : "-"}
               index={2}
             />
-            <DarkStatCard
-              label="対GDP比"
-              value={gdpRatio ? `${gdpRatio}%` : "-"}
-              index={3}
-            />
-            <DarkStatCard
-              label="都道府県"
-              value="47"
-              index={4}
-            />
+            <DarkStatCard label="対GDP比" value={gdpRatio ? `${gdpRatio}%` : "-"} index={3} />
+            <DarkStatCard label="都道府県" value="47" index={4} />
           </div>
         </div>
       </section>
@@ -264,7 +264,9 @@ export default async function Home() {
                 <DonutChart
                   segments={donutSegments}
                   total={totalBudget ? Number(totalBudget.amount) : 1}
-                  centerLabel={totalBudget ? `${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : "-"}
+                  centerLabel={
+                    totalBudget ? `${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : "-"
+                  }
                   centerSub={latestYear ? `${latestYear}年度` : ""}
                 />
               </div>
@@ -273,13 +275,13 @@ export default async function Home() {
             {/* Stacked Bar Chart */}
             {yearBarData.length > 0 && (
               <div className="dark-card p-8">
-                <h2 className="mb-6 text-base font-semibold text-white">
-                  社会保障費推移（兆円）
-                </h2>
+                <h2 className="mb-6 text-base font-semibold text-white">社会保障費推移（兆円）</h2>
                 <StackedBarChart
                   data={yearBarData}
                   maxValue={maxYearTotal}
-                  latestTotal={totalBudget ? `${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : undefined}
+                  latestTotal={
+                    totalBudget ? `${(Number(totalBudget.amount) / 10000).toFixed(1)}兆` : undefined
+                  }
                   changePercent={changePercent}
                 />
               </div>
@@ -319,7 +321,8 @@ export default async function Home() {
                           <div className="text-right text-sm text-gray-400">
                             {totalBudget && (
                               <span className="text-lg font-semibold text-emerald-400">
-                                {((Number(b.amount) / Number(totalBudget.amount)) * 100).toFixed(1)}%
+                                {((Number(b.amount) / Number(totalBudget.amount)) * 100).toFixed(1)}
+                                %
                               </span>
                             )}
                           </div>
@@ -370,9 +373,7 @@ export default async function Home() {
                           {p.recipients != null && (
                             <span>受給者: 約{p.recipients.toLocaleString()}万人</span>
                           )}
-                          {p.budget != null && (
-                            <span>予算: {formatAmount(p.budget)}</span>
-                          )}
+                          {p.budget != null && <span>予算: {formatAmount(p.budget)}</span>}
                         </div>
                       </div>
                     </div>
@@ -391,8 +392,18 @@ export default async function Home() {
                 <Link href="/budget" className="block">
                   <div className="dark-card p-6 text-center transition-all duration-300 hover:bg-white/[0.05] group">
                     <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-900/40 text-emerald-400 transition-colors group-hover:bg-emerald-600 group-hover:text-white">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                        />
                       </svg>
                     </div>
                     <h3 className="font-bold text-white">予算推移</h3>
@@ -404,8 +415,18 @@ export default async function Home() {
                 <Link href="/prefectures" className="block">
                   <div className="dark-card p-6 text-center transition-all duration-300 hover:bg-white/[0.05] group">
                     <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-900/40 text-teal-400 transition-colors group-hover:bg-teal-600 group-hover:text-white">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                     </div>
                     <h3 className="font-bold text-white">都道府県比較</h3>
@@ -417,8 +438,18 @@ export default async function Home() {
                 <Link href="/compare" className="block">
                   <div className="dark-card p-6 text-center transition-all duration-300 hover:bg-white/[0.05] group">
                     <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-900/40 text-cyan-400 transition-colors group-hover:bg-cyan-600 group-hover:text-white">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                        />
                       </svg>
                     </div>
                     <h3 className="font-bold text-white">政党比較</h3>

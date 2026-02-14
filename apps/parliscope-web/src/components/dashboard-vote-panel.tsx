@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "@ojpp/ui";
+import { useRef } from "react";
 
 interface VoteData {
   billTitle: string;
@@ -41,10 +41,7 @@ export function DashboardVotePanel({ vote }: { vote: VoteData }) {
   ];
 
   return (
-    <div
-      ref={ref}
-      className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6"
-    >
+    <div ref={ref} className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
       <h3 className="mb-1 text-base font-semibold text-white">投票結果</h3>
       <p className="mb-6 text-sm text-[#8b949e]">{vote.billTitle}</p>
 
@@ -94,10 +91,7 @@ export function DashboardVotePanel({ vote }: { vote: VoteData }) {
           <span className="text-xs text-[#8b949e]">政党別:</span>
           {vote.partyBreakdown.map((party) => (
             <div key={party.name} className="flex items-center gap-1.5">
-              <div
-                className="h-3 w-3 rounded-sm"
-                style={{ backgroundColor: party.color }}
-              />
+              <div className="h-3 w-3 rounded-sm" style={{ backgroundColor: party.color }} />
               <span className="text-xs text-[#ccc]">
                 {party.name} {party.voted === "for" ? "\u2713" : "\u2717"}
               </span>

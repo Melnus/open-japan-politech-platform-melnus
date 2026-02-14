@@ -89,7 +89,9 @@ export default async function PolicyPage({ params }: Props) {
           <div className="space-y-6">
             {policy.party && (
               <div className="glass-card p-5">
-                <h3 className="mb-3 text-sm font-bold text-slate-500 uppercase tracking-wider">政党情報</h3>
+                <h3 className="mb-3 text-sm font-bold text-slate-500 uppercase tracking-wider">
+                  政党情報
+                </h3>
                 <div className="flex items-center gap-2">
                   {policy.party.color && (
                     <span
@@ -108,7 +110,9 @@ export default async function PolicyPage({ params }: Props) {
             )}
 
             <div className="glass-card p-5">
-              <h3 className="mb-3 text-sm font-bold text-slate-500 uppercase tracking-wider">メタデータ</h3>
+              <h3 className="mb-3 text-sm font-bold text-slate-500 uppercase tracking-wider">
+                メタデータ
+              </h3>
               <dl className="space-y-2 text-sm">
                 <div>
                   <dt className="text-slate-500">バージョン</dt>

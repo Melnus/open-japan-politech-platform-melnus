@@ -43,9 +43,7 @@ export default async function Home() {
   if (!stats) {
     return (
       <div className="mx-auto max-w-7xl px-8 py-16">
-        <h2 className="mb-6 text-3xl font-bold text-white">
-          政治資金の流れを、誰でも見える形に
-        </h2>
+        <h2 className="mb-6 text-3xl font-bold text-white">政治資金の流れを、誰でも見える形に</h2>
         <div className="glass-card rounded-xl p-8">
           <p className="text-center text-[#8b949e]">
             データを読み込み中、またはデータベースにデータがありません。

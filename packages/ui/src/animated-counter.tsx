@@ -1,7 +1,7 @@
 "use client";
 
+import { motion, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { useSpring, motion } from "motion/react";
 
 interface AnimatedCounterProps {
   from?: number;

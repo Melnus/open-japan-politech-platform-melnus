@@ -51,10 +51,13 @@ export default async function PartyPage({ params }: Props) {
             )}
             <h2 className="text-3xl font-bold text-white">{party.name}</h2>
             {party.shortName && (
-              <span className="rounded-full px-3 py-1 text-xs font-medium" style={{
-                backgroundColor: `${party.color ?? "#6b7280"}20`,
-                color: party.color ?? "#94a3b8",
-              }}>
+              <span
+                className="rounded-full px-3 py-1 text-xs font-medium"
+                style={{
+                  backgroundColor: `${party.color ?? "#6b7280"}20`,
+                  color: party.color ?? "#94a3b8",
+                }}
+              >
                 {party.shortName}
               </span>
             )}

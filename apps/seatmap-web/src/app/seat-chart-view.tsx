@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "@ojpp/ui";
-import { SeatBarChart, CoalitionStackedBar } from "./seat-bar";
+import { AnimatePresence, motion, useInView } from "@ojpp/ui";
+import { useRef, useState } from "react";
+import { CoalitionStackedBar, SeatBarChart } from "./seat-bar";
 
 /* ---------- Types ---------- */
 
@@ -45,10 +45,7 @@ function getMajorityLine(totalSeats: number) {
 }
 
 // Known ruling coalition parties (LDP + Komeito as default)
-const RULING_PARTY_NAMES = [
-  "自由民主党",
-  "公明党",
-];
+const RULING_PARTY_NAMES = ["自由民主党", "公明党"];
 
 function computeCoalition(results: PartyResult[], totalSeats: number) {
   let rulingSeats = 0;
@@ -82,11 +79,7 @@ function computeCoalition(results: PartyResult[], totalSeats: number) {
 
 /* ---------- Main View Component ---------- */
 
-export function SeatChartView({
-  elections,
-}: {
-  elections: ElectionData[];
-}) {
+export function SeatChartView({ elections }: { elections: ElectionData[] }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const election = elections[selectedIndex];
 
@@ -109,9 +102,7 @@ export function SeatChartView({
                 type="button"
                 onClick={() => setSelectedIndex(idx)}
                 className={`relative overflow-hidden rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
-                  isSelected
-                    ? "text-white"
-                    : "text-slate-400 hover:bg-white/5 hover:text-slate-200"
+                  isSelected ? "text-white" : "text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 }`}
               >
                 {isSelected && (
@@ -121,9 +112,7 @@ export function SeatChartView({
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">
-                  {e.name}
-                </span>
+                <span className="relative z-10">{e.name}</span>
               </button>
             );
           })}
@@ -172,9 +161,7 @@ export function SeatChartView({
 
             {/* Right: Coalition panel */}
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6 lg:mt-8">
-              <h2 className="mb-5 text-base font-semibold text-white">
-                与野党勢力
-              </h2>
+              <h2 className="mb-5 text-base font-semibold text-white">与野党勢力</h2>
               <CoalitionStackedBar data={coalition} />
 
               {/* Stats mini grid */}

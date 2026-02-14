@@ -1,7 +1,4 @@
-const STATUS_MAP: Record<
-  string,
-  { label: string; color: string; bg: string }
-> = {
+const STATUS_MAP: Record<string, { label: string; color: string; bg: string }> = {
   SUBMITTED: { label: "提出", color: "text-blue-400", bg: "bg-blue-500/15" },
   COMMITTEE: { label: "委員会審議中", color: "text-yellow-400", bg: "bg-yellow-500/15" },
   PLENARY: { label: "本会議審議中", color: "text-yellow-400", bg: "bg-yellow-500/15" },
@@ -23,9 +20,9 @@ export function BillStatusBadge({ status }: { status: string }) {
       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${config.bg} ${config.color}`}
     >
       <span
-        className={`h-1.5 w-1.5 rounded-full ${
-          config.color.replace("text-", "bg-").replace("-400", "-500")
-        }`}
+        className={`h-1.5 w-1.5 rounded-full ${config.color
+          .replace("text-", "bg-")
+          .replace("-400", "-500")}`}
       />
       {config.label}
     </span>

@@ -54,13 +54,18 @@ export default async function PrefecturesPage() {
     return (
       <div className="min-h-screen">
         <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }} />
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">都道府県別データ</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              都道府県別データ
+            </h1>
             <p className="mt-3 text-gray-400">社会保障に関する都道府県別の指標を比較</p>
           </div>
         </section>
@@ -69,7 +74,8 @@ export default async function PrefecturesPage() {
             <p className="text-center text-gray-500">
               都道府県別福祉データがまだありません。
               <br />
-              <code className="text-xs text-gray-400">pnpm ingest:social-security</code> を実行してデータを投入してください。
+              <code className="text-xs text-gray-400">pnpm ingest:social-security</code>{" "}
+              を実行してデータを投入してください。
             </p>
           </div>
         </div>
@@ -86,7 +92,15 @@ export default async function PrefecturesPage() {
   /* --- Build table data for latest year --- */
   const latestStats = stats.filter((s) => s.fiscalYear === latestYear);
 
-  const prefectureMap = new Map<string, { name: string; code: string; region: string | null; stats: Record<string, { value: number; unit: string }> }>();
+  const prefectureMap = new Map<
+    string,
+    {
+      name: string;
+      code: string;
+      region: string | null;
+      stats: Record<string, { value: number; unit: string }>;
+    }
+  >();
   for (const s of latestStats) {
     if (!prefectureMap.has(s.prefectureId)) {
       prefectureMap.set(s.prefectureId, {
@@ -107,18 +121,19 @@ export default async function PrefecturesPage() {
     }))
     .sort((a, b) => a.code.localeCompare(b.code));
 
-  const categoryLabels = Object.fromEntries(
-    categories.map((c) => [c, CATEGORY_LABELS[c] ?? c])
-  );
+  const categoryLabels = Object.fromEntries(categories.map((c) => [c, CATEGORY_LABELS[c] ?? c]));
 
   return (
     <div className="min-h-screen">
       {/* ====== Hero ====== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-950 to-slate-950 py-16 pb-20">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-8">
           <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">

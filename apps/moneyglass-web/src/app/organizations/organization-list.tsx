@@ -1,6 +1,6 @@
 "use client";
 
-import { StaggerGrid, StaggerItem, motion } from "@ojpp/ui";
+import { motion, StaggerGrid, StaggerItem } from "@ojpp/ui";
 import { useCallback, useEffect, useState } from "react";
 import { FilterBar } from "@/components/filter-bar";
 import { SearchInput } from "@/components/search-input";

@@ -3,17 +3,16 @@ import { prisma } from "@ojpp/db";
 
 export async function GET() {
   try {
-    const [policyCount, partyCount, proposalCount, categoryStats] =
-      await Promise.all([
-        prisma.policy.count(),
-        prisma.party.count(),
-        prisma.policyProposal.count(),
-        prisma.policy.groupBy({
-          by: ["category"],
-          _count: true,
-          orderBy: { _count: { category: "desc" } },
-        }),
-      ]);
+    const [policyCount, partyCount, proposalCount, categoryStats] = await Promise.all([
+      prisma.policy.count(),
+      prisma.party.count(),
+      prisma.policyProposal.count(),
+      prisma.policy.groupBy({
+        by: ["category"],
+        _count: true,
+        orderBy: { _count: { category: "desc" } },
+      }),
+    ]);
 
     return jsonResponse({
       policyCount,

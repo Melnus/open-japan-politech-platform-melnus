@@ -56,7 +56,7 @@ export function GradientMeshBackground({
 
     // Initialize blobs
     const blobs: Blob[] = colors.map((color, i) => ({
-      x: width * (0.25 + (i * 0.25)),
+      x: width * (0.25 + i * 0.25),
       y: height * (0.3 + (i % 2) * 0.4),
       vx: (0.3 + Math.random() * 0.4) * speed * (i % 2 === 0 ? 1 : -1),
       vy: (0.2 + Math.random() * 0.3) * speed * (i % 2 === 0 ? -1 : 1),
@@ -81,14 +81,7 @@ export function GradientMeshBackground({
       // Draw blobs with radial gradients
       ctx.globalCompositeOperation = "lighter";
       for (const blob of blobs) {
-        const gradient = ctx.createRadialGradient(
-          blob.x,
-          blob.y,
-          0,
-          blob.x,
-          blob.y,
-          blob.radius,
-        );
+        const gradient = ctx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, blob.radius);
         gradient.addColorStop(0, hexToRgba(blob.color, 0.4));
         gradient.addColorStop(0.5, hexToRgba(blob.color, 0.15));
         gradient.addColorStop(1, hexToRgba(blob.color, 0));

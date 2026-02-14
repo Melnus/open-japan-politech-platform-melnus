@@ -7,8 +7,8 @@
   --cs-bg-secondary: #111118;
   --cs-bg-card: rgba(255, 255, 255, 0.03);
   --cs-bg-card-border: rgba(255, 255, 255, 0.06);
-  --cs-accent: #F59E0B;
-  --cs-accent-light: #FBBF24;
+  --cs-accent: #f59e0b;
+  --cs-accent-light: #fbbf24;
   --cs-accent-dim: rgba(245, 158, 11, 0.1);
   --cs-accent-border: rgba(245, 158, 11, 0.3);
   --cs-text-primary: #ffffff;
@@ -57,7 +57,9 @@ body {
 
 /* Glow effect for accent elements */
 .glow-amber {
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 0 60px rgba(245, 158, 11, 0.05);
+  box-shadow:
+    0 0 20px rgba(245, 158, 11, 0.15),
+    0 0 60px rgba(245, 158, 11, 0.05);
 }
 
 /* Glass card style */

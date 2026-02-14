@@ -9,10 +9,7 @@ interface SessionTimelineProps {
   }>;
 }
 
-const TYPE_LABELS: Record<
-  string,
-  { label: string; color: string; bg: string }
-> = {
+const TYPE_LABELS: Record<string, { label: string; color: string; bg: string }> = {
   ORDINARY: { label: "通常", color: "text-blue-400", bg: "bg-blue-500/15" },
   EXTRAORDINARY: { label: "臨時", color: "text-amber-400", bg: "bg-amber-500/15" },
   SPECIAL: { label: "特別", color: "text-emerald-400", bg: "bg-emerald-500/15" },
@@ -38,7 +35,9 @@ export function SessionTimeline({ sessions }: SessionTimelineProps) {
                 <span className="text-lg font-bold text-indigo-400 transition-colors group-hover:text-indigo-300">
                   第{session.number}回
                 </span>
-                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeConfig.bg} ${typeConfig.color}`}>
+                <span
+                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${typeConfig.bg} ${typeConfig.color}`}
+                >
                   {typeConfig.label}国会
                 </span>
               </div>

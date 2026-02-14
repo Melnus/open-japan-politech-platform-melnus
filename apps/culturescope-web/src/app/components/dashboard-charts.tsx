@@ -1,15 +1,15 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 import {
-  AreaChart,
   Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
 } from "recharts";
 
 /* ---------- Types ---------- */
@@ -90,13 +90,8 @@ export function DashboardCharts({ totalByYear, categoryBreakdown }: DashboardCha
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
       {/* ====== Area Chart (3 cols) ====== */}
-      <div
-        ref={areaRef}
-        className="glass-card p-6 lg:col-span-3"
-      >
-        <h3 className="mb-6 text-base font-semibold text-white">
-          文化庁予算推移（億円）
-        </h3>
+      <div ref={areaRef} className="glass-card p-6 lg:col-span-3">
+        <h3 className="mb-6 text-base font-semibold text-white">文化庁予算推移（億円）</h3>
         <div
           className="transition-all duration-700"
           style={{
@@ -106,10 +101,7 @@ export function DashboardCharts({ totalByYear, categoryBreakdown }: DashboardCha
         >
           {totalByYear.length > 0 ? (
             <ResponsiveContainer width="100%" height={280}>
-              <AreaChart
-                data={totalByYear}
-                margin={{ top: 10, right: 20, left: 10, bottom: 0 }}
-              >
+              <AreaChart data={totalByYear} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
                 <defs>
                   <linearGradient id="gradientAmberDark" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.4} />
@@ -156,13 +148,8 @@ export function DashboardCharts({ totalByYear, categoryBreakdown }: DashboardCha
       </div>
 
       {/* ====== Horizontal Bar Chart (2 cols) ====== */}
-      <div
-        ref={barRef}
-        className="glass-card p-6 lg:col-span-2"
-      >
-        <h3 className="mb-6 text-base font-semibold text-white">
-          分野別内訳
-        </h3>
+      <div ref={barRef} className="glass-card p-6 lg:col-span-2">
+        <h3 className="mb-6 text-base font-semibold text-white">分野別内訳</h3>
         <div
           className="space-y-4 transition-all duration-700"
           style={{

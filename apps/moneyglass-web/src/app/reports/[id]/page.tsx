@@ -1,4 +1,4 @@
-import { Badge, Stat, Card, ScrollReveal, FadeIn } from "@ojpp/ui";
+import { Badge, Card, FadeIn, ScrollReveal, Stat } from "@ojpp/ui";
 import { notFound } from "next/navigation";
 import { formatCurrency, getBaseUrl } from "@/lib/format";
 import { ReportCharts } from "./report-charts";
@@ -91,16 +91,12 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
           {report.organization.name}
         </a>
         <span className="mx-2">/</span>
-        <span className="text-[#c9d1d9]">
-          {report.fiscalYear}年度 収支報告書
-        </span>
+        <span className="text-[#c9d1d9]">{report.fiscalYear}年度 収支報告書</span>
       </div>
 
       <FadeIn direction="up" delay={0}>
         <div className="mb-8 flex flex-wrap items-center gap-3">
-          <h2 className="text-3xl font-bold text-[#f0f0f0]">
-            {report.fiscalYear}年度 収支報告書
-          </h2>
+          <h2 className="text-3xl font-bold text-[#f0f0f0]">{report.fiscalYear}年度 収支報告書</h2>
           {report.organization.party && (
             <span
               className="rounded-full px-3 py-1 text-sm font-medium text-white"
@@ -112,10 +108,7 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
               {report.organization.party.name}
             </span>
           )}
-          <Badge
-            theme="dark"
-            variant={report.status === "PUBLISHED" ? "success" : "default"}
-          >
+          <Badge theme="dark" variant={report.status === "PUBLISHED" ? "success" : "default"}>
             {report.status}
           </Badge>
         </div>

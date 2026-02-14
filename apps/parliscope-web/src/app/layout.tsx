@@ -1,4 +1,4 @@
-import { SmoothScrollProvider, ScrollReveal } from "@ojpp/ui";
+import { ScrollReveal, SmoothScrollProvider } from "@ojpp/ui";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
@@ -55,7 +55,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <p className="mt-2 text-[#6b7280]">
                 政党にも企業にもよらない、完全オープンな政治テクノロジー基盤
               </p>
-              <p className="mt-1 text-[#6b7280]">Open Japan PoliTech Platform v0.1 | AGPL-3.0-or-later</p>
+              <p className="mt-1 text-[#6b7280]">
+                Open Japan PoliTech Platform v0.1 | AGPL-3.0-or-later
+              </p>
             </div>
           </footer>
         </ScrollReveal>

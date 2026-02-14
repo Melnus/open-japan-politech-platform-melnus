@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { useInView } from "@ojpp/ui";
+import { useRef } from "react";
 import {
   Bar,
   BarChart,
@@ -30,13 +30,24 @@ export function BudgetOverviewChart({ data }: { data: ChartData[] }) {
           <BarChart data={data} layout="vertical" margin={{ left: 100, right: 20 }}>
             <defs>
               {data.map((d) => (
-                <linearGradient key={d.category} id={`grad-${d.category}`} x1="0" y1="0" x2="1" y2="0">
+                <linearGradient
+                  key={d.category}
+                  id={`grad-${d.category}`}
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="0"
+                >
                   <stop offset="0%" stopColor={d.color} stopOpacity={0.9} />
                   <stop offset="100%" stopColor={d.color} stopOpacity={0.6} />
                 </linearGradient>
               ))}
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" horizontal={false} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="rgba(255,255,255,0.06)"
+              horizontal={false}
+            />
             <XAxis
               type="number"
               tickFormatter={(v: number) =>
@@ -69,7 +80,12 @@ export function BudgetOverviewChart({ data }: { data: ChartData[] }) {
               itemStyle={{ color: "#D1D5DB" }}
               labelStyle={{ color: "#9CA3AF" }}
             />
-            <Bar dataKey="amount" radius={[0, 6, 6, 0]} animationDuration={1200} animationBegin={200}>
+            <Bar
+              dataKey="amount"
+              radius={[0, 6, 6, 0]}
+              animationDuration={1200}
+              animationBegin={200}
+            >
               {data.map((d) => (
                 <Cell key={d.category} fill={`url(#grad-${d.category})`} />
               ))}

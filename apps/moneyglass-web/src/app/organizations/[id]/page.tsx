@@ -1,4 +1,4 @@
-import { Badge, Card, ScrollReveal, FadeIn } from "@ojpp/ui";
+import { Badge, Card, FadeIn, ScrollReveal } from "@ojpp/ui";
 import { notFound } from "next/navigation";
 import { formatCurrency, getBaseUrl } from "@/lib/format";
 

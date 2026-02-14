@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "@ojpp/ui";
+import { AnimatePresence, motion } from "@ojpp/ui";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface NavItem {
   href: string;

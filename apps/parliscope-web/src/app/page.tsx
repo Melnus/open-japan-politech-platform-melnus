@@ -1,9 +1,9 @@
 import { prisma } from "@ojpp/db";
-import { DashboardStats } from "@/components/dashboard-stats";
 import { DashboardBillsPanel } from "@/components/dashboard-bills-panel";
-import { DashboardVotePanel } from "@/components/dashboard-vote-panel";
 import { DashboardHero } from "@/components/dashboard-hero";
+import { DashboardStats } from "@/components/dashboard-stats";
 import { DashboardStatusGrid } from "@/components/dashboard-status-grid";
+import { DashboardVotePanel } from "@/components/dashboard-vote-panel";
 
 export const dynamic = "force-dynamic";
 

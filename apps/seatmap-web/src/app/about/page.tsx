@@ -7,7 +7,8 @@ export default function AboutPage() {
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
           <h2 className="mb-3 text-lg font-semibold text-white">SeatMap とは</h2>
           <p className="leading-relaxed text-slate-400">
-            SeatMap は、日本の国会（衆議院・参議院）における議席構成を可視化するオープンソースプロジェクトです。
+            SeatMap
+            は、日本の国会（衆議院・参議院）における議席構成を可視化するオープンソースプロジェクトです。
             選挙結果に基づく政党別の議席数を、直感的なビジュアルで表示します。
           </p>
         </div>
@@ -34,7 +35,8 @@ export default function AboutPage() {
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
           <h2 className="mb-3 text-lg font-semibold text-white">非党派性</h2>
           <p className="leading-relaxed text-slate-400">
-            SeatMap は Open Japan PoliTech Platform (OJPP) の一部として、完全な非党派性を維持しています。
+            SeatMap は Open Japan PoliTech Platform (OJPP)
+            の一部として、完全な非党派性を維持しています。
             特定の政党・政治的立場を推進することなく、すべての政党のデータを公平に表示します。
           </p>
         </div>

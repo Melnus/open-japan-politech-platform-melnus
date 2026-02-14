@@ -33,7 +33,13 @@ const dotColors = {
   info: "bg-blue-500",
 };
 
-export function Badge({ children, variant = "default", dot = false, className = "", theme = "light" }: BadgeProps) {
+export function Badge({
+  children,
+  variant = "default",
+  dot = false,
+  className = "",
+  theme = "light",
+}: BadgeProps) {
   const variantStyles = theme === "dark" ? darkVariants : lightVariants;
   return (
     <span

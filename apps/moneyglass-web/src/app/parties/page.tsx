@@ -26,21 +26,15 @@ export default async function PartiesPage() {
     // fallback
   }
 
-  const sortedParties = parties.sort(
-    (a, b) => Number(b.totalIncome) - Number(a.totalIncome)
-  );
+  const sortedParties = parties.sort((a, b) => Number(b.totalIncome) - Number(a.totalIncome));
 
   // Find max income for relative bar widths
-  const maxIncome = sortedParties.length > 0
-    ? Number(sortedParties[0].totalIncome)
-    : 1;
+  const maxIncome = sortedParties.length > 0 ? Number(sortedParties[0].totalIncome) : 1;
 
   return (
     <div className="mx-auto max-w-7xl px-8 py-12">
       <div className="mb-10">
-        <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">
-          政党別資金集計
-        </h2>
+        <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">政党別資金集計</h2>
         <p className="text-[#8b949e]">各政党の政治団体における資金の総計を比較</p>
       </div>
 
@@ -62,9 +56,7 @@ export default async function PartiesPage() {
             incomeRatio: Number(party.totalIncome) / maxIncome,
             expenditureRatio: Math.min(
               100,
-              (Number(party.totalExpenditure) /
-                Math.max(1, Number(party.totalIncome))) *
-                100
+              (Number(party.totalExpenditure) / Math.max(1, Number(party.totalIncome))) * 100,
             ),
           }))}
         />

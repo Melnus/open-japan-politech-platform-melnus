@@ -100,7 +100,9 @@
 }
 
 @keyframes pulse-dot {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     opacity: 0;
     transform: scale(0.6);
   }
@@ -111,7 +113,8 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
   }
   50% {
