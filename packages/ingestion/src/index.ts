@@ -1,8 +1,11 @@
 export { seedElections } from "./elections/seed-elections";
+export { seedCulturalData } from "./cultural-policy/seed-cultural-data";
 export { ingestBills } from "./kokkai/ingest-bills";
 export { ingestSessions } from "./kokkai/ingest-sessions";
 export { seedPolicies } from "./manifesto/seed-policies";
+export { ingestPoliticalFinance } from "./political-finance/ingest";
+export { seedRealFinance } from "./political-finance/seed-real-finance";
 export { seedCouncillors } from "./politicians/seed-councillors";
 export { seedRepresentatives } from "./politicians/seed-representatives";
 export { seedPrefectures } from "./prefectures/seed-prefectures";
-export { ingestPoliticalFinance } from "./political-finance/ingest";
+export { seedSocialSecurity } from "./social-security/seed-social-security";
