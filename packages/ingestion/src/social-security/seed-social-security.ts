@@ -112,6 +112,90 @@ interface SocialSecurityStanceData {
  */
 const SOCIAL_SECURITY_BUDGET_DATA: SocialSecurityBudgetYear[] = [
   {
+    // 平成25年度（2013年度）当初予算
+    // 公式合計: 291,224億円（29兆1,224億円）
+    // 参照: 財務省「平成25年度予算のポイント」
+    fiscalYear: 2013,
+    pension: 107_898n,
+    healthcare: 112_498n,
+    longTermCare: 25_640n,
+    welfare: 20_600n,
+    childSupport: 13_143n,
+    employment: 345n,
+    disability: 11_100n,
+    total: 291_224n,
+  },
+  {
+    // 平成26年度（2014年度）当初予算
+    // 公式合計: 305,175億円（30兆5,175億円）
+    // 参照: 財務省「平成26年度予算のポイント」消費税率8%引上げ
+    fiscalYear: 2014,
+    pension: 109_397n,
+    healthcare: 114_254n,
+    longTermCare: 26_739n,
+    welfare: 20_700n,
+    childSupport: 20_972n,
+    employment: 353n,
+    disability: 12_760n,
+    total: 305_175n,
+  },
+  {
+    // 平成27年度（2015年度）当初予算
+    // 公式合計: 315,297億円（31兆5,297億円）
+    // 参照: 財務省「平成27年度予算のポイント」子ども・子育て支援新制度開始
+    fiscalYear: 2015,
+    pension: 111_418n,
+    healthcare: 115_938n,
+    longTermCare: 27_897n,
+    welfare: 21_000n,
+    childSupport: 21_843n,
+    employment: 361n,
+    disability: 16_840n,
+    total: 315_297n,
+  },
+  {
+    // 平成28年度（2016年度）当初予算
+    // 公式合計: 319,738億円（31兆9,738億円）
+    // 参照: 財務省「平成28年度予算のポイント」
+    fiscalYear: 2016,
+    pension: 113_452n,
+    healthcare: 117_185n,
+    longTermCare: 28_973n,
+    welfare: 20_800n,
+    childSupport: 21_553n,
+    employment: 375n,
+    disability: 17_400n,
+    total: 319_738n,
+  },
+  {
+    // 平成29年度（2017年度）当初予算
+    // 公式合計: 324,735億円（32兆4,735億円）
+    // 参照: 財務省「平成29年度予算のポイント」
+    fiscalYear: 2017,
+    pension: 115_020n,
+    healthcare: 118_079n,
+    longTermCare: 29_855n,
+    welfare: 21_200n,
+    childSupport: 22_131n,
+    employment: 380n,
+    disability: 18_070n,
+    total: 324_735n,
+  },
+  {
+    // 平成30年度（2018年度）当初予算
+    // 公式合計: 329,732億円（32兆9,732億円）
+    // 参照: 財務省「平成30年度予算のポイント」
+    fiscalYear: 2018,
+    pension: 116_853n,
+    healthcare: 119_974n,
+    longTermCare: 31_153n,
+    welfare: 21_400n,
+    childSupport: 22_517n,
+    employment: 385n,
+    disability: 17_450n,
+    total: 329_732n,
+  },
+  {
     // 平成31年度（2019年度）当初予算
     // 公式合計: 340,593億円（34兆593億円）
     // 参照: 参議院調査室「平成31年度社会保障関係予算」
@@ -564,6 +648,216 @@ const SOCIAL_SECURITY_PROGRAM_DATA: SocialSecurityProgramData[] = [
     startYear: 1991,
     lastReformed: 2019,
     sourceUrl: "https://www.npfa.or.jp/",
+    isActive: true,
+  },
+  {
+    name: "障害者総合支援制度（自立支援給付）",
+    category: "DISABILITY",
+    description:
+      "障害者総合支援法に基づく障害福祉サービスの給付制度。居宅介護、重度訪問介護、同行援護、行動援護、生活介護、就労継続支援（A型・B型）、就労移行支援、共同生活援助（グループホーム）等のサービスを提供。2024年4月の法改正で就労選択支援が新設。",
+    eligibility: "身体障害者、知的障害者、精神障害者、難病患者等（障害支援区分の認定が必要）",
+    benefit: "居宅介護、生活介護、就労支援、グループホーム等の障害福祉サービス。利用者負担は原則1割（所得に応じた上限あり）",
+    budget: 33_000n,
+    recipients: 150,
+    startYear: 2013,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/shougaishahukushi/",
+    isActive: true,
+  },
+  {
+    name: "特別児童扶養手当",
+    category: "CHILD_SUPPORT",
+    description:
+      "精神又は身体に障害を有する20歳未満の児童を監護する父母等に支給される手当。1級（重度）月額55,350円、2級（中度）月額36,860円（2024年度）。",
+    eligibility: "精神又は身体に障害を有する20歳未満の児童を監護する父母等",
+    benefit: "1級: 月額55,350円、2級: 月額36,860円（2024年度）。所得制限あり",
+    budget: 1_600n,
+    recipients: 27,
+    startYear: 1964,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/bunya/shougaihoken/jidou/huyou.html",
+    isActive: true,
+  },
+  {
+    name: "労災保険（労働者災害補償保険）",
+    category: "EMPLOYMENT",
+    description:
+      "業務上の事由又は通勤により労働者が負傷、疾病、障害、死亡した場合に保険給付を行う制度。保険料は全額事業主負担。療養補償給付、休業補償給付、障害補償給付、遺族補償給付等を支給。特別加入制度により中小事業主、一人親方等も加入可能。",
+    eligibility: "全ての労働者（パート・アルバイト含む）。特別加入制度あり",
+    benefit: "療養補償給付（全額）、休業補償給付（給付基礎日額の80%）、障害補償給付、遺族補償給付等",
+    budget: 8_500n,
+    recipients: 68,
+    startYear: 1947,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/",
+    isActive: true,
+  },
+  {
+    name: "求職者支援制度",
+    category: "EMPLOYMENT",
+    description:
+      "雇用保険を受給できない求職者に対して、職業訓練（求職者支援訓練）を実施し、訓練期間中の生活を支援するため月10万円の職業訓練受講給付金を支給する制度。2011年10月に創設。",
+    eligibility: "雇用保険の受給資格がない求職者（収入要件・資産要件等あり）",
+    benefit: "職業訓練受講給付金: 月額10万円 + 通所手当 + 寄宿手当",
+    budget: 600n,
+    recipients: 3,
+    startYear: 2011,
+    lastReformed: 2023,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyushokusha_shien/",
+    isActive: true,
+  },
+  {
+    name: "後期高齢者医療制度",
+    category: "HEALTHCARE",
+    description:
+      "75歳以上（一定の障害がある65歳以上含む）の高齢者を対象とした医療保険制度。2008年4月に老人保健制度から移行。都道府県単位の広域連合が運営。窓口負担は原則1割（現役並み所得者は3割、2022年10月から一定以上の所得がある者は2割）。",
+    eligibility: "75歳以上の全ての者（65歳以上の一定の障害がある者含む）",
+    benefit: "医療費の自己負担1割（一定以上所得者2割、現役並み所得者3割）",
+    budget: 80_000n,
+    recipients: 1890,
+    startYear: 2008,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/koukikourei/",
+    isActive: true,
+  },
+  {
+    name: "国民健康保険",
+    category: "HEALTHCARE",
+    description:
+      "自営業者、農業者、無職者等が加入する公的医療保険。2018年度から都道府県が財政運営の責任主体に。市町村が保険料の賦課・徴収、資格管理等を実施。約2,700万人が加入。",
+    eligibility: "会社の健康保険や後期高齢者医療制度に加入していない全ての住民",
+    benefit: "医療費の7割を保険給付（義務教育就学前は8割）、高額療養費、出産育児一時金等",
+    budget: 95_000n,
+    recipients: 2700,
+    startYear: 1958,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/koukikourei/",
+    isActive: true,
+  },
+  {
+    name: "障害年金",
+    category: "PENSION",
+    description:
+      "病気やけがによって生活や仕事などが制限されるようになった場合に支給される年金。障害基礎年金（1級: 年額1,020,000円、2級: 年額816,000円、2024年度）と障害厚生年金（報酬比例）がある。",
+    eligibility: "国民年金・厚生年金の被保険者期間中に初診日がある者（保険料納付要件あり）",
+    benefit: "障害基礎年金1級: 年額1,020,000円、2級: 年額816,000円（2024年度）+ 障害厚生年金（報酬比例）",
+    budget: 20_000n,
+    recipients: 220,
+    startYear: 1961,
+    lastReformed: 2024,
+    sourceUrl: "https://www.nenkin.go.jp/service/jukyu/shougainenkin/",
+    isActive: true,
+  },
+  {
+    name: "遺族年金",
+    category: "PENSION",
+    description:
+      "国民年金・厚生年金の被保険者（または被保険者であった者）が亡くなった時に、遺族に支給される年金。遺族基礎年金（子のある配偶者または子に支給）と遺族厚生年金（報酬比例）がある。",
+    eligibility: "死亡した被保険者によって生計を維持されていた遺族（配偶者、子、父母、孫、祖父母）",
+    benefit: "遺族基礎年金: 年額816,000円+子の加算（2024年度）、遺族厚生年金: 報酬比例の3/4",
+    budget: 68_000n,
+    recipients: 620,
+    startYear: 1961,
+    lastReformed: 2024,
+    sourceUrl: "https://www.nenkin.go.jp/service/jukyu/izokunenkin/",
+    isActive: true,
+  },
+  {
+    name: "特定健康診査・特定保健指導（メタボ健診）",
+    category: "HEALTHCARE",
+    description:
+      "40歳から74歳までの公的医療保険加入者を対象とした健康診査。メタボリックシンドローム（内臓脂肪症候群）に着目し、生活習慣病の予防を目的とする。2008年度から実施。実施率は特定健診58.1%、特定保健指導26.5%（2022年度）。",
+    eligibility: "40歳以上74歳以下の公的医療保険加入者（被保険者・被扶養者）",
+    benefit: "年1回の健康診査（無料〜少額の自己負担）、リスクに応じた保健指導（動機付け支援・積極的支援）",
+    budget: 3_000n,
+    recipients: 3100,
+    startYear: 2008,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu/",
+    isActive: true,
+  },
+  {
+    name: "介護予防・日常生活支援総合事業",
+    category: "LONG_TERM_CARE",
+    description:
+      "2015年の介護保険法改正により創設された事業。要支援1・2の者及び基本チェックリスト該当者を対象に、介護予防・生活支援サービスを市町村が主体となって実施。従来の予防給付の一部を移行。",
+    eligibility: "65歳以上の全ての高齢者（介護予防事業）、要支援1・2及び基本チェックリスト該当者（サービス事業）",
+    benefit: "訪問型サービス、通所型サービス、生活支援サービス、一般介護予防事業",
+    budget: 7_000n,
+    recipients: null,
+    startYear: 2015,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000192309.html",
+    isActive: true,
+  },
+  {
+    name: "母子父子寡婦福祉資金貸付",
+    category: "CHILD_SUPPORT",
+    description:
+      "母子家庭・父子家庭・寡婦の経済的自立と生活意欲の助長を図るため、各種資金を無利子又は低利で貸し付ける制度。事業開始資金、就学資金、技能習得資金、就職支度資金等12種類の貸付金がある。",
+    eligibility: "母子家庭の母、父子家庭の父、寡婦（配偶者のない女子でかつて母子家庭の母であった者）等",
+    benefit: "無利子又は年1.0%の低利貸付。就学資金（月額最大96,000円）、事業開始資金（最大326万円）等",
+    budget: 300n,
+    recipients: 5,
+    startYear: 1952,
+    lastReformed: 2021,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000062986.html",
+    isActive: true,
+  },
+  {
+    name: "児童扶養手当",
+    category: "CHILD_SUPPORT",
+    description:
+      "ひとり親家庭等の生活の安定と自立の促進を図るため、児童を監護する母又は父等に支給される手当。2024年11月分から第3子以降の加算額が大幅に引き上げられた。全額支給: 月額45,500円（2024年度）。",
+    eligibility: "18歳に達する日以降の最初の3月31日までの児童を監護する母又は父等（所得制限あり）",
+    benefit: "全額支給: 月額45,500円、第2子加算: 10,750円、第3子以降加算: 6,450円（2024年度）",
+    budget: 4_000n,
+    recipients: 87,
+    startYear: 1962,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000137801.html",
+    isActive: true,
+  },
+  {
+    name: "児童手当",
+    category: "CHILD_SUPPORT",
+    description:
+      "子ども・子育て支援の一環として、中学校卒業までの児童を養育している者に支給される手当。2024年10月分から大幅拡充され、支給対象が高校生年代まで拡大、所得制限が撤廃、第3子以降の支給額が月3万円に引上げ。",
+    eligibility: "18歳に達する日以降の最初の3月31日までの児童を養育する者（2024年10月〜所得制限なし）",
+    benefit: "3歳未満: 月15,000円、3歳〜高校生: 月10,000円、第3子以降: 月30,000円（2024年10月〜）",
+    budget: 28_000n,
+    recipients: 1600,
+    startYear: 1972,
+    lastReformed: 2024,
+    sourceUrl: "https://www.cfa.go.jp/policies/kokoseido/jidouteate/",
+    isActive: true,
+  },
+  {
+    name: "生活困窮者自立支援制度",
+    category: "WELFARE",
+    description:
+      "生活保護に至る前の段階にある生活困窮者に対し、自立に向けた包括的な支援を行う制度。2015年4月に施行。自立相談支援事業（必須）、住居確保給付金（必須）、就労準備支援事業、家計改善支援事業等を実施。",
+    eligibility: "現に経済的に困窮し、最低限度の生活を維持することができなくなるおそれのある者",
+    benefit: "自立相談支援、住居確保給付金（家賃相当額を最長9か月支給）、就労準備支援、家計改善支援等",
+    budget: 500n,
+    recipients: 90,
+    startYear: 2015,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000059425.html",
+    isActive: true,
+  },
+  {
+    name: "年金生活者支援給付金",
+    category: "PENSION",
+    description:
+      "消費税率引上げ分を活用し、年金を含めても所得が低い年金受給者の生活を支援するため、年金に上乗せして支給する給付金。2019年10月の消費税率10%引上げと同時に開始。",
+    eligibility: "65歳以上の老齢基礎年金受給者で前年の所得が一定以下の者等",
+    benefit: "老齢年金生活者支援給付金: 月額5,310円（2024年度、保険料納付期間に応じて算定）",
+    budget: 5_600n,
+    recipients: 870,
+    startYear: 2019,
+    lastReformed: 2024,
+    sourceUrl: "https://www.mhlw.go.jp/stf/nenkinkyuufukin/index.html",
     isActive: true,
   },
 ];

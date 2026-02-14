@@ -1,5 +1,5 @@
 /**
- * 選挙データのシード — 衆議院・参議院の実選挙結果（2013〜2026）
+ * 選挙データのシード — 衆議院・参議院の実選挙結果（2009〜2026）
  *
  * 総務省選挙関連資料に基づく実データ。
  * https://www.soumu.go.jp/senkyo/
@@ -119,6 +119,44 @@ interface ElectionData {
 
 const HOUSE_OF_REPRESENTATIVES_ELECTIONS: ElectionData[] = [
   {
+    name: "第45回衆議院議員総選挙",
+    chamber: "HOUSE_OF_REPRESENTATIVES",
+    date: "2009-08-30",
+    totalSeats: 480,
+    districtSeats: 300,
+    proportionalSeats: 180,
+    turnout: 69.28,
+    results: [
+      { partyName: "民主党", seatsWon: 308, districtSeats: 221, proportionalSeats: 87, totalVotes: 29844799n, voteShare: 42.41 },
+      { partyName: "自由民主党", seatsWon: 119, districtSeats: 64, proportionalSeats: 55, totalVotes: 18810217n, voteShare: 26.73 },
+      { partyName: "公明党", seatsWon: 21, districtSeats: 0, proportionalSeats: 21, totalVotes: 8054007n, voteShare: 11.45 },
+      { partyName: "日本共産党", seatsWon: 9, districtSeats: 0, proportionalSeats: 9, totalVotes: 4943886n, voteShare: 7.03 },
+      { partyName: "社民党", seatsWon: 7, districtSeats: 3, proportionalSeats: 4, totalVotes: 3006160n, voteShare: 4.27 },
+      { partyName: "みんなの党", seatsWon: 5, districtSeats: 2, proportionalSeats: 3, totalVotes: 3005199n, voteShare: 4.27 },
+      { partyName: "無所属", seatsWon: 6, districtSeats: 6, proportionalSeats: 0 },
+    ],
+  },
+  {
+    name: "第46回衆議院議員総選挙",
+    chamber: "HOUSE_OF_REPRESENTATIVES",
+    date: "2012-12-16",
+    totalSeats: 480,
+    districtSeats: 300,
+    proportionalSeats: 180,
+    turnout: 59.32,
+    results: [
+      { partyName: "自由民主党", seatsWon: 294, districtSeats: 237, proportionalSeats: 57, totalVotes: 16624457n, voteShare: 27.62 },
+      { partyName: "民主党", seatsWon: 57, districtSeats: 27, proportionalSeats: 30, totalVotes: 9628653n, voteShare: 16.00 },
+      { partyName: "日本維新の会", seatsWon: 54, districtSeats: 14, proportionalSeats: 40, totalVotes: 12262228n, voteShare: 20.38 },
+      { partyName: "公明党", seatsWon: 31, districtSeats: 9, proportionalSeats: 22, totalVotes: 7116474n, voteShare: 11.83 },
+      { partyName: "みんなの党", seatsWon: 18, districtSeats: 4, proportionalSeats: 14, totalVotes: 5245586n, voteShare: 8.72 },
+      { partyName: "日本共産党", seatsWon: 8, districtSeats: 0, proportionalSeats: 8, totalVotes: 3689159n, voteShare: 6.13 },
+      { partyName: "生活の党", seatsWon: 7, districtSeats: 2, proportionalSeats: 5, totalVotes: 3423302n, voteShare: 5.69 },
+      { partyName: "社民党", seatsWon: 2, districtSeats: 1, proportionalSeats: 1, totalVotes: 1420790n, voteShare: 2.36 },
+      { partyName: "無所属", seatsWon: 5, districtSeats: 5, proportionalSeats: 0 },
+    ],
+  },
+  {
     name: "第47回衆議院議員総選挙",
     chamber: "HOUSE_OF_REPRESENTATIVES",
     date: "2014-12-14",
@@ -227,6 +265,24 @@ const HOUSE_OF_REPRESENTATIVES_ELECTIONS: ElectionData[] = [
 // ============================================
 
 const HOUSE_OF_COUNCILLORS_ELECTIONS: ElectionData[] = [
+  {
+    name: "第22回参議院議員通常選挙",
+    chamber: "HOUSE_OF_COUNCILLORS",
+    date: "2010-07-11",
+    totalSeats: 121,
+    districtSeats: 73,
+    proportionalSeats: 48,
+    turnout: 57.92,
+    results: [
+      { partyName: "民主党", seatsWon: 44, districtSeats: 28, proportionalSeats: 16, totalVotes: 18450140n, voteShare: 31.56 },
+      { partyName: "自由民主党", seatsWon: 51, districtSeats: 39, proportionalSeats: 12, totalVotes: 14071671n, voteShare: 24.07 },
+      { partyName: "みんなの党", seatsWon: 10, districtSeats: 3, proportionalSeats: 7, totalVotes: 7943649n, voteShare: 13.59 },
+      { partyName: "公明党", seatsWon: 9, districtSeats: 3, proportionalSeats: 6, totalVotes: 7639432n, voteShare: 13.07 },
+      { partyName: "日本共産党", seatsWon: 3, districtSeats: 0, proportionalSeats: 3, totalVotes: 3563557n, voteShare: 6.10 },
+      { partyName: "社民党", seatsWon: 2, districtSeats: 0, proportionalSeats: 2, totalVotes: 2242735n, voteShare: 3.84 },
+      { partyName: "無所属", seatsWon: 2, districtSeats: 2, proportionalSeats: 0 },
+    ],
+  },
   {
     name: "第23回参議院議員通常選挙",
     chamber: "HOUSE_OF_COUNCILLORS",
