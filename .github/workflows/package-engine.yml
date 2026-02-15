@@ -1,0 +1,38 @@
+name: Package SBCM Master System
+
+on:
+  push:
+    paths:
+      - 'packages/sbcm-engine/**'
+      - 'apps/moneyglass-web/**'
+      - 'apps/portal-web/**' # ポータル（メソスキャナー）も監視対象に追加
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Master ZIP
+        run: |
+          # 出力用フォルダの作成
+          mkdir -p sbcm-master/packages
+          mkdir -p sbcm-master/apps
+          
+          # 1. 物理エンジンをコピー
+          cp -r packages/sbcm-engine sbcm-master/packages/
+          
+          # 2. マネーグラス（接続済み）をコピー
+          cp -r apps/moneyglass-web sbcm-master/apps/
+          
+          # 3. ポータル（メソスキャナー内蔵）をコピー
+          cp -r apps/portal-web sbcm-master/apps/
+          
+          # 不要な巨大ファイル（node_modulesやビルド済みデータ）を除外して圧縮
+          zip -r sbcm-master-v0.2.0.zip sbcm-master/ -x "*/node_modules/*" "*/.next/*" "*/.turbo/*"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbcm-master-package # パッケージ名を「マスター」に変更
+          path: sbcm-master-v0.2.0.zip

@@ -15,6 +15,7 @@
     "@ojpp/api": "workspace:*",
     "@ojpp/db": "workspace:*",
     "@ojpp/ui": "workspace:*",
+    "@ojpp/sbcm-engine": "workspace:*",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

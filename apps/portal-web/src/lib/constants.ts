@@ -44,7 +44,7 @@ export const SERVICES: ServiceDefinition[] = [
     glowColor: "rgba(255, 107, 53, 0.15)",
     port: 3000,
     url: "/moneyglass",
-    prodUrl: "https://moneyglass.ojpp.dev",
+    prodUrl: "/moneyglass",
     gridSpan: 2,
     kpiLabels: ["総収入", "総支出", "団体数", "報告書数"],
   },
@@ -112,6 +112,19 @@ export const SERVICES: ServiceDefinition[] = [
     prodUrl: "https://socialguard.ojpp.dev",
     gridSpan: 1,
     kpiLabels: ["社会保障費総額", "制度数", "都道府県数"],
+  },
+  {
+    id: "mesoscan",
+    name: "MESO-SCAN",
+    nameJa: "自治体別物理スキャン",
+    description: "地域ごとのエントロピー排出量とストロー現象をデバッグ。",
+    color: "#10b981",
+    glowColor: "rgba(16, 185, 129, 0.15)",
+    port: 3008,
+    url: "/meso-scan",
+    prodUrl: "/meso-scan", 
+    gridSpan: 1,
+    kpiLabels: ["位相角", "歪み指数", "リーク率"],
   },
 ];
 
