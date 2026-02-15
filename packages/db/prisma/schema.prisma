@@ -566,7 +566,7 @@ model GovernanceBlock {
   inflowFlux        BigInt   // 流入エネルギー (交付税+支出金)
   createdAt         DateTime @default(now())
 
-  @@map("governance_blocks
+  @@map("governance_blocks")
 }
 // BroadListening（意見生態系プラットフォーム）
 // ============================================
@@ -725,5 +725,5 @@ model BLEcosystemSnapshot {
   metadata        Json?    // その他メトリクス
   createdAt       DateTime @default(now())
 
-  @@map("bl_ecosystem_snapsh
+  @@map("bl_ecosystem_snapsh")
 }
