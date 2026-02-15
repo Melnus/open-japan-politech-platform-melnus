@@ -33,6 +33,7 @@
     "dev:culturescope": "pnpm --filter culturescope-web dev",
     "dev:socialguard": "pnpm --filter socialguard-web dev",
     "dev:portal": "pnpm --filter portal-web dev",
+    "dev:broadlistening": "pnpm --filter broadlistening-web dev",
     "ingest:prefectures": "pnpm --filter @ojpp/ingestion ingest:prefectures",
     "ingest:finance": "pnpm --filter @ojpp/ingestion ingest:finance",
     "ingest:parliament": "pnpm --filter @ojpp/ingestion ingest:parliament",

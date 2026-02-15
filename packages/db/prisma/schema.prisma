@@ -301,6 +301,7 @@ model Bill {
 
   votes       Vote[]
   discussions Discussion[]
+  blTopics    BLTopic[]
 
   @@map("bills")
 }
@@ -549,4 +550,165 @@ model SocialSecurityStance {
 
   @@unique([partyId, topic, year])
   @@map("social_security_stances")
+}
+
+// ============================================
+// BroadListening（意見生態系プラットフォーム）
+// ============================================
+
+/// 議論フェーズ（クオーラムセンシングによる自動遷移）
+enum BLPhase {
+  OPEN          // 意見収集フェーズ
+  DELIBERATION  // 熟議フェーズ
+  CONVERGENCE   // 収束フェーズ
+  CLOSED        // 終了
+}
+
+/// 議論構造の要素タイプ（Argument Mining）
+enum BLArgumentType {
+  CLAIM     // 主張
+  PREMISE   // 前提
+  EVIDENCE  // 根拠
+  REBUTTAL  // 反論
+}
+
+/// 議論要素間の関係タイプ
+enum BLEdgeRelation {
+  ATTACK   // 攻撃（反論）
+  SUPPORT  // 支持
+  UNDERCUT // 弱体化（前提への攻撃）
+}
+
+/// 議論トピック
+model BLTopic {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  billId      String?
+  bill        Bill?    @relation(fields: [billId], references: [id])
+  phase       BLPhase  @default(OPEN)
+  quorumThreshold Float @default(0.6) // クオーラム閾値
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  opinions    BLOpinion[]
+  clusters    BLCluster[]
+  snapshots   BLEcosystemSnapshot[]
+
+  @@map("bl_topics")
+}
+
+/// 市民の意見（生態系における「個体」）
+model BLOpinion {
+  id          String   @id @default(cuid())
+  topicId     String
+  topic       BLTopic  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  authorId    String?  // Supabase Auth user ID
+  content     String
+  stance      Stance?
+  embedding   Float[]  // 埋め込みベクトル
+  fitness     Float    @default(0) // 適応度スコア
+  clusterId   String?
+  cluster     BLCluster? @relation(fields: [clusterId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  supports    BLSupport[]
+  arguments   BLArgument[]
+  pheromones  BLPheromone[]
+
+  @@map("bl_opinions")
+}
+
+/// 意見への支持（フェロモン強化トリガー）
+model BLSupport {
+  id          String   @id @default(cuid())
+  opinionId   String
+  opinion     BLOpinion @relation(fields: [opinionId], references: [id], onDelete: Cascade)
+  userId      String   // Supabase Auth user ID
+  weight      Float    @default(1.0)
+  createdAt   DateTime @default(now())
+
+  @@unique([opinionId, userId])
+  @@map("bl_supports")
+}
+
+/// 議論構造ノード（Argument Mining抽出結果）
+model BLArgument {
+  id          String   @id @default(cuid())
+  opinionId   String
+  opinion     BLOpinion @relation(fields: [opinionId], references: [id], onDelete: Cascade)
+  type        BLArgumentType
+  content     String
+  confidence  Float    @default(0.5) // LLM抽出の確信度
+  createdAt   DateTime @default(now())
+
+  outEdges    BLArgumentEdge[] @relation("EdgeSource")
+  inEdges     BLArgumentEdge[] @relation("EdgeTarget")
+
+  @@map("bl_arguments")
+}
+
+/// 議論構造エッジ（要素間の関係）
+model BLArgumentEdge {
+  id          String   @id @default(cuid())
+  sourceId    String
+  source      BLArgument @relation("EdgeSource", fields: [sourceId], references: [id], onDelete: Cascade)
+  targetId    String
+  target      BLArgument @relation("EdgeTarget", fields: [targetId], references: [id], onDelete: Cascade)
+  relation    BLEdgeRelation
+  weight      Float    @default(1.0)
+  createdAt   DateTime @default(now())
+
+  @@unique([sourceId, targetId])
+  @@map("bl_argument_edges")
+}
+
+/// デジタルフェロモン（スティグマジー原理）
+model BLPheromone {
+  id          String   @id @default(cuid())
+  opinionId   String
+  opinion     BLOpinion @relation(fields: [opinionId], references: [id], onDelete: Cascade)
+  intensity   Float    @default(1.0) // フェロモン強度 I(t)
+  quality     Float    @default(0.5) // 品質指標（0-1）
+  decayRate   Float    @default(0.01) // 減衰率 λ
+  lastUpdated DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@map("bl_pheromones")
+}
+
+/// 意見クラスタ（k-means++結果）
+model BLCluster {
+  id          String   @id @default(cuid())
+  topicId     String
+  topic       BLTopic  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  label       String   // LLM生成ラベル
+  centroid    Float[]  // クラスタ重心ベクトル
+  size        Int      @default(0) // 所属意見数
+  color       String?  // 可視化用カラーコード
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  opinions    BLOpinion[]
+
+  @@map("bl_clusters")
+}
+
+/// エコシステムスナップショット（時系列記録）
+model BLEcosystemSnapshot {
+  id              String   @id @default(cuid())
+  topicId         String
+  topic           BLTopic  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  phase           BLPhase
+  totalOpinions   Int
+  totalSupports   Int
+  shannonIndex    Float    // Shannon多様性指数
+  dominantCluster String?  // 最大クラスタのラベル
+  avgFitness      Float    // 平均適応度
+  avgPheromone    Float    // 平均フェロモン強度
+  metadata        Json?    // その他メトリクス
+  createdAt       DateTime @default(now())
+
+  @@map("bl_ecosystem_snapshots")
 }
