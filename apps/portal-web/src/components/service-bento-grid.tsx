@@ -3,6 +3,7 @@
 import { StaggerGrid } from "@ojpp/ui";
 import { SERVICES } from "@/lib/constants";
 import type { PortalStats } from "@/lib/queries";
+import { BroadListeningHeroCard } from "./broadlistening-hero-card";
 import { ServiceCard } from "./service-card";
 
 interface ServiceBentoGridProps {
@@ -95,6 +96,15 @@ function buildCardData(serviceId: string, stats: PortalStats) {
         ],
       };
     }
+    case "broadlistening":
+      return {
+        heroValue: 42,
+        heroLabel: "ACTIVE TOPICS",
+        kpis: [
+          { label: "OPINIONS", value: 3840 },
+          { label: "CONSENSUS RATE", value: 67, suffix: "%" },
+        ],
+      };
     default:
       return { heroValue: 0, heroLabel: "", kpis: [] };
   }
@@ -105,6 +115,18 @@ export function ServiceBentoGrid({ stats }: ServiceBentoGridProps) {
     <StaggerGrid className="bento-grid mx-auto max-w-7xl px-3 sm:px-4">
       {SERVICES.map((service) => {
         const data = buildCardData(service.id, stats);
+        if (service.id === "broadlistening") {
+          return (
+            <BroadListeningHeroCard
+              key={service.id}
+              service={service}
+              kpis={data.kpis}
+              heroValue={data.heroValue}
+              heroSuffix={data.heroSuffix}
+              heroLabel={data.heroLabel}
+            />
+          );
+        }
         return (
           <ServiceCard
             key={service.id}

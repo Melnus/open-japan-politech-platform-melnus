@@ -1,6 +1,5 @@
-import { serializeBigInt } from "@ojpp/api";
+import { handleApiError, jsonResponse, serializeBigInt } from "@ojpp/api";
 import { prisma } from "@ojpp/db";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -13,9 +12,8 @@ export async function GET() {
       },
       orderBy: { date: "desc" },
     });
-    return NextResponse.json(serializeBigInt(elections));
+    return jsonResponse(serializeBigInt(elections));
   } catch (error) {
-    console.error("[SeatMap API] Election query failed:", error);
-    return NextResponse.json({ error: String(error) }, { status: 500 });
+    return handleApiError(error);
   }
 }

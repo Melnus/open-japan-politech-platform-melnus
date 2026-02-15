@@ -22,6 +22,20 @@ export function getServiceUrl(service: ServiceDefinition): string {
 
 export const SERVICES: ServiceDefinition[] = [
   {
+    id: "broadlistening",
+    name: "BROADLISTENING β",
+    nameJa: "意見生態系β",
+    description:
+      "市民の意見を生態系として可視化。デジタルフェロモンとArgument Miningで自己組織化的合意形成。",
+    color: "#10b981",
+    glowColor: "rgba(16, 185, 129, 0.15)",
+    port: 3009,
+    url: "/broadlistening",
+    prodUrl: "https://broadlistening.ojpp.dev",
+    gridSpan: 2,
+    kpiLabels: ["トピック数", "意見数", "合意率"],
+  },
+  {
     id: "moneyglass",
     name: "MONEYGLASS",
     nameJa: "政治資金の透明化",
@@ -117,9 +131,9 @@ export const SERVICES: ServiceDefinition[] = [
 export const PLATFORM_META = {
   name: "Open Japan PoliTech Platform",
   shortName: "OJPP",
-  version: "0.1.2",
+  version: "0.1.5",
   tagline: "AIエージェント時代の政治インフラ",
-  subtitle: "6 Apps \u00d7 21 Models \u00d7 50+ API Endpoints",
+  subtitle: "9 Apps \u00d7 29 Models \u00d7 50+ API Endpoints",
   license: "AGPL-3.0-or-later",
   github: "https://github.com/ochyai/open-japan-politech-platform",
 };

@@ -6,3 +6,17 @@ onlyBuiltDependencies:
   - "@prisma/engines"
   - prisma
   - esbuild
+catalog:
+  next: ^15.2.0
+  react: ^19.0.0
+  react-dom: ^19.0.0
+  "@types/react": ^19.0.0
+  "@types/react-dom": ^19.0.0
+  typescript: ^5.7.0
+  vitest: ^3.0.0
+  tailwindcss: ^4.0.0
+  "@tailwindcss/postcss": ^4.0.0
+  recharts: ^2.15.0
+  "@supabase/supabase-js": ^2.49.0
+  dotenv-cli: ^11.0.0
+  tsx: ^4.21.0

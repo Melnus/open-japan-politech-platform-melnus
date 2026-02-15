@@ -1,7 +1,14 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
   "files": {
-    "includes": ["apps/**", "packages/**", "*.json", "*.ts", "!packages/db/prisma/generated/**"]
+    "includes": [
+      "apps/**",
+      "packages/**",
+      "*.json",
+      "*.ts",
+      "!packages/db/prisma/generated",
+      "!**/.next"
+    ]
   },
   "formatter": {
     "enabled": true,

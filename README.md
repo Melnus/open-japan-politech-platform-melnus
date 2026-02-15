@@ -8,13 +8,13 @@
 
 [![CI](https://github.com/ochyai/open-japan-politech-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/ochyai/open-japan-politech-platform/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
-[![Apps](https://img.shields.io/badge/apps-8-FF6B35.svg)](#6-apps)
+[![Apps](https://img.shields.io/badge/apps-9-FF6B35.svg)](#7-apps)
 [![Models](https://img.shields.io/badge/Prisma_models-29-5B21B6.svg)](#data-model)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-10-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
 
-[**1行で起動**](#1-line-setup) | [**6つのアプリ**](#6-apps) | [**API仕様**](#api) | [**論文**](#paper) | [**Contributing**](#contributing)
+[**1行で起動**](#1-line-setup) | [**7つのアプリ**](#7-apps) | [**API仕様**](#api) | [**論文**](#paper) | [**Contributing**](#contributing)
 
 </div>
 
@@ -68,16 +68,25 @@ GovTech（行政DX）でもCivicTech（市民技術）でもない。**政治の
 
 ---
 
-<a id="6-apps"></a>
+<a id="7-apps"></a>
 
-## Portal + 6 Apps
+## Portal + 7 Apps
 
 ### OJPP Portal `:3008`
 **Political Command Center — 全サービス一覧ダッシュボード**
 
-WebGPU流体シェーダー × レインボーグラデーション × 日本地図データビジュアライゼーション。6つのサービスアプリのリアルタイムKPIを一望するコマンドセンター。
+WebGPU流体シェーダー × レインボーグラデーション × 日本地図データビジュアライゼーション。7つのサービスアプリのリアルタイムKPIを一望するコマンドセンター。
 
-`WebGPU` `流体シミュレーション` `リアルタイムKPI` `6サービス統合`
+`WebGPU` `流体シミュレーション` `リアルタイムKPI` `7サービス統合`
+
+### BroadListening β `:3009`
+**意見を生態系として可視化する**
+
+<img src="docs/screenshots/broadlistening-preview.png" alt="BroadListening β — 意見生態系プラットフォーム" width="100%"/>
+
+市民の意見をデジタル生態系としてモデリング。Argument Mining（LLM）で議論構造を自動抽出し、デジタルフェロモン（Stigmergy）で支持の軌跡を記録。適応度ランドスケープとShannon多様性指数でクオーラムセンシングによるフェーズ自動遷移。多数決ではない、自己組織化的合意形成。
+
+`5トピック` `200+意見` `k-means++クラスタリング` `TF-IDF埋め込み` `フェロモン減衰`
 
 <table>
 <tr>
@@ -170,20 +179,20 @@ WebGPU流体シェーダー × レインボーグラデーション × 日本地
                           ブラウザ / AIエージェント / MCP
                                       │
                               ┌──── Portal :3008 ────┐
-          ┌───────┬───────┬───┴───┬────┴────┬──────────┬──────────┐
-          ▼       ▼       ▼       ▼         ▼          ▼          │
-      MoneyGlass PolicyDiff ParliScope SeatMap CultureScope SocialGuard
-       :3000      :3002     :3003    :3005    :3006      :3007     │
-       ┌──────────────────────────────────────────────────────┐    │
-       │              Next.js 15  ×  React 19                 │    │
-       └────────────────────────┬─────────────────────────────┘    │
-                                │                              admin apps
-       ┌────────────────────────┼─────────────────────────────┐ :3001/:3004
+     ┌────────┬───────┬───────┬───┴───┬────┴────┬──────────┬──────────┐
+     ▼        ▼       ▼       ▼       ▼         ▼          ▼          │
+ BroadListening MoneyGlass PolicyDiff ParliScope SeatMap CultureScope SocialGuard
+   :3009      :3000    :3002     :3003    :3005    :3006      :3007     │
+       ┌──────────────────────────────────────────────────────────┐    │
+       │                Next.js 15  ×  React 19                   │    │
+       └──────────────────────────┬───────────────────────────────┘    │
+                                  │                              admin apps
+       ┌──────────────────────────┼───────────────────────────────┐ :3001/:3004
        │  @ojpp/ui  │  @ojpp/api  │  @ojpp/db  │  @ojpp/ingestion │
-       └────────────────────────┬─────────────────────────────┘
-                                │
-                    PostgreSQL (Prisma 6)
-                 29 models │ 14 enums │ 13政党
+       └──────────────────────────┬───────────────────────────────┘
+                                  │
+                      PostgreSQL (Prisma 6)
+                   29 models │ 14 enums │ 13政党
 ```
 
 ---
@@ -193,13 +202,14 @@ WebGPU流体シェーダー × レインボーグラデーション × 日本地
 ### 個別起動
 
 ```bash
-pnpm dev:moneyglass    # MoneyGlass   :3000 + :3001
-pnpm dev:policydiff    # PolicyDiff   :3002
-pnpm dev:parliscope    # ParliScope   :3003 + :3004
-pnpm dev:seatmap       # SeatMap      :3005
-pnpm dev:culturescope  # CultureScope :3006
-pnpm dev:socialguard   # SocialGuard  :3007
-pnpm dev:portal        # Portal       :3008
+pnpm dev:moneyglass    # MoneyGlass      :3000 + :3001
+pnpm dev:policydiff    # PolicyDiff      :3002
+pnpm dev:parliscope    # ParliScope      :3003 + :3004
+pnpm dev:seatmap       # SeatMap         :3005
+pnpm dev:culturescope  # CultureScope    :3006
+pnpm dev:socialguard   # SocialGuard     :3007
+pnpm dev:portal        # Portal          :3008
+pnpm dev:broadlistening # BroadListening :3009
 ```
 
 <details>
@@ -307,6 +317,20 @@ pnpm dev
 
 </details>
 
+<details>
+<summary><strong>BroadListening API</strong> <code>:3009</code></summary>
+
+| Method | Endpoint | Description |
+|:---|:---|:---|
+| GET | `/api/topics` | トピック一覧（ページネーション対応） |
+| GET | `/api/topics/:id/ecosystem` | 生態系データ（意見・クラスタ・フェロモン） |
+| GET | `/api/topics/:id/opinions` | 意見一覧 |
+| POST | `/api/topics/:id/opinions` | 意見投稿 |
+| POST | `/api/topics/:id/analyze` | 分析パイプライン実行（Argument Mining → クラスタリング → 適応度計算） |
+| POST | `/api/topics/:id/ai-participate` | AIエージェント参加 |
+
+</details>
+
 ---
 
 <a id="data-model"></a>
@@ -398,7 +422,8 @@ open-japan-politech-platform/
 │   ├── seatmap-web/          :3005       議席勢力図
 │   ├── culturescope-web/     :3006       文化政策
 │   ├── socialguard-web/      :3007       社会保障
-│   └── portal-web/          :3008       ポータル (WebGPU流体シェーダー)
+│   ├── portal-web/          :3008       ポータル (WebGPU流体シェーダー)
+│   └── broadlistening-web/  :3009       意見生態系β (Argument Mining + フェロモン)
 ├── packages/
 │   ├── ui/                            @ojpp/ui  — 14+ コンポーネント + Motion + Lenis
 │   ├── db/                            @ojpp/db  — Prisma (29 models / 14 enums)
@@ -443,6 +468,7 @@ open-japan-politech-platform/
 - [x] CultureScope — 文化政策可視化
 - [x] SocialGuard — 社会保障可視化
 - [x] ポータルダッシュボード (WebGPU流体シェーダー + リアルタイムKPI)
+- [x] BroadListening β — 意見生態系プラットフォーム（Argument Mining + フェロモン + k-means++）
 - [x] Vercel デプロイ
 - [x] Entire 導入 (AIエージェントセッション共有・Attribution)
 - [ ] 認証・認可 (Supabase Auth)

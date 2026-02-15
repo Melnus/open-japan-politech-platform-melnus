@@ -47,4 +47,15 @@ describe("serializeBigInt", () => {
   it("通常の number はそのまま返す", () => {
     expect(serializeBigInt(42)).toBe(42);
   });
+
+  it("Date を壊さず保持する", () => {
+    const date = new Date("2026-01-01T00:00:00.000Z");
+    const result = serializeBigInt({ date, amount: BigInt(1) });
+
+    expect(result).toEqual({
+      date,
+      amount: "1",
+    });
+    expect(result.date).toBeInstanceOf(Date);
+  });
 });

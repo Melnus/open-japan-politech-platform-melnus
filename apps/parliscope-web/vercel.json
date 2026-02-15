@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
+  "ignoreCommand": "npx turbo-ignore parliscope-web",
   "installCommand": "pnpm install",
   "buildCommand": "pnpm --filter @ojpp/db generate && bash ../../scripts/copy-prisma-engine.sh && pnpm --filter parliscope-web build",
   "headers": [

@@ -27,6 +27,30 @@ export function handleApiError(error: unknown): NextResponse {
     return NextResponse.json({ error: error.message }, { status: error.statusCode });
   }
 
+  if (isPrismaValidationError(error)) {
+    return NextResponse.json({ error: "Invalid request parameters" }, { status: 400 });
+  }
+
   console.error("Unhandled API error:", error);
   return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+}
+
+function isPrismaValidationError(error: unknown): boolean {
+  if (typeof error !== "object" || error === null) {
+    return false;
+  }
+
+  const maybeError = error as { name?: unknown; code?: unknown };
+  const name = typeof maybeError.name === "string" ? maybeError.name : "";
+  const code = typeof maybeError.code === "string" ? maybeError.code : "";
+
+  if (name === "PrismaClientValidationError") {
+    return true;
+  }
+
+  if (name === "PrismaClientKnownRequestError") {
+    return code === "P2009" || code === "P2019" || code === "P2023";
+  }
+
+  return false;
 }

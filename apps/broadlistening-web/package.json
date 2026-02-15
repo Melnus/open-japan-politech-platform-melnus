@@ -1,0 +1,30 @@
+{
+  "name": "broadlistening-web",
+  "version": "0.1.1",
+  "description": "BroadListening — 意見生態系プラットフォーム",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3009",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ojpp/api": "workspace:*",
+    "@ojpp/db": "workspace:*",
+    "@ojpp/ui": "workspace:*",
+    "@anthropic-ai/sdk": "^0.39.0",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0"
+  }
+}
