@@ -15,7 +15,7 @@
     "@ojpp/db": "workspace:*",
     "@ojpp/ui": "workspace:*",
     "@anthropic-ai/sdk": "^0.39.0",
-    "next": "^15.2.0",
+    "next": "catalog:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
