@@ -505,9 +505,13 @@ export default function TopicDetailPage() {
               <button
                 type="button"
                 onClick={handleAnalyze}
-                disabled={analyzing || opinions.length === 0}
+                disabled={analyzing || opinions.length === 0 || !apiKey}
                 className="action-tooltip btn-glass text-xs py-2 px-4"
-                data-tip="議論構造を自動抽出し、クラスタリングを実行"
+                data-tip={
+                  !apiKey
+                    ? "APIキーが必要です。右上の「Set API Key」から設定してください。"
+                    : "議論構造を自動抽出し、クラスタリングを実行"
+                }
               >
                 {analyzing ? (
                   <span className="flex items-center gap-2">
@@ -546,9 +550,13 @@ export default function TopicDetailPage() {
             <button
               type="button"
               onClick={handleAi}
-              disabled={aiRunning}
+              disabled={aiRunning || !apiKey}
               className="action-tooltip btn-glass text-xs py-2 px-4"
-              data-tip="AIが3つの異なる視点から意見を自動生成"
+              data-tip={
+                !apiKey
+                  ? "APIキーが必要です。右上の「Set API Key」から設定してください。"
+                  : "AIが3つの異なる視点から意見を自動生成"
+              }
             >
               {aiRunning ? (
                 <span className="flex items-center gap-2">
@@ -811,7 +819,7 @@ export default function TopicDetailPage() {
                   <button
                     type="button"
                     onClick={handleAnalyze}
-                    disabled={analyzing || opinions.length === 0}
+                    disabled={analyzing || opinions.length === 0 || !apiKey}
                     className="btn-glow text-xs py-2.5 px-5"
                   >
                     {analyzing ? "分析中..." : "LLM分析を実行"}
@@ -865,7 +873,7 @@ export default function TopicDetailPage() {
                 <button
                   type="button"
                   onClick={handleAnalyze}
-                  disabled={analyzing}
+                  disabled={analyzing || !apiKey}
                   className="btn-glow text-xs py-2 px-5"
                 >
                   {analyzing ? "分析中..." : "LLM分析を実行"}

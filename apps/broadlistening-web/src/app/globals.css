@@ -699,6 +699,11 @@ body {
   position: relative;
 }
 
+.action-tooltip:disabled {
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
 .action-tooltip::after {
   content: attr(data-tip);
   position: absolute;
