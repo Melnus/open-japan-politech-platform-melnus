@@ -14,7 +14,8 @@ Open Japan PoliTech Platform で使用するデータセットの一覧です。
 | `manifesto-policies.json` | 100件 | 政党マニフェスト政策 | 各党の公式マニフェストを参考にしたデモ用データ |
 | `parties.json` | 15政党 | 政党マスタ | 実在政党の基本情報 |
 | `prefectures.json` | 47都道府県 | 都道府県マスタ | 実データ |
-| `FYxxxx-settlementcard.json` | 9年分*47都道府県 | 決算カード（平成27年〜令和5年度） | [実データ（総務省）](https://www.soumu.go.jp/iken/zaisei/card.html) |
+| `FYxxxx-settlementcard.json` | 47都道府県*9年分 | 決算カード（平成27年〜令和5年度） | [実データ（総務省）](https://www.soumu.go.jp/iken/zaisei/card.html) |
+|`FYxxxx-population_dynamics_municipal.json`|【総計】年住民基本台帳人口・世帯数、年人口動態（市区町村別）/2021〜2025年のみ|[実データ](https://www.soumu.go.jp/main_sosiki/jichi_gyousei/daityo/jinkou_jinkoudoutai-setaisuu.html)|
 
 ## データの取り込み
 
